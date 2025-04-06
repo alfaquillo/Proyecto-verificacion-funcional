@@ -1,17 +1,15 @@
-class RegBankScoreboard;
-  logic [31:0] model_mem[0:31]; // Modelo de referencia
+class BancoRegistrosScoreboard;
+  logic [15:0] modelo[0:15]; // modelo interno de los registros
 
-  // Metodo para modelar una escritura
-  function void write(logic [4:0] addr, logic [31:0] data);
-    model_mem[addr] = data;
+  function void write(logic [3:0] sel, logic [15:0] data);
+    modelo[sel] = data;
   endfunction
 
-  // Metodo para verificar una lectura
-  function void check(logic [4:0] addr, logic [31:0] dut_data);
-    if (model_mem[addr] !== dut_data) begin
-      $display("ERROR: Mismatch en addr %0d. Esperado: %0h, DUT: %0h", addr, model_mem[addr], dut_data);
+  function void check(logic [3:0] sel, logic [15:0] dut_out);
+    if (modelo[sel] !== dut_out) begin
+      $display("❌ Mismatch en %0d: Esperado=%h, DUT=%h", sel, modelo[sel], dut_out);
     end else begin
-      $display("OK: addr %0d = %0h", addr, dut_data);
+      $display("✅ Coinciden en %0d: %h", sel, dut_out);
     end
   endfunction
 endclass

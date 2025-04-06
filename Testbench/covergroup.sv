@@ -1,26 +1,32 @@
-class RegBankCoverage;
-  logic [4:0] addr;
-  logic write_en;
+class BancoRegistrosCoverage;
+  logic [3:0] sel;
+  logic rd, wr;
 
-  covergroup cg_addr @(posedge clk);
+  covergroup cg @(posedge clk);
     option.per_instance = 1;
-    ADDR: coverpoint addr {
-      bins all_addresses[] = {[0:31]}; // ejemplo de 32 registros
+
+    REG_SELECT: coverpoint sel {
+      bins all_regs[] = {[0:15]}; // los 16 registros posibles
     }
-    WRITE_ENABLE: coverpoint write_en {
-      bins enabled = {1};
-      bins disabled = {0};
+
+    OPERACION: coverpoint {rd, wr} {
+      bins lectura  = (2'b10); // RD=1, WR=0
+      bins escritura = (2'b01); // RD=0, WR=1
+      bins inactivo = (2'b00); // ningún acceso
     }
-    CROSS_ADDR_WRITE: cross ADDR, WRITE_ENABLE;
+
+    CRUZADA: cross REG_SELECT, OPERACION;
+
   endgroup
 
   function new();
-    cg_addr = new();
+    cg = new();
   endfunction
 
-  function void sample(logic [4:0] a, logic we);
-    addr = a;
-    write_en = we;
-    cg_addr.sample();
+  function void sample(logic [3:0] s, logic r, logic w);
+    sel = s;
+    rd = r;
+    wr = w;
+    cg.sample();
   endfunction
 endclass
