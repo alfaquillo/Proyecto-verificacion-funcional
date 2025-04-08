@@ -25,7 +25,7 @@ module registro16bits(CLK, RST, ENA,D,Q);
     input [15:0] D; 
     output reg [15:0] Q; 
     
-always@(posedge CLK or posedge RST) 
+always@(posedge CLK or posedge RST) begin
     
     if (RST) 
         Q = 16'b0;
@@ -33,4 +33,5 @@ always@(posedge CLK or posedge RST)
         Q = D; 
     else 
         Q = Q; 
+     end
 endmodule

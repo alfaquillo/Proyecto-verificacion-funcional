@@ -1,18 +1,16 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module bancoderegistros
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module decodificadorwr
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module multiplexor16x16
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro16bits.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro16bits.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module registro16bits
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro8bits.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro8bits.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module registro8bits
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/registros.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registros.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module registros
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module triestado
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module bancoderegistros_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_bancoderegistros

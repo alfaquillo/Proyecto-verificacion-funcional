@@ -20,11 +20,18 @@
 //
 // =============================================================================
 
-module triestado( IN, SEL, OUT);
-    input [15:0] IN;
-    input SEL;
-    output wire [15:0] OUT; 
+
+module triestado(
+    input [15:0] IN,
+    input SEL,
+    output [15:0] OUT
+);
+    // Añadir retardo de propagación
+    assign #1 OUT = (SEL === 1'b1) ? IN : 16'bz;
     
-    assign OUT = SEL ? IN : 16'bz;
-    
+    // Generar warning si hay conflicto
+    always @(SEL or IN) begin
+        if (SEL !== 0 && SEL !== 1)
+            $warning("Valor inválido en SEL: %b", SEL);
+    end
 endmodule

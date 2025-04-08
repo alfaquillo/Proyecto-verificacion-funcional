@@ -25,12 +25,12 @@ module registro8bits(CLK, RST, ENA,D,Q);
     input [7:0] D; 
     output reg [7:0] Q; 
     
-always @(posedge CLK or posedge RST) 
-    
+always @(posedge CLK or posedge RST) begin
     if (RST) 
-        Q = 8'b0;
+        Q <= 8'b0;
     else if (ENA)
-        Q = D; 
-    else 
-        Q = Q; 
+        Q <= D;
+        else 
+            Q = Q; 
+     end 
 endmodule

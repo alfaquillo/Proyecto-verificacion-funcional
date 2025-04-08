@@ -20,36 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-class BancoRegistrosCoverage;
-  logic [3:0] sel;
-  logic rd, wr;
-  logic clk;
+covergroup cg_registros @(posedge CLK);
+        reg_sel: coverpoint SEL {
+            bins regs_8bit_low = {[0:3]};  // AL, CL, DL, BL
+            bins regs_8bit_high = {[4:7]}; // AH, CH, DH, BH
+            bins regs_16bit = {[8:15]};    // AX, CX, ..., DI
+        }
 
-  covergroup cg @(posedge clk);
-    option.per_instance = 1;
+        ops: coverpoint {RD, WR} {
+            bins read = {2'b10};
+            bins write = {2'b01};
+            illegal_bins conflict = {2'b11};
+        }
 
-    REG_SELECT: coverpoint sel {
-      bins all_regs[] = {[0:15]}; // los 16 registros posibles
-    }
-
-    OPERACION: coverpoint {rd, wr} {
-      bins lectura  = {2'b10}; // RD=1, WR=0
-      bins escritura = {2'b01}; // RD=0, WR=1
-      bins inactivo = {2'b00}; // ningún acceso
-      illegal_bins conflicto = {2'b11}; // RD y WR activos simultáneamente
-    }
-
-    CRUZADA: cross REG_SELECT, OPERACION;
-  endgroup
-
-  function new();
-    cg = new();
-  endfunction
-
-  function void sample(logic [3:0] s, logic r, logic w);
-    sel = s;
-    rd = r;
-    wr = w;
-    cg.sample();
-  endfunction
-endclass
+        cruzado: cross reg_sel, ops;
+    endgroup

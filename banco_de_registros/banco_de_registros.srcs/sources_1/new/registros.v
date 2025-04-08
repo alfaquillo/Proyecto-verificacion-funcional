@@ -22,18 +22,15 @@
 //
 // =============================================================================
 
-module registros (CLK, RST, DATA, WE, 
-        AL, CL, DL, BL, AH, CH, DH, BH, SP, BP, SI, DI);
-
-    input CLK, RST;
-    input [15:0] DATA;
-    input [11:0] WE;
-    
-    output wire [7:0] AL, CL, DL, BL, AH, CH, DH, BH;
-    output wire [15:0] SP, BP, SI, DI;
-
-    // AL, CL, DL, BL, AH, CH, DH, BH, SP, SI, DI
-    // Registros de 8 bits
+module registros(
+    input         CLK,
+    input         RST,
+    input  [15:0] DATA,
+    input  [11:0] WE,
+    output [7:0]  AL, CL, DL, BL, AH, CH, DH, BH,
+    output [15:0] SP, BP, SI, DI
+);
+    // Instanciación de registros de 8 bits
     registro8bits RAL (CLK, RST, WE[11], DATA[7:0], AL);
     registro8bits RCL (CLK, RST, WE[10], DATA[7:0], CL);
     registro8bits RDL (CLK, RST, WE[9],  DATA[7:0], DL);
@@ -48,5 +45,6 @@ module registros (CLK, RST, DATA, WE,
     registro16bits RBP (CLK, RST, WE[2], DATA, BP);
     registro16bits RSI (CLK, RST, WE[1], DATA, SI);
     registro16bits RDI (CLK, RST, WE[0], DATA, DI);
-
+    
+    
 endmodule
