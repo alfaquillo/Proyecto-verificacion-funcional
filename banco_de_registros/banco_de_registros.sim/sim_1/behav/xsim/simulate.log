@@ -1,0 +1,47 @@
+Time resolution is 1 ps
+Scoreboard: Escribiendo ce7a en registro 4
+❌ [56000] Error en registro 4: Esperado=ce7a, DUT=0000
+Scoreboard: Escribiendo b2c9 en registro 2
+❌ [96000] Error en registro 2: Esperado=b2c9, DUT=0000
+Scoreboard: Escribiendo f973 en registro 6
+❌ [136000] Error en registro 6: Esperado=f973, DUT=0000
+Scoreboard: Escribiendo a00a en registro 0
+❌ [176000] Error en registro 0: Esperado=a00a, DUT=0000
+Scoreboard: Escribiendo baf3 en registro 14
+❌ [216000] Error en registro 14: Esperado=baf3, DUT=0000
+Scoreboard: Escribiendo 61f4 en registro 4
+❌ [256000] Error en registro 4: Esperado=61f4, DUT=0000
+Scoreboard: Escribiendo dcc4 en registro 6
+❌ [296000] Error en registro 6: Esperado=dcc4, DUT=0000
+Scoreboard: Escribiendo 7c54 en registro 15
+❌ [336000] Error en registro 15: Esperado=7c54, DUT=a00a
+Scoreboard: Escribiendo 54d3 en registro 7
+❌ [376000] Error en registro 7: Esperado=54d3, DUT=0061
+Scoreboard: Escribiendo 4c1e en registro 9
+❌ [416000] Error en registro 9: Esperado=4c1e, DUT=dc00
+Scoreboard: Escribiendo e048 en registro 7
+❌ [456000] Error en registro 7: Esperado=e048, DUT=0061
+Scoreboard: Escribiendo c94f en registro 2
+❌ [496000] Error en registro 2: Esperado=c94f, DUT=001e
+Scoreboard: Escribiendo a6bb en registro 11
+❌ [536000] Error en registro 11: Esperado=a6bb, DUT=6100
+Scoreboard: Escribiendo 66b2 en registro 13
+❌ [576000] Error en registro 13: Esperado=66b2, DUT=c94f
+Scoreboard: Escribiendo dddf en registro 3
+❌ [616000] Error en registro 3: Esperado=dddf, DUT=0000
+Scoreboard: Escribiendo bc1e en registro 1
+❌ [656000] Error en registro 1: Esperado=bc1e, DUT=0000
+Scoreboard: Escribiendo 456e en registro 11
+❌ [696000] Error en registro 11: Esperado=456e, DUT=6100
+Scoreboard: Escribiendo 0b9e en registro 1
+❌ [736000] Error en registro 1: Esperado=0b9e, DUT=0000
+Scoreboard: Escribiendo 52d2 en registro 14
+❌ [776000] Error en registro 14: Esperado=52d2, DUT=0b9e
+Scoreboard: Escribiendo a7e9 en registro 13
+❌ [816000] Error en registro 13: Esperado=a7e9, DUT=c94f
+
+=== Resumen de Cobertura ===
+Registros cubiertos: 75.00%
+Operaciones cubiertas: 66.67%
+Cruces cubiertos: 50.00%
+$finish called at time : 826 ns : File "C:/Users/Quillo/OneDrive/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv" Line 88
