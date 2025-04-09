@@ -29,17 +29,20 @@ module bancoderegistros(
     input  [3:0] SEL,
     inout  [15:0] DATA
 );
+    // Señales internas
     wire [11:0] WE;
     wire [7:0]  AL, CL, DL, BL, AH, CH, DH, BH;
     wire [15:0] SP, BP, SI, DI;
     wire [15:0] mux_out;
 
+    // Decodificador de escritura (mejorado)
     decodificadorwr deco (
-    .WR(WR),
-    .SEL(SEL),
-    .WE(WE) // [11:0]
+        .WR(WR),
+        .SEL(SEL),
+        .WE(WE)
     );
     
+    // Banco de registros físico
     registros regs(
         .CLK(CLK),
         .RST(RST),
@@ -50,26 +53,27 @@ module bancoderegistros(
         .SP(SP), .BP(BP), .SI(SI), .DI(DI)
     );
 
+    // Multiplexor con organización mejorada
     multiplexor16x16 mux(
-        /* Registros de 8 bits (parte baja) */
-        .A0({8'b0, AL}),  // SEL=0: AL (extendido a 16 bits)
-        .A1({8'b0, CL}),  // SEL=1: CL
-        .A2({8'b0, DL}),  // SEL=2: DL
-        .A3({8'b0, BL}),  // SEL=3: BL
+        // Registros combinados (AX-DX) en primeras posiciones
+        .A0({AH, AL}),    // SEL=0: AX
+        .A1({CH, CL}),    // SEL=1: CX
+        .A2({DH, DL}),    // SEL=2: DX
+        .A3({BH, BL}),    // SEL=3: BX
         
-        /* Registros de 8 bits (parte alta) */
-        .A4({8'b0, AH}),  // SEL=4: AH
-        .A5({8'b0, CH}),  // SEL=5: CH
-        .A6({8'b0, DH}),  // SEL=6: DH
-        .A7({8'b0, BH}),  // SEL=7: BH
+        // Partes bajas
+        .A4({8'b0, AL}),  // SEL=4: AL
+        .A5({8'b0, CL}),  // SEL=5: CL
+        .A6({8'b0, DL}),  // SEL=6: DL
+        .A7({8'b0, BL}),  // SEL=7: BL
         
-        /* Registros combinados de 16 bits */
-        .A8({AH, AL}),    // SEL=8: AX (AH:AL)
-        .A9({CH, CL}),    // SEL=9: CX (CH:CL)
-        .A10({DH, DL}),   // SEL=A: DX (DH:DL)
-        .A11({BH, BL}),   // SEL=B: BX (BH:BL)
+        // Partes altas
+        .A8({8'b0, AH}),  // SEL=8: AH
+        .A9({8'b0, CH}),  // SEL=9: CH
+        .A10({8'b0, DH}), // SEL=A: DH
+        .A11({8'b0, BH}), // SEL=B: BH
         
-        /* Registros de 16 bits puros */
+        // Registros índice/segmento
         .A12(SP),         // SEL=C: SP
         .A13(BP),         // SEL=D: BP
         .A14(SI),         // SEL=E: SI
@@ -79,9 +83,16 @@ module bancoderegistros(
         .OUT(mux_out)
     );
 
+    // Buffer tri-state con control mejorado
     triestado tri_buf(
         .IN(mux_out),
-        .SEL(RD),
+        .SEL(RD & ~WR),  // Evita conflicto RD/WR simultáneos
         .OUT(DATA)
     );
+
+    // Protección contra escritura/lectura simultánea
+    always @(posedge CLK) begin
+        if (WR && RD)
+            $warning("Conflicto RD/WR simultáneo en ciclo %t", $time);
+    end
 endmodule

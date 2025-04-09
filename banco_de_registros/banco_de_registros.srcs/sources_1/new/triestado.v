@@ -26,12 +26,14 @@ module triestado(
     input SEL,
     output [15:0] OUT
 );
-    // Añadir retardo de propagación
-    assign #1 OUT = (SEL === 1'b1) ? IN : 16'bz;
+    // Lógica sintetizable
+    assign OUT = (SEL == 1'b1) ? IN : 16'bz;
     
-    // Generar warning si hay conflicto
-    always @(SEL or IN) begin
-        if (SEL !== 0 && SEL !== 1)
-            $warning("Valor inválido en SEL: %b", SEL);
+    // Chequeo solo para simulación
+    // synthesis translate_off
+    always @(SEL) begin
+        if (SEL !== 1'b0 && SEL !== 1'b1)
+            $warning("[%t] ERROR: SEL en estado inválido (%b)", $time, SEL);
     end
+    // synthesis translate_on
 endmodule

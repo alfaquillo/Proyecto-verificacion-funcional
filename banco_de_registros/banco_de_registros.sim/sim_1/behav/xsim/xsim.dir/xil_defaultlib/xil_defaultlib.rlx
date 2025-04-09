@@ -2,14 +2,14 @@
 2020.2
 Nov  8 2024
 22:36:57
-C:/Vivado/banco_de_registros/banco_de_registros.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,uvm,,,,,,
+C:/Vivado/banco_de_registros/banco_de_registros.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_coverage.sv,1744131613,verilog,,,,,,,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_scoreboard.sv,1744131408,verilog,,,,,,,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v,1744132248,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v,,bancoderegistros,,uvm,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv,1744132106,systemVerilog,,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_scoreboard.sv;C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_coverage.sv,tb_bancoderegistros,,uvm,,,,,,
-C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v,1744130255,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v,,decodificadorwr,,uvm,,,,,,
+C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v,1744137891,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v,,decodificadorwr,,,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v,1744130389,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro16bits.v,,multiplexor16x16,,uvm,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro16bits.v,1744126810,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro8bits.v,,registro16bits,,uvm,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro8bits.v,1744126797,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registros.v,,registro8bits,,uvm,,,,,,
 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registros.v,1744128694,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v,,registros,,uvm,,,,,,
-C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v,1744128236,verilog,,,,triestado,,uvm,,,,,,
+C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v,1744128236,verilog,,C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v,,triestado,,uvm,,,,,,

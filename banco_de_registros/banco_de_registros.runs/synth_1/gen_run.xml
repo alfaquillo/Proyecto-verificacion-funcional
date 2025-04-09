@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1744132384" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bancoderegistros.dcp">
-  <File Type="PA-TCL" Name="tb_bancoderegistros.tcl"/>
-  <File Type="REPORTS-TCL" Name="tb_bancoderegistros_reports.tcl"/>
-  <File Type="RDS-RDS" Name="tb_bancoderegistros.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="tb_bancoderegistros_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="tb_bancoderegistros_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="tb_bancoderegistros_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="tb_bancoderegistros.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="tb_bancoderegistros_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="tb_bancoderegistros_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1744157002" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bancoderegistros.dcp">
+  <File Type="PA-TCL" Name="bancoderegistros.tcl"/>
+  <File Type="REPORTS-TCL" Name="bancoderegistros_reports.tcl"/>
+  <File Type="RDS-RDS" Name="bancoderegistros.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="bancoderegistros_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="bancoderegistros_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="bancoderegistros_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="bancoderegistros.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="bancoderegistros_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="bancoderegistros_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/bancoderegistros.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/decodificadorwr.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -60,8 +53,16 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/bancoderegistros_tb.sv">
+    <File Path="$PSRCDIR/sources_1/new/bancoderegistros.v">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/banco_registros_coverage.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -75,7 +76,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/banco_registros_coverage.sv">
+    <File Path="$PSRCDIR/sources_1/new/bancoderegistros_tb.sv">
       <FileInfo>
         <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -101,7 +102,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="tb_bancoderegistros"/>
+      <Option Name="TopModule" Val="bancoderegistros"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

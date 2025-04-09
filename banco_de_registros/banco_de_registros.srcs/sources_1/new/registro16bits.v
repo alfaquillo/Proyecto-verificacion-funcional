@@ -20,18 +20,20 @@
 //
 // =============================================================================
 
-module registro16bits(CLK, RST, ENA,D,Q);
-    input CLK, RST, ENA;
-    input [15:0] D; 
-    output reg [15:0] Q; 
-    
-always@(posedge CLK or posedge RST) begin
-    
-    if (RST) 
-        Q = 16'b0;
-    else if (ENA)
-        Q = D; 
-    else 
-        Q = Q; 
-     end
+module registro16bits(
+    input        CLK,
+    input        RST,
+    input        ENA,
+    input [15:0] D,
+    output reg [15:0] Q
+);
+always @(posedge CLK or posedge RST) begin
+    if (RST) begin
+        Q <= 16'h0000;  // Reset asíncrono
+    end
+    else if (ENA) begin
+        Q <= D;         // Carga sincrónica
+    end
+    // Nota: Se omite el 'else', Q mantiene su valor automáticamente
+end
 endmodule

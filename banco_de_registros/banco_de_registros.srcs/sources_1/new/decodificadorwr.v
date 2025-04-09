@@ -25,27 +25,27 @@ module decodificadorwr(
     input  [3:0] SEL,
     output reg [11:0] WE
 );
-    always @(WR or SEL) begin
-        if (WR) begin
-            case (SEL)
-                4'b0000: WE = 12'b1000_0000_0000;  // AL
-                4'b0001: WE = 12'b0100_0000_0000;  // CL
-                4'b0010: WE = 12'b0010_0000_0000;  // DL
-                4'b0011: WE = 12'b0001_0000_0000;  // BL
-                4'b0100: WE = 12'b0000_1000_0000;  // AH
-                4'b0101: WE = 12'b0000_0100_0000;  // CH
-                4'b0110: WE = 12'b0000_0010_0000;  // DH
-                4'b0111: WE = 12'b0000_0001_0000;  // BH
-                4'b1000: WE = 12'b1000_1000_0000;  // AX
-                4'b1001: WE = 12'b0100_0100_0000;  // CX
-                4'b1010: WE = 12'b0010_0010_0000;  // DX
-                4'b1011: WE = 12'b0001_0001_0000;  // BX
-                4'b1100: WE = 12'b0000_0000_1000;  // SP
-                4'b1101: WE = 12'b0000_0000_0100;  // BP
-                4'b1110: WE = 12'b0000_0000_0010;  // SI
-                4'b1111: WE = 12'b0000_0000_0001;  // DI
-       
-            endcase
-        end
+always @(*) begin
+    WE = 12'h0;  // Default value
+    if (WR) begin
+        case (SEL)
+            4'h0: WE = 12'h800;  // AL
+            4'h1: WE = 12'h400;  // CL
+            4'h2: WE = 12'h200;  // DL
+            4'h3: WE = 12'h100;  // BL
+            4'h4: WE = 12'h080;  // AH
+            4'h5: WE = 12'h040;  // CH
+            4'h6: WE = 12'h020;  // DH
+            4'h7: WE = 12'h010;  // BH
+            4'h8: WE = 12'h880;  // AX
+            4'h9: WE = 12'h440;  // CX
+            4'hA: WE = 12'h220;  // DX
+            4'hB: WE = 12'h110;  // BX
+            4'hC: WE = 12'h008;  // SP
+            4'hD: WE = 12'h004;  // BP
+            4'hE: WE = 12'h002;  // SI
+            4'hF: WE = 12'h001;  // DI
+        endcase
     end
+end
 endmodule

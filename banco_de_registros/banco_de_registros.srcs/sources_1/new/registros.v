@@ -30,21 +30,23 @@ module registros(
     output [7:0]  AL, CL, DL, BL, AH, CH, DH, BH,
     output [15:0] SP, BP, SI, DI
 );
-    // Instanciación de registros de 8 bits
-    registro8bits RAL (CLK, RST, WE[11], DATA[7:0], AL);
-    registro8bits RCL (CLK, RST, WE[10], DATA[7:0], CL);
-    registro8bits RDL (CLK, RST, WE[9],  DATA[7:0], DL);
-    registro8bits RBL (CLK, RST, WE[8],  DATA[7:0], BL);
-    registro8bits RAH (CLK, RST, WE[7],  DATA[15:8], AH);
-    registro8bits RCH (CLK, RST, WE[6],  DATA[15:8], CH);
-    registro8bits RDH (CLK, RST, WE[5],  DATA[15:8], DH);
-    registro8bits RBH (CLK, RST, WE[4],  DATA[15:8], BH);
 
-    // Registros de 16 bits
-    registro16bits RSP (CLK, RST, WE[3], DATA, SP);
-    registro16bits RBP (CLK, RST, WE[2], DATA, BP);
-    registro16bits RSI (CLK, RST, WE[1], DATA, SI);
-    registro16bits RDI (CLK, RST, WE[0], DATA, DI);
-    
-    
+    // Registros de 8 bits (partes bajas)
+    registro8bits RAL (.CLK(CLK), .RST(RST), .ENA(WE[11]), .D(DATA[7:0]), .Q(AL));
+    registro8bits RCL (.CLK(CLK), .RST(RST), .ENA(WE[10]), .D(DATA[7:0]), .Q(CL));
+    registro8bits RDL (.CLK(CLK), .RST(RST), .ENA(WE[9]),  .D(DATA[7:0]), .Q(DL));
+    registro8bits RBL (.CLK(CLK), .RST(RST), .ENA(WE[8]),  .D(DATA[7:0]), .Q(BL));
+
+    // Registros de 8 bits (partes altas)
+    registro8bits RAH (.CLK(CLK), .RST(RST), .ENA(WE[7]),  .D(DATA[15:8]), .Q(AH));
+    registro8bits RCH (.CLK(CLK), .RST(RST), .ENA(WE[6]),  .D(DATA[15:8]), .Q(CH));
+    registro8bits RDH (.CLK(CLK), .RST(RST), .ENA(WE[5]),  .D(DATA[15:8]), .Q(DH));
+    registro8bits RBH (.CLK(CLK), .RST(RST), .ENA(WE[4]),  .D(DATA[15:8]), .Q(BH));
+
+    // Registros de 16 bits (implementados como pares)
+    registro16bits RSP (.CLK(CLK), .RST(RST), .ENA(WE[3]), .D(DATA), .Q(SP));
+    registro16bits RBP (.CLK(CLK), .RST(RST), .ENA(WE[2]), .D(DATA), .Q(BP));
+    registro16bits RSI (.CLK(CLK), .RST(RST), .ENA(WE[1]), .D(DATA), .Q(SI));
+    registro16bits RDI (.CLK(CLK), .RST(RST), .ENA(WE[0]), .D(DATA), .Q(DI));
+
 endmodule

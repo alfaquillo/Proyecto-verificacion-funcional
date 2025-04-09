@@ -20,17 +20,18 @@
 //
 // =============================================================================
 
-module registro8bits(CLK, RST, ENA,D,Q);
-    input CLK, RST, ENA;
-    input [7:0] D; 
-    output reg [7:0] Q; 
-    
+module registro8bits(
+    input wire CLK,
+    input wire RST,
+    input wire ENA,
+    input wire [7:0] D,
+    output reg [7:0] Q
+);
 always @(posedge CLK or posedge RST) begin
     if (RST) 
-        Q <= 8'b0;
+        Q <= 8'b0;           // Reset asíncrono
     else if (ENA)
-        Q <= D;
-        else 
-            Q = Q; 
-     end 
+        Q <= D;              // Carga sincrónica
+    // Nota: Se omite el else, implícitamente mantiene Q
+end
 endmodule

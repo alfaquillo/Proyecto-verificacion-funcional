@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../banco_de_registros.srcs/sources_1/new/bancoderegistros.v" \
+"../../../../banco_de_registros.srcs/sources_1/new/decodificadorwr.v" \
+"../../../../banco_de_registros.srcs/sources_1/new/multiplexor16x16.v" \
+"../../../../banco_de_registros.srcs/sources_1/new/registro16bits.v" \
+"../../../../banco_de_registros.srcs/sources_1/new/registro8bits.v" \
+"../../../../banco_de_registros.srcs/sources_1/new/registros.v" \
+"../../../../banco_de_registros.srcs/sources_1/new/triestado.v" \
+
+sv xil_defaultlib  \
+"../../../../banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
