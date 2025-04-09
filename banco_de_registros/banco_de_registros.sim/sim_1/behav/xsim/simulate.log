@@ -1,54 +1,50 @@
 Time resolution is 1 ps
 
-=== Prueba 1: Escritura registros 16 bits (AX, CX, DX, BX) ===
-Escrito en SEL=0: DATA=16'h1234
-Escrito en SEL=1: DATA=16'h5678
-Escrito en SEL=2: DATA=16'h9abc
-Escrito en SEL=3: DATA=16'hdef0
+Iniciando pruebas con valores Ãºnicos...
 
-=== Prueba 2: Lectura registros 16 bits ===
-[ERROR] Lectura AX (SEL=0): Esperado 16'h1234, Obtenido 16'h0034
-[ERROR] Lectura CX (SEL=1): Esperado 16'h5678, Obtenido 16'h0078
-[ERROR] Lectura DX (SEL=2): Esperado 16'h9abc, Obtenido 16'h00bc
-[ERROR] Lectura BX (SEL=3): Esperado 16'hdef0, Obtenido 16'h00f0
+=== Prueba 1: Registros combinados (16 bits) ===
+Escrito en AX (SEL=8): 9a3d
+[OK] Lectura AX: Esperado 9a3d, Obtenido 9a3d
+Escrito en CX (SEL=9): 4b7e
+[OK] Lectura CX: Esperado 4b7e, Obtenido 4b7e
+Escrito en DX (SEL=a): c2f1
+[OK] Lectura DX: Esperado c2f1, Obtenido c2f1
+Escrito en BX (SEL=b): 5e8a
+[OK] Lectura BX: Esperado 5e8a, Obtenido 5e8a
 
-=== Prueba 3: Partes bajas (AL, CL, DL, BL) ===
-Escrito en SEL=4: DATA=16'h00aa
-[ERROR] Lectura AL (SEL=4): Esperado 16'h00aa, Obtenido 16'h0034
-Escrito en SEL=5: DATA=16'h00bb
-[ERROR] Lectura CL (SEL=5): Esperado 16'h00bb, Obtenido 16'h0078
-Escrito en SEL=6: DATA=16'h00cc
-[ERROR] Lectura DL (SEL=6): Esperado 16'h00cc, Obtenido 16'h00bc
-Escrito en SEL=7: DATA=16'h00dd
-[ERROR] Lectura BL (SEL=7): Esperado 16'h00dd, Obtenido 16'h00f0
+=== Prueba 2: Partes bajas (8 bits) ===
+Escrito en AL (SEL=4): 006d
+[OK] Lectura AL: Esperado 006d, Obtenido 006d
+Escrito en CL (SEL=5): 002f
+[OK] Lectura CL: Esperado 002f, Obtenido 002f
+Escrito en DL (SEL=6): 0091
+[OK] Lectura DL: Esperado 0091, Obtenido 0091
+Escrito en BL (SEL=7): 00b3
+[OK] Lectura BL: Esperado 00b3, Obtenido 00b3
 
-=== Prueba 4: Partes altas (AH, CH, DH, BH) ===
-Escrito en SEL=8: DATA=16'h00ee
-[ERROR] Lectura AH (SEL=8): Esperado 16'h00ee, Obtenido 16'h0000
-Escrito en SEL=9: DATA=16'h00ff
-[ERROR] Lectura CH (SEL=9): Esperado 16'h00ff, Obtenido 16'h0000
-Escrito en SEL=a: DATA=16'h0011
-[ERROR] Lectura DH (SEL=a): Esperado 16'h0011, Obtenido 16'h0000
-Escrito en SEL=b: DATA=16'h0022
-[ERROR] Lectura BH (SEL=b): Esperado 16'h0022, Obtenido 16'h0000
+=== Prueba 3: Partes altas (8 bits) ===
+Escrito en AH (SEL=0): 0e00
+[OK] Lectura AH: Esperado 0e00, Obtenido 0e00
+Escrito en CH (SEL=1): 0f00
+[OK] Lectura CH: Esperado 0f00, Obtenido 0f00
+Escrito en DH (SEL=2): a000
+[OK] Lectura DH: Esperado a000, Obtenido a000
+Escrito en BH (SEL=3): b000
+[OK] Lectura BH: Esperado b000, Obtenido b000
 
-=== Prueba 5: Registros puntero/Ã­ndice ===
-Escrito en SEL=c: DATA=16'hf0f0
-[OK] Lectura SP (SEL=c): Esperado 16'hf0f0, Obtenido 16'hf0f0
-Escrito en SEL=d: DATA=16'hf1f1
-[OK] Lectura BP (SEL=d): Esperado 16'hf1f1, Obtenido 16'hf1f1
-Escrito en SEL=e: DATA=16'hf2f2
-[OK] Lectura SI (SEL=e): Esperado 16'hf2f2, Obtenido 16'hf2f2
-Escrito en SEL=f: DATA=16'hf3f3
-[OK] Lectura DI (SEL=f): Esperado 16'hf3f3, Obtenido 16'hf3f3
+=== Prueba 4: Registros puntero (16 bits) ===
+Escrito en SP (SEL=c): f1e2
+[OK] Lectura SP: Esperado f1e2, Obtenido f1e2
+Escrito en BP (SEL=d): d3c4
+[OK] Lectura BP: Esperado d3c4, Obtenido d3c4
+Escrito en SI (SEL=e): b5a6
+[OK] Lectura SI: Esperado b5a6, Obtenido b5a6
+Escrito en DI (SEL=f): 9788
+[OK] Lectura DI: Esperado 9788, Obtenido 9788
 
-=== Prueba 6: Reset ===
-[OK] Lectura AX despuÿ©s de reset (SEL=0): Esperado 16'h0000, Obtenido 16'h0000
-[OK] Lectura SP despuÿ©s de reset (SEL=c): Esperado 16'h0000, Obtenido 16'h0000
-
-=== Prueba 7: Conflicto RD/WR simultÃ¡neo ===
-Warning: Conflicto RD/WR simultÃ¡neo en ciclo               385000
-Time: 385 ns  Iteration: 0  Process: /bancoderegistros_tb/dut/Always94_14  Scope: bancoderegistros_tb.dut  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v Line: 96
+=== Prueba 5: Reset ===
+[OK] AX despuÃ©s de reset: 0000
+[OK] SP despuÃ©s de reset: 0000
 
 === Todas las pruebas completadas ===
-$finish called at time : 390 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" Line 135
+$finish called at time : 380 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" Line 85

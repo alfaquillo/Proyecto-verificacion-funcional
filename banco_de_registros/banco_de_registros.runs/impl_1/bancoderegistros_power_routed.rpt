@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date             : Tue Apr  8 20:16:01 2025
+| Date             : Wed Apr  9 15:01:49 2025
 | Host             : Quillo-Thinkpad running 64-bit major release  (build 9200)
 | Command          : report_power -file bancoderegistros_power_routed.rpt -pb bancoderegistros_power_summary_routed.pb -rpx bancoderegistros_power_routed.rpx
 | Design           : bancoderegistros
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.305        |
+| Total On-Chip Power (W)  | 4.200        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.168        |
-| Device Static (W)        | 0.137        |
+| Dynamic (W)              | 4.056        |
+| Device Static (W)        | 0.144        |
 | Effective TJA (C/W)      | 1.9          |
-| Max Ambient (C)          | 80.7         |
-| Junction Temperature (C) | 29.3         |
+| Max Ambient (C)          | 77.1         |
+| Junction Temperature (C) | 32.9         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,14 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.117 |      190 |       --- |             --- |
-|   LUT as Logic |     0.111 |       61 |    133800 |            0.05 |
+| Slice Logic    |     0.135 |      190 |       --- |             --- |
+|   LUT as Logic |     0.128 |       61 |    133800 |            0.05 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   Register     |    <0.001 |      128 |    267600 |            0.05 |
-| Signals        |     0.248 |      214 |       --- |             --- |
-| I/O            |     1.803 |       24 |       400 |            6.00 |
-| Static Power   |     0.137 |          |           |                 |
-| Total          |     2.305 |          |           |                 |
+|   Register     |     0.002 |      128 |    267600 |            0.05 |
+| Signals        |     0.331 |      214 |       --- |             --- |
+| I/O            |     3.590 |       24 |       400 |            6.00 |
+| Static Power   |     0.144 |          |           |                 |
+| Total          |     4.200 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -69,11 +69,11 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.458 |       0.423 |      0.035 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.174 |       0.143 |      0.031 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.594 |       0.553 |      0.041 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.318 |       0.287 |      0.032 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco18    |       1.800 |     0.832 |       0.827 |      0.005 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     1.664 |       1.659 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -136,36 +136,36 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| bancoderegistros      |     2.168 |
-|   DATA_IOBUF[0]_inst  |     0.134 |
-|   DATA_IOBUF[10]_inst |     0.097 |
-|   DATA_IOBUF[11]_inst |     0.097 |
-|   DATA_IOBUF[12]_inst |     0.097 |
-|   DATA_IOBUF[13]_inst |     0.097 |
-|   DATA_IOBUF[14]_inst |     0.097 |
-|   DATA_IOBUF[15]_inst |     0.098 |
-|   DATA_IOBUF[1]_inst  |     0.132 |
-|   DATA_IOBUF[2]_inst  |     0.134 |
-|   DATA_IOBUF[3]_inst  |     0.133 |
-|   DATA_IOBUF[4]_inst  |     0.132 |
-|   DATA_IOBUF[5]_inst  |     0.132 |
-|   DATA_IOBUF[6]_inst  |     0.132 |
-|   DATA_IOBUF[7]_inst  |     0.132 |
-|   DATA_IOBUF[8]_inst  |     0.097 |
-|   DATA_IOBUF[9]_inst  |     0.098 |
-|   regs                |     0.161 |
-|     RAH               |     0.004 |
-|     RAL               |     0.004 |
+| bancoderegistros      |     4.056 |
+|   DATA_IOBUF[0]_inst  |     0.237 |
+|   DATA_IOBUF[10]_inst |     0.225 |
+|   DATA_IOBUF[11]_inst |     0.223 |
+|   DATA_IOBUF[12]_inst |     0.223 |
+|   DATA_IOBUF[13]_inst |     0.224 |
+|   DATA_IOBUF[14]_inst |     0.223 |
+|   DATA_IOBUF[15]_inst |     0.223 |
+|   DATA_IOBUF[1]_inst  |     0.236 |
+|   DATA_IOBUF[2]_inst  |     0.237 |
+|   DATA_IOBUF[3]_inst  |     0.237 |
+|   DATA_IOBUF[4]_inst  |     0.237 |
+|   DATA_IOBUF[5]_inst  |     0.238 |
+|   DATA_IOBUF[6]_inst  |     0.238 |
+|   DATA_IOBUF[7]_inst  |     0.238 |
+|   DATA_IOBUF[8]_inst  |     0.224 |
+|   DATA_IOBUF[9]_inst  |     0.223 |
+|   regs                |     0.202 |
+|     RAH               |     0.005 |
+|     RAL               |     0.005 |
 |     RBH               |     0.023 |
-|     RBL               |     0.017 |
+|     RBL               |     0.022 |
 |     RBP               |     0.005 |
-|     RCH               |     0.005 |
-|     RCL               |     0.004 |
+|     RCH               |     0.004 |
+|     RCL               |     0.006 |
 |     RDH               |     0.005 |
-|     RDI               |     0.082 |
-|     RDL               |     0.004 |
-|     RSI               |     0.004 |
-|     RSP               |     0.004 |
+|     RDI               |     0.113 |
+|     RDL               |     0.005 |
+|     RSI               |     0.005 |
+|     RSP               |     0.006 |
 +-----------------------+-----------+
 
 

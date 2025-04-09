@@ -55,38 +55,38 @@ module bancoderegistros(
 
     // Multiplexor con organización mejorada
     multiplexor16x16 mux(
-        // Registros combinados (AX-DX) en primeras posiciones
-        .A0({AH, AL}),    // SEL=0: AX
-        .A1({CH, CL}),    // SEL=1: CX
-        .A2({DH, DL}),    // SEL=2: DX
-        .A3({BH, BL}),    // SEL=3: BX
-        
-        // Partes bajas
-        .A4({8'b0, AL}),  // SEL=4: AL
-        .A5({8'b0, CL}),  // SEL=5: CL
-        .A6({8'b0, DL}),  // SEL=6: DL
-        .A7({8'b0, BL}),  // SEL=7: BL
-        
-        // Partes altas
-        .A8({8'b0, AH}),  // SEL=8: AH
-        .A9({8'b0, CH}),  // SEL=9: CH
-        .A10({8'b0, DH}), // SEL=A: DH
-        .A11({8'b0, BH}), // SEL=B: BH
-        
-        // Registros índice/segmento
-        .A12(SP),         // SEL=C: SP
-        .A13(BP),         // SEL=D: BP
-        .A14(SI),         // SEL=E: SI
-        .A15(DI),         // SEL=F: DI
-        
-        .SEL(SEL),
-        .OUT(mux_out)
-    );
+    // Partes ALTAS (SEL=0-3)
+    .A0({AH,8'b0 }),     // SEL=0: AH
+    .A1({CH, 8'b0}),     // SEL=1: CH
+    .A2({DH, 8'b0}),     // SEL=2: DH
+    .A3({BH, 8'b0}),     // SEL=3: BH
+    
+    // Partes BAJAS (SEL=4-7)
+    .A4({8'b0, AL}),     // SEL=4: AL
+    .A5({8'b0, CL}),     // SEL=5: CL
+    .A6({8'b0, DL}),     // SEL=6: DL
+    .A7({8'b0, BL}),     // SEL=7: BL
+    
+    // Registros COMBINADOS (SEL=8-B)
+    .A8({AH, AL}),       // SEL=8: AX
+    .A9({CH, CL}),       // SEL=9: CX
+    .A10({DH, DL}),      // SEL=A: DX
+    .A11({BH, BL}),      // SEL=B: BX
+    
+    // Registros 16-bit (SEL=C-F)
+    .A12(SP),            // SEL=C: SP
+    .A13(BP),            // SEL=D: BP
+    .A14(SI),            // SEL=E: SI
+    .A15(DI),            // SEL=F: DI
+    
+    .SEL(SEL),
+    .OUT(mux_out)
+);
 
     // Buffer tri-state con control mejorado
     triestado tri_buf(
         .IN(mux_out),
-        .SEL(RD & ~WR),  // Evita conflicto RD/WR simultáneos
+        .SEL(RD),  
         .OUT(DATA)
     );
 

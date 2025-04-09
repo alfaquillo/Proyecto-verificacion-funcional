@@ -1,0 +1,3 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bancoderegistros_tb
+WARNING: [VRFC 10-3824] variable 'test_values' must explicitly be declared as automatic or static [C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv:21]

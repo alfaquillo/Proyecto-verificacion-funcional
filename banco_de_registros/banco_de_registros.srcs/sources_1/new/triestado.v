@@ -27,11 +27,4 @@ module triestado(
     // Lógica sintetizable
     assign OUT = (SEL == 1'b1) ? IN : 16'bz;
     
-    // Chequeo solo para simulación
-    // synthesis translate_off
-  //  always @(SEL) begin
-   //     if (SEL !== 1'b0 && SEL !== 1'b1)
-  //          $warning("[%t] ERROR: SEL en estado inválido (%b)", $time, SEL);
-   // end
-    // synthesis translate_on
 endmodule

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1744164740" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bancoderegistros.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1744232240" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bancoderegistros.dcp">
   <File Type="PA-TCL" Name="bancoderegistros.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="bancoderegistros_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="bancoderegistros_reports.tcl"/>
   <File Type="RDS-RDS" Name="bancoderegistros.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="bancoderegistros_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="bancoderegistros_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="bancoderegistros_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="bancoderegistros.dcp"/>
