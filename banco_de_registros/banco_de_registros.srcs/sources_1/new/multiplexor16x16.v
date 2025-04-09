@@ -43,6 +43,7 @@ module multiplexor16x16(
             4'hD: OUT <= A13;
             4'hE: OUT <= A14;
             4'hF: OUT <= A15;
+            default: OUT = {16{1'bx}};  // Propaga 'x' si SEL no es válido
         endcase
     end
 endmodule

@@ -1,93 +1,54 @@
 Time resolution is 1 ps
 
-=== TEST 1: Escritura/Lectura básica ===
-Error: ERROR: Reg 8 -> Esperado: 1200, Leído: zzzz
-Time: 51 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 55 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 9 -> Esperado: 5678, Leído: zzzz
-Time: 91 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 95 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 0 -> Esperado: 00ab, Leído: 00zz
-Time: 131 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Error: ERROR: Reg 4 -> Esperado: 00cd, Leído: 00zz
-Time: 171 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
+=== Prueba 1: Escritura registros 16 bits (AX, CX, DX, BX) ===
+Escrito en SEL=0: DATA=16'h1234
+Escrito en SEL=1: DATA=16'h5678
+Escrito en SEL=2: DATA=16'h9abc
+Escrito en SEL=3: DATA=16'hdef0
 
-=== TEST 2: Casos límite ===
-Error: ERROR: Reg 15 -> Esperado: ffff, Leído: zzzz
-Time: 211 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 215 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 8 -> Esperado: 0000, Leído: zzzz
-Time: 251 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 255 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
+=== Prueba 2: Lectura registros 16 bits ===
+[ERROR] Lectura AX (SEL=0): Esperado 16'h1234, Obtenido 16'h0034
+[ERROR] Lectura CX (SEL=1): Esperado 16'h5678, Obtenido 16'h0078
+[ERROR] Lectura DX (SEL=2): Esperado 16'h9abc, Obtenido 16'h00bc
+[ERROR] Lectura BX (SEL=3): Esperado 16'hdef0, Obtenido 16'h00f0
 
-=== TEST 3: Escrituras aleatorias ===
-Error: ERROR: Reg 0 -> Esperado: 006a, Leído: 00zz
-Time: 291 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Error: ERROR: Reg 8 -> Esperado: 0000, Leído: zzzz
-Time: 331 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 335 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 15 -> Esperado: 17a1, Leído: zzzz
-Time: 371 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 375 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 14 -> Esperado: 1dcf, Leído: zzzz
-Time: 411 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 415 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 11 -> Esperado: a926, Leído: zzzz
-Time: 451 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 455 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 11 -> Esperado: efcb, Leído: zzzz
-Time: 491 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 495 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 8 -> Esperado: 2b00, Leído: zzzz
-Time: 531 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 535 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 10 -> Esperado: 34d3, Leído: zzzz
-Time: 571 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 575 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 15 -> Esperado: 2b95, Leído: zzzz
-Time: 611 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 615 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 14 -> Esperado: 9567, Leído: zzzz
-Time: 651 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 655 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 14 -> Esperado: 3239, Leído: zzzz
-Time: 691 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 695 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 11 -> Esperado: 2bae, Leído: zzzz
-Time: 731 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 735 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 14 -> Esperado: eed9, Leído: zzzz
-Time: 771 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 775 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 5 -> Esperado: b4dd, Leído: 00zz
-Time: 811 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Error: ERROR: Reg 2 -> Esperado: 8b50, Leído: 00zz
-Time: 851 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Error: ERROR: Reg 11 -> Esperado: 7ee1, Leído: zzzz
-Time: 891 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 895 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 10 -> Esperado: a1a0, Leído: zzzz
-Time: 931 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 935 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
-Error: ERROR: Reg 14 -> Esperado: 9b3c, Leído: zzzz
-Time: 971 ns  Iteration: 0  Process: /tb_bancoderegistros/test_write_read  Scope: tb_bancoderegistros.BancoRegistrosScoreboard::check  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 57
-Warning: Lectura con bus en alta impedancia
-Time: 975 ns  Iteration: 0  Process: /tb_bancoderegistros/Always160_22  Scope: tb_bancoderegistros  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv Line: 162
+=== Prueba 3: Partes bajas (AL, CL, DL, BL) ===
+Escrito en SEL=4: DATA=16'h00aa
+[ERROR] Lectura AL (SEL=4): Esperado 16'h00aa, Obtenido 16'h0034
+Escrito en SEL=5: DATA=16'h00bb
+[ERROR] Lectura CL (SEL=5): Esperado 16'h00bb, Obtenido 16'h0078
+Escrito en SEL=6: DATA=16'h00cc
+[ERROR] Lectura DL (SEL=6): Esperado 16'h00cc, Obtenido 16'h00bc
+Escrito en SEL=7: DATA=16'h00dd
+[ERROR] Lectura BL (SEL=7): Esperado 16'h00dd, Obtenido 16'h00f0
+
+=== Prueba 4: Partes altas (AH, CH, DH, BH) ===
+Escrito en SEL=8: DATA=16'h00ee
+[ERROR] Lectura AH (SEL=8): Esperado 16'h00ee, Obtenido 16'h0000
+Escrito en SEL=9: DATA=16'h00ff
+[ERROR] Lectura CH (SEL=9): Esperado 16'h00ff, Obtenido 16'h0000
+Escrito en SEL=a: DATA=16'h0011
+[ERROR] Lectura DH (SEL=a): Esperado 16'h0011, Obtenido 16'h0000
+Escrito en SEL=b: DATA=16'h0022
+[ERROR] Lectura BH (SEL=b): Esperado 16'h0022, Obtenido 16'h0000
+
+=== Prueba 5: Registros puntero/índice ===
+Escrito en SEL=c: DATA=16'hf0f0
+[OK] Lectura SP (SEL=c): Esperado 16'hf0f0, Obtenido 16'hf0f0
+Escrito en SEL=d: DATA=16'hf1f1
+[OK] Lectura BP (SEL=d): Esperado 16'hf1f1, Obtenido 16'hf1f1
+Escrito en SEL=e: DATA=16'hf2f2
+[OK] Lectura SI (SEL=e): Esperado 16'hf2f2, Obtenido 16'hf2f2
+Escrito en SEL=f: DATA=16'hf3f3
+[OK] Lectura DI (SEL=f): Esperado 16'hf3f3, Obtenido 16'hf3f3
+
+=== Prueba 6: Reset ===
+[OK] Lectura AX despu��s de reset (SEL=0): Esperado 16'h0000, Obtenido 16'h0000
+[OK] Lectura SP despu��s de reset (SEL=c): Esperado 16'h0000, Obtenido 16'h0000
+
+=== Prueba 7: Conflicto RD/WR simultáneo ===
+Warning: Conflicto RD/WR simultáneo en ciclo               385000
+Time: 385 ns  Iteration: 0  Process: /bancoderegistros_tb/dut/Always94_14  Scope: bancoderegistros_tb.dut  File: C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v Line: 96
+
+=== Todas las pruebas completadas ===
+$finish called at time : 390 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" Line 135

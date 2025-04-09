@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Apr  8 20:13:20 2025
+# Process ID         : 1748
+# Current directory  : C:/Vivado/banco_de_registros/banco_de_registros.runs/impl_1
+# Command line       : vivado.exe -log bancoderegistros.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source bancoderegistros.tcl -notrace
+# Log file           : C:/Vivado/banco_de_registros/banco_de_registros.runs/impl_1/bancoderegistros.vdi
+# Journal file       : C:/Vivado/banco_de_registros/banco_de_registros.runs/impl_1\vivado.jou
+# Running On         : Quillo-Thinkpad
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 19045
+# Processor Detail   : Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+# CPU Frequency      : 1992 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 8438 MB
+# Swap memory        : 5869 MB
+# Total Virtual      : 14308 MB
+# Available Virtual  : 2935 MB
+#-----------------------------------------------------------
+source bancoderegistros.tcl -notrace

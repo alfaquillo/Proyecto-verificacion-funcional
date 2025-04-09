@@ -9,7 +9,7 @@ verilog xil_defaultlib  \
 "../../../../banco_de_registros.srcs/sources_1/new/triestado.v" \
 
 sv xil_defaultlib  \
-"../../../../banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv" \
+"../../../../banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

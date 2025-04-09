@@ -19,8 +19,6 @@
 //   - No se han definido parámetros configurables
 //
 // =============================================================================
-
-
 module triestado(
     input [15:0] IN,
     input SEL,
@@ -31,9 +29,9 @@ module triestado(
     
     // Chequeo solo para simulación
     // synthesis translate_off
-    always @(SEL) begin
-        if (SEL !== 1'b0 && SEL !== 1'b1)
-            $warning("[%t] ERROR: SEL en estado inválido (%b)", $time, SEL);
-    end
+  //  always @(SEL) begin
+   //     if (SEL !== 1'b0 && SEL !== 1'b1)
+  //          $warning("[%t] ERROR: SEL en estado inválido (%b)", $time, SEL);
+   // end
     // synthesis translate_on
 endmodule
