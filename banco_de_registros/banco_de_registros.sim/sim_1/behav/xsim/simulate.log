@@ -1,0 +1,50 @@
+Time resolution is 1 ps
+
+Iniciando pruebas con valores únicos...
+
+=== Prueba 1: Registros combinados (16 bits) ===
+Escrito en AX (SEL=8): 9a3d
+[OK] Lectura AX: Esperado 9a3d, Obtenido 9a3d
+Escrito en CX (SEL=9): 4b7e
+[OK] Lectura CX: Esperado 4b7e, Obtenido 4b7e
+Escrito en DX (SEL=a): c2f1
+[OK] Lectura DX: Esperado c2f1, Obtenido c2f1
+Escrito en BX (SEL=b): 5e8a
+[OK] Lectura BX: Esperado 5e8a, Obtenido 5e8a
+
+=== Prueba 2: Partes bajas (8 bits) ===
+Escrito en AL (SEL=4): 006d
+[OK] Lectura AL: Esperado 006d, Obtenido 006d
+Escrito en CL (SEL=5): 002f
+[OK] Lectura CL: Esperado 002f, Obtenido 002f
+Escrito en DL (SEL=6): 0091
+[OK] Lectura DL: Esperado 0091, Obtenido 0091
+Escrito en BL (SEL=7): 00b3
+[OK] Lectura BL: Esperado 00b3, Obtenido 00b3
+
+=== Prueba 3: Partes altas (8 bits) ===
+Escrito en AH (SEL=0): 0e00
+[OK] Lectura AH: Esperado 0e00, Obtenido 0e00
+Escrito en CH (SEL=1): 0f00
+[OK] Lectura CH: Esperado 0f00, Obtenido 0f00
+Escrito en DH (SEL=2): a000
+[OK] Lectura DH: Esperado a000, Obtenido a000
+Escrito en BH (SEL=3): b000
+[OK] Lectura BH: Esperado b000, Obtenido b000
+
+=== Prueba 4: Registros puntero (16 bits) ===
+Escrito en SP (SEL=c): f1e2
+[OK] Lectura SP: Esperado f1e2, Obtenido f1e2
+Escrito en BP (SEL=d): d3c4
+[OK] Lectura BP: Esperado d3c4, Obtenido d3c4
+Escrito en SI (SEL=e): b5a6
+[OK] Lectura SI: Esperado b5a6, Obtenido b5a6
+Escrito en DI (SEL=f): 9788
+[OK] Lectura DI: Esperado 9788, Obtenido 9788
+
+=== Prueba 5: Reset ===
+[OK] AX después de reset: 0000
+[OK] SP después de reset: 0000
+
+=== Todas las pruebas completadas ===
+$finish called at time : 380 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/imports/new/bancoderegistros1_tb.sv" Line 85

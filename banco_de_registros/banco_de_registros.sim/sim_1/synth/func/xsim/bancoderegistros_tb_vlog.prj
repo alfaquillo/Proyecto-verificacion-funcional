@@ -1,0 +1,6 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../../banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" \
+
+# Do not sort compile order
+nosort

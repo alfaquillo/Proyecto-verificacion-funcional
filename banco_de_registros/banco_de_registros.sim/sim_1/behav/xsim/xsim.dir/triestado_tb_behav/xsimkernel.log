@@ -1,0 +1,7 @@
+Running: xsim.dir/triestado_tb_behav/xsimk.exe -simmode gui -wdb triestado_tb_behav.wdb -simrunnum 0 -socket 59475
+Design successfully loaded
+Design Loading Memory Usage: 26456 KB (Peak: 26456 KB)
+Design Loading CPU Usage: 1218 ms
+Simulation completed
+Simulation Memory Usage: 27080 KB (Peak: 27080 KB)
+Simulation CPU Usage: 1249 ms
