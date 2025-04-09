@@ -47,4 +47,4 @@ Escrito en DI (SEL=f): 9788
 [OK] SP después de reset: 0000
 
 === Todas las pruebas completadas ===
-$finish called at time : 380 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" Line 85
+$finish called at time : 380 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/imports/new/bancoderegistros1_tb.sv" Line 85

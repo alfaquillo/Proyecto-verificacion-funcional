@@ -3,10 +3,10 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Tue Apr  8 18:43:14 2025
-# Process ID         : 9752
+# Start of session at: Wed Apr  9 15:49:16 2025
+# Process ID         : 9904
 # Current directory  : C:/Vivado/banco_de_registros
-# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent7116 C:\Vivado\banco_de_registros\banco_de_registros.xpr
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent4976 C:\Vivado\banco_de_registros\banco_de_registros.xpr
 # Log file           : C:/Vivado/banco_de_registros/vivado.log
 # Journal file       : C:/Vivado/banco_de_registros\vivado.jou
 # Running On         : Quillo-Thinkpad
@@ -17,152 +17,95 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 8
 # Host memory        : 8438 MB
-# Swap memory        : 3231 MB
-# Total Virtual      : 11669 MB
-# Available Virtual  : 2430 MB
+# Swap memory        : 4861 MB
+# Total Virtual      : 13299 MB
+# Available Virtual  : 2797 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Vivado/banco_de_registros/banco_de_registros.xpr
 update_compile_order -fileset sources_1
 launch_simulation
 launch_simulation
-source registro8bits_tb.tcl
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro8bits.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro16bits.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registro8bits_tb.sv]
+launch_simulation
+launch_simulation
+launch_simulation
+reset_run synth_1
+reset_run impl_1
+reset_run sim_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_coverage.sv]
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_tests.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_tests.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_coverage.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_coverage.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_tb.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_tb.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_coverage.sv] -no_script -reset -force -quiet
+remove_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_coverage.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_scoreboard.sv] -no_script -reset -force -quiet
+remove_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/banco_registros_scoreboard.sv
 set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registro16bits_tb.sv w ]
-add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registro16bits_tb.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_top_tb.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_top_tb.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/scoreboard.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/scoreboard.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/test_tasks.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/test_tasks.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/coverage.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/coverage.sv
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
 update_compile_order -fileset sim_1
 update_compile_order -fileset sim_1
 launch_simulation
-close_sim
-launch_simulation
-source registro16bits_tb.tcl
-close_sim
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registro16bits_tb.sv]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro16bits.v]
 set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/multiplexor16x16_tb.sv w ]
-add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/multiplexor16x16_tb.sv
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v]
-launch_simulation
-source multiplexor16x16_tb.tcl
-close_sim
-launch_simulation
-source multiplexor16x16_tb.tcl
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/multiplexor16x16_tb.sv]
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/triestado_tb.sv w ]
-add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/triestado_tb.sv
-close_sim
-launch_simulation
-launch_simulation
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v]
-launch_simulation
-source triestado_tb.tcl
-close_sim
-launch_simulation
-source triestado_tb.tcl
-close_sim
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/triestado_tb.sv]
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registros_tb.sv w ]
-add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registros_tb.sv
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registros.v]
-update_compile_order -fileset sim_1
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco2reg_pkg.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco2reg_pkg.sv
 update_compile_order -fileset sim_1
 launch_simulation
-source registros_tb.tcl
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro8bits.v]
-update_compile_order -fileset sources_1
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/registro16bits.v]
-update_compile_order -fileset sources_1
-close_sim
 launch_simulation
-source registros_tb.tcl
-close_sim
-launch_simulation
-source registros_tb.tcl
-close_sim
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registros_tb.sv]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v]
-update_compile_order -fileset sources_1
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v]
-update_compile_order -fileset sources_1
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv]
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv] -no_script -reset -force -quiet
-remove_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv
-file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros_tb.sv
-update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco2reg_pkg.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco2reg_pkg.sv
+file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco2reg_pkg.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/test_tasks.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/test_tasks.sv
+file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/test_tasks.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/scoreboard.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/scoreboard.sv
+file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/scoreboard.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/coverage.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/coverage.sv
+file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/coverage.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_top_tb.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_top_tb.sv
+file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/banco_registros_top_tb.sv
 set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv w ]
-add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.v w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.v
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.v
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse {C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros1_tb.sv C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv}
 update_compile_order -fileset sim_1
 update_compile_order -fileset sim_1
 launch_simulation
 source bancoderegistros_tb.tcl
 close_sim
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v]
-update_compile_order -fileset sources_1
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registros_tb.sv]
-update_compile_order -fileset sim_1
-update_compile_order -fileset sim_1
 launch_simulation
-source registros_tb.tcl
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registros_tb.sv]
-close_sim
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v]
-update_compile_order -fileset sources_1
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv]
-update_compile_order -fileset sources_1
-update_compile_order -fileset sim_1
-update_compile_order -fileset sim_1
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv]
+source bancoderegistros_tb.tcl
+reset_run synth_1
 launch_runs synth_1 -jobs 8
 wait_on_run synth_1
 launch_runs impl_1 -jobs 8
 wait_on_run impl_1
-open_run synth_1 -name synth_1
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v]
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registros_tb.sv]
-launch_simulation
-source registros_tb.tcl
 close_sim
-launch_simulation
-source registros_tb.tcl
-close_sim
-launch_simulation
-source registros_tb.tcl
-close_sim
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/bancoderegistros.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/decodificadorwr.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor16x16.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor2x8.v]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/triestado.v]
-update_compile_order -fileset sources_1
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/registros_tb.sv]
-set_property is_enabled true [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv]
-update_compile_order -fileset sources_1
-update_compile_order -fileset sim_1
-update_compile_order -fileset sim_1
-set_property is_enabled false [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sources_1/new/multiplexor2x8.v]
 launch_simulation
 source bancoderegistros_tb.tcl
 close_sim

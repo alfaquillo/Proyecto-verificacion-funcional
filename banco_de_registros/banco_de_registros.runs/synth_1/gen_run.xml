@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1744232240" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bancoderegistros.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1744237894" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bancoderegistros.dcp">
   <File Type="PA-TCL" Name="bancoderegistros.tcl"/>
   <File Type="REPORTS-TCL" Name="bancoderegistros_reports.tcl"/>
   <File Type="RDS-RDS" Name="bancoderegistros.vds"/>
@@ -55,22 +55,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/bancoderegistros.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/banco_registros_coverage.sv">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/banco_registros_scoreboard.sv">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

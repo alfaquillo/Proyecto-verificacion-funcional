@@ -1,8 +1,6 @@
 `timescale 1ns / 1ps
-`include "bancoderegistros_scoreboard.sv"
-`include "bancoderegistros_coverage.sv"
 
-module bancoderegistros_tb;
+module banco2registros_tb;
     // Parámetros y señales
     parameter CLK_PERIOD = 10;
     logic clk, rst;
@@ -22,11 +20,13 @@ module bancoderegistros_tb;
         .DATA(data)
     );
     
-    // Instancias de los módulos
-    bancoderegistros_scoreboard sb();
-    bancoderegistros_coverage cov(.clk(clk), .sel(sel), .wr(wr), .rd(rd));
+    // Generación de reloj
+    initial begin
+        clk = 0;
+        forever #(CLK_PERIOD/2) clk = ~clk;
+    end
     
-    // Definición de valores de prueba
+    // Definición de valores de prueba (¡ahora está declarado correctamente!)
     localparam logic [15:0] TEST_VALUES[12] = '{
     // Registros combinados (SEL 8-11)
     16'h9A3D,  // AX
@@ -45,18 +45,47 @@ module bancoderegistros_tb;
     16'h0F00,  // CH
     16'hA000,  // DH
     16'hB000   // BH
-    };
+};
+
     
-    // Generación de reloj
-    initial begin
-        clk = 0;
-        forever #(CLK_PERIOD/2) clk = ~clk;
-    end
+    // Coverage
+    covergroup cg_registros @(posedge clk);
+        cp_sel: coverpoint sel {
+            bins combinados = {8,9,10,11};  // AX-DX
+            bins bajas = {4,5,6,7};         // AL-BL
+            bins altas = {0,1,2,3};         // AH-BH
+            bins punteros = {12,13,14,15};  // SP-DI
+        }
+        
+        cp_ops: coverpoint {wr,rd} {
+            bins escritura = {2'b10};
+            bins lectura = {2'b01};
+            bins conflicto = {2'b11};
+            bins idle = {2'b00};
+        }
+        
+        cruzado: cross cp_sel, cp_ops;
+    endgroup
+    
+    cg_registros cov = new();
+    
+    // Scoreboard
+    logic [15:0] model_mem[16]; // Modelo de referencia
+    
+    function void check_scoreboard(input string name, input [15:0] exp, actual);
+        if (exp !== actual) begin
+            $error("[SCOREBOARD] Error en %s: Esperado=%h, Obtenido=%h", 
+                  name, exp, actual);
+        end
+        else begin
+            $display("[SCOREBOARD] %s OK: %h", name, actual);
+        end
+    endfunction
     
     // Tareas de prueba
     task automatic write_reg(input [3:0] addr, input [15:0] val);
         wr = 1; rd = 0; sel = addr; data_driver = val;
-        sb.update_model(addr, val); // Actualizar modelo
+        model_mem[addr] = val; // Actualizar modelo
         #CLK_PERIOD;
         wr = 0;
         $display("[WRITE] SEL=%h, DATA=%h", addr, val);
@@ -65,7 +94,7 @@ module bancoderegistros_tb;
     task automatic read_reg(input [3:0] addr, input string name);
         wr = 0; rd = 1; sel = addr; data_driver = 16'bz;
         #(CLK_PERIOD/2);
-        sb.check_scoreboard(name, sb.get_expected(addr), data);
+        check_scoreboard(name, model_mem[addr], data);
         rd = 0;
         #(CLK_PERIOD/2);
     endtask
@@ -76,34 +105,33 @@ module bancoderegistros_tb;
         rst = 1;
         #(CLK_PERIOD*2);
         rst = 0;
-        sb.reset_model();
         
         // Verificar todos los registros en 0
-        foreach(sb.model_mem[i]) begin
+        foreach(model_mem[i]) begin
             read_reg(i, $sformatf("REG[%0d]", i));
         end
     endtask
     
     task test_normal_operations();
-        $display("\n=== TEST 2: Operaciones Normales ===");
-        
-        // 1. Probar registros combinados (AX-DX)
-        for (int i=0; i<4; i++) begin
-            write_reg(i+8, TEST_VALUES[i]);
-            read_reg(i+8, $sformatf("REG_COMB[%0d]", i));
-        end
-        
-        // 2. Probar partes bajas (AL-BL)
-        for (int i=4; i<8; i++) begin
-            write_reg(i, TEST_VALUES[i]);
-            read_reg(i, $sformatf("REG_LOW[%0d]", i-4));
-        end
-        
-        // 3. Probar partes altas (AH-BH)
-        for (int i=8; i<12; i++) begin
-            write_reg(i-8, TEST_VALUES[i]);
-            read_reg(i-8, $sformatf("REG_HIGH[%0d]", i-8));
-        end
+    $display("\n=== TEST 2: Operaciones Normales ===");
+    
+    // 1. Probar registros combinados (AX-DX)
+    for (int i=0; i<4; i++) begin
+        write_reg(i+8, TEST_VALUES[i]);
+        read_reg(i+8, $sformatf("REG_COMB[%0d]", i));
+    end
+    
+    // 2. Probar partes bajas (AL-BL)
+    for (int i=4; i<8; i++) begin
+        write_reg(i, TEST_VALUES[i]);
+        read_reg(i, $sformatf("REG_LOW[%0d]", i-4));
+    end
+    
+    // 3. Probar partes altas (AH-BH)
+    for (int i=8; i<12; i++) begin
+        write_reg(i-8, TEST_VALUES[i]);
+        read_reg(i-8, $sformatf("REG_HIGH[%0d]", i-8));
+    end
     endtask
     
     task test_edge_cases();
@@ -132,7 +160,7 @@ module bancoderegistros_tb;
         // Inicialización
         $display("\nIniciando simulacion...");
         rd = 0; wr = 0; sel = 0; data_driver = 0;
-        sb.reset_model();
+        foreach(model_mem[i]) model_mem[i] = 0;
         
         // Ejecutar pruebas
         test_reset();
@@ -141,7 +169,7 @@ module bancoderegistros_tb;
         
         // Reporte final
         $display("\n=== Resumen Coverage ===");
-        $display("Coverage: %.2f%%", cov.get_coverage());
+        $display("Coverage: %.2f%%", cov.get_inst_coverage());
         
         $display("\n=== Simulacion completada ===");
         $finish;
