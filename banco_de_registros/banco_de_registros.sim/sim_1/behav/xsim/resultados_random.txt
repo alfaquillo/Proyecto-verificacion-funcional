@@ -1,0 +1,82 @@
+[OK] Prueba #-1: REG[0] - Valor=0000
+[OK] Prueba #-1: REG[1] - Valor=0000
+[OK] Prueba #-1: REG[2] - Valor=0000
+[OK] Prueba #-1: REG[3] - Valor=0000
+[OK] Prueba #-1: REG[4] - Valor=0000
+[OK] Prueba #-1: REG[5] - Valor=0000
+[OK] Prueba #-1: REG[6] - Valor=0000
+[OK] Prueba #-1: REG[7] - Valor=0000
+[OK] Prueba #-1: REG[8] - Valor=0000
+[OK] Prueba #-1: REG[9] - Valor=0000
+[OK] Prueba #-1: REG[10] - Valor=0000
+[OK] Prueba #-1: REG[11] - Valor=0000
+[OK] Prueba #-1: REG[12] - Valor=0000
+[OK] Prueba #-1: REG[13] - Valor=0000
+[OK] Prueba #-1: REG[14] - Valor=0000
+[OK] Prueba #-1: REG[15] - Valor=0000
+Prueba #0 | SEL=11 | VAL ESCRITO=ea2b | ESPERADO=ea2b
+[OK] Prueba #0: REG[11] - Valor=ea2b
+Prueba #1 | SEL=4 | VAL ESCRITO=ce7a | ESPERADO=007a
+[OK] Prueba #1: REG[4] - Valor=007a
+Prueba #2 | SEL=8 | VAL ESCRITO=ee63 | ESPERADO=ee63
+[OK] Prueba #2: REG[8] - Valor=ee63
+Prueba #3 | SEL=2 | VAL ESCRITO=b2c9 | ESPERADO=b200
+[OK] Prueba #3: REG[2] - Valor=b200
+Prueba #4 | SEL=6 | VAL ESCRITO=a649 | ESPERADO=0049
+[OK] Prueba #4: REG[6] - Valor=0049
+Prueba #5 | SEL=6 | VAL ESCRITO=f973 | ESPERADO=0073
+[OK] Prueba #5: REG[6] - Valor=0073
+Prueba #6 | SEL=13 | VAL ESCRITO=4351 | ESPERADO=4351
+[OK] Prueba #6: REG[13] - Valor=4351
+Prueba #7 | SEL=0 | VAL ESCRITO=a00a | ESPERADO=a000
+[OK] Prueba #7: REG[0] - Valor=a000
+Prueba #8 | SEL=12 | VAL ESCRITO=6756 | ESPERADO=6756
+[OK] Prueba #8: REG[12] - Valor=6756
+Prueba #9 | SEL=14 | VAL ESCRITO=baf3 | ESPERADO=baf3
+[OK] Prueba #9: REG[14] - Valor=baf3
+Prueba #10 | SEL=4 | VAL ESCRITO=4af2 | ESPERADO=00f2
+[OK] Prueba #10: REG[4] - Valor=00f2
+Prueba #11 | SEL=4 | VAL ESCRITO=61f4 | ESPERADO=00f4
+[OK] Prueba #11: REG[4] - Valor=00f4
+Prueba #12 | SEL=15 | VAL ESCRITO=acc1 | ESPERADO=acc1
+[OK] Prueba #12: REG[15] - Valor=acc1
+Prueba #13 | SEL=6 | VAL ESCRITO=dcc4 | ESPERADO=00c4
+[OK] Prueba #13: REG[6] - Valor=00c4
+Prueba #14 | SEL=3 | VAL ESCRITO=d60c | ESPERADO=d600
+[OK] Prueba #14: REG[3] - Valor=d600
+Prueba #15 | SEL=15 | VAL ESCRITO=7c54 | ESPERADO=7c54
+[OK] Prueba #15: REG[15] - Valor=7c54
+Prueba #16 | SEL=7 | VAL ESCRITO=bff7 | ESPERADO=00f7
+[OK] Prueba #16: REG[7] - Valor=00f7
+Prueba #17 | SEL=7 | VAL ESCRITO=54d3 | ESPERADO=00d3
+[OK] Prueba #17: REG[7] - Valor=00d3
+Prueba #18 | SEL=14 | VAL ESCRITO=21b7 | ESPERADO=21b7
+[OK] Prueba #18: REG[14] - Valor=21b7
+Prueba #19 | SEL=9 | VAL ESCRITO=4c1e | ESPERADO=4c1e
+[OK] Prueba #19: REG[9] - Valor=4c1e
+Prueba #20 | SEL=9 | VAL ESCRITO=af42 | ESPERADO=af42
+[OK] Prueba #20: REG[9] - Valor=af42
+Prueba #21 | SEL=7 | VAL ESCRITO=e048 | ESPERADO=0048
+[OK] Prueba #21: REG[7] - Valor=0048
+Prueba #22 | SEL=3 | VAL ESCRITO=80d0 | ESPERADO=8000
+[OK] Prueba #22: REG[3] - Valor=8000
+Prueba #23 | SEL=2 | VAL ESCRITO=c94f | ESPERADO=c900
+[OK] Prueba #23: REG[2] - Valor=c900
+Prueba #24 | SEL=9 | VAL ESCRITO=18c1 | ESPERADO=18c1
+[OK] Prueba #24: REG[9] - Valor=18c1
+Prueba #25 | SEL=11 | VAL ESCRITO=a6bb | ESPERADO=a6bb
+[OK] Prueba #25: REG[11] - Valor=a6bb
+Prueba #26 | SEL=7 | VAL ESCRITO=dbf2 | ESPERADO=00f2
+[OK] Prueba #26: REG[7] - Valor=00f2
+Prueba #27 | SEL=13 | VAL ESCRITO=66b2 | ESPERADO=66b2
+[OK] Prueba #27: REG[13] - Valor=66b2
+Prueba #28 | SEL=3 | VAL ESCRITO=9a4a | ESPERADO=9a00
+[OK] Prueba #28: REG[3] - Valor=9a00
+Prueba #29 | SEL=3 | VAL ESCRITO=dddf | ESPERADO=dd00
+[OK] Prueba #29: REG[3] - Valor=dd00
+Prueba #30 | SEL=3 | VAL ESCRITO=373d | ESPERADO=3700
+[OK] Prueba #30: REG[3] - Valor=3700
+Prueba #31 | SEL=1 | VAL ESCRITO=bc1e | ESPERADO=bc00
+[OK] Prueba #31: REG[1] - Valor=bc00
+Prueba #32 | SEL=12 | VAL ESCRITO=ff4a | ESPERADO=ff4a
+[OK] Prueba #32: REG[12] - Valor=ff4a

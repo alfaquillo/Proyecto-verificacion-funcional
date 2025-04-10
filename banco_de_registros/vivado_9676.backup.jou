@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Apr  9 20:42:03 2025
+# Process ID         : 9676
+# Current directory  : C:/Vivado/banco_de_registros
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent10720 C:\Vivado\banco_de_registros\banco_de_registros.xpr
+# Log file           : C:/Vivado/banco_de_registros/vivado.log
+# Journal file       : C:/Vivado/banco_de_registros\vivado.jou
+# Running On         : Quillo-Thinkpad
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 19045
+# Processor Detail   : Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+# CPU Frequency      : 1992 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 8438 MB
+# Swap memory        : 4394 MB
+# Total Virtual      : 12832 MB
+# Available Virtual  : 2646 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Vivado/banco_de_registros/banco_de_registros.xpr
+update_compile_order -fileset sources_1
+move_files [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv]
+move_files [get_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv]
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv] -no_script -reset -force -quiet
+remove_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv
+file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv
+export_ip_user_files -of_objects  [get_files C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv] -no_script -reset -force -quiet
+remove_files  C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv
+file delete -force C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_scoreboard.sv
+close [ open C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv w ]
+add_files -fileset sim_1 C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_coverage.sv
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_simulation

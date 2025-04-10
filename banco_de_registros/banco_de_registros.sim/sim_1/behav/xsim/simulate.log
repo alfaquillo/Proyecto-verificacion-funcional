@@ -1,50 +1,181 @@
 Time resolution is 1 ps
 
-Iniciando pruebas con valores únicos...
+Iniciando simulacion...
+[SCOREBOARD] Modelo reseteado
 
-=== Prueba 1: Registros combinados (16 bits) ===
-Escrito en AX (SEL=8): 9a3d
-[OK] Lectura AX: Esperado 9a3d, Obtenido 9a3d
-Escrito en CX (SEL=9): 4b7e
-[OK] Lectura CX: Esperado 4b7e, Obtenido 4b7e
-Escrito en DX (SEL=a): c2f1
-[OK] Lectura DX: Esperado c2f1, Obtenido c2f1
-Escrito en BX (SEL=b): 5e8a
-[OK] Lectura BX: Esperado 5e8a, Obtenido 5e8a
+=== TEST 1: Reset ===
+[SCOREBOARD] Modelo reseteado
+[SCOREBOARD] REG[0] OK: 0000
+[SCOREBOARD] REG[1] OK: 0000
+[SCOREBOARD] REG[2] OK: 0000
+[SCOREBOARD] REG[3] OK: 0000
+[SCOREBOARD] REG[4] OK: 0000
+[SCOREBOARD] REG[5] OK: 0000
+[SCOREBOARD] REG[6] OK: 0000
+[SCOREBOARD] REG[7] OK: 0000
+[SCOREBOARD] REG[8] OK: 0000
+[SCOREBOARD] REG[9] OK: 0000
+[SCOREBOARD] REG[a] OK: 0000
+[SCOREBOARD] REG[b] OK: 0000
+[SCOREBOARD] REG[c] OK: 0000
+[SCOREBOARD] REG[d] OK: 0000
+[SCOREBOARD] REG[e] OK: 0000
+[SCOREBOARD] REG[f] OK: 0000
 
-=== Prueba 2: Partes bajas (8 bits) ===
-Escrito en AL (SEL=4): 006d
-[OK] Lectura AL: Esperado 006d, Obtenido 006d
-Escrito en CL (SEL=5): 002f
-[OK] Lectura CL: Esperado 002f, Obtenido 002f
-Escrito en DL (SEL=6): 0091
-[OK] Lectura DL: Esperado 0091, Obtenido 0091
-Escrito en BL (SEL=7): 00b3
-[OK] Lectura BL: Esperado 00b3, Obtenido 00b3
+=== TEST 2: Operaciones Aleatorias (100 pruebas) ===
 
-=== Prueba 3: Partes altas (8 bits) ===
-Escrito en AH (SEL=0): 0e00
-[OK] Lectura AH: Esperado 0e00, Obtenido 0e00
-Escrito en CH (SEL=1): 0f00
-[OK] Lectura CH: Esperado 0f00, Obtenido 0f00
-Escrito en DH (SEL=2): a000
-[OK] Lectura DH: Esperado a000, Obtenido a000
-Escrito en BH (SEL=3): b000
-[OK] Lectura BH: Esperado b000, Obtenido b000
+=== Prueba 1 ===
+[SCOREBOARD] REG[a] OK: 0000
 
-=== Prueba 4: Registros puntero (16 bits) ===
-Escrito en SP (SEL=c): f1e2
-[OK] Lectura SP: Esperado f1e2, Obtenido f1e2
-Escrito en BP (SEL=d): d3c4
-[OK] Lectura BP: Esperado d3c4, Obtenido d3c4
-Escrito en SI (SEL=e): b5a6
-[OK] Lectura SI: Esperado b5a6, Obtenido b5a6
-Escrito en DI (SEL=f): 9788
-[OK] Lectura DI: Esperado 9788, Obtenido 9788
+=== Prueba 2 ===
+[WRITE] SEL=4, DATA=8ab2
 
-=== Prueba 5: Reset ===
-[OK] AX después de reset: 0000
-[OK] SP después de reset: 0000
+=== Prueba 3 ===
+[WRITE] SEL=c, DATA=1f44
 
-=== Todas las pruebas completadas ===
-$finish called at time : 380 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/imports/new/bancoderegistros1_tb.sv" Line 85
+=== Prueba 4 ===
+[WRITE] SEL=a, DATA=366d
+
+=== Prueba 5 ===
+[SCOREBOARD] REG[5] OK: 0000
+
+=== Prueba 6 ===
+[WRITE] SEL=1, DATA=71db
+
+=== Prueba 7 ===
+[WRITE] SEL=5, DATA=80a3
+
+=== Prueba 8 ===
+[SCOREBOARD] REG[7] OK: 0000
+
+=== Prueba 9 ===
+[WRITE] SEL=f, DATA=4bd9
+
+=== Prueba 10 ===
+[WRITE] SEL=c, DATA=cd58
+
+=== Prueba 11 ===
+[WRITE] SEL=2, DATA=22e4
+
+=== Prueba 12 ===
+[WRITE] SEL=e, DATA=527d
+
+=== Prueba 13 ===
+[WRITE] SEL=e, DATA=8beb
+
+=== Prueba 14 ===
+[WRITE] SEL=c, DATA=2d97
+
+=== Prueba 15 ===
+[SCOREBOARD] REG[d] OK: 0000
+
+=== Prueba 16 ===
+[WRITE] SEL=8, DATA=9c7f
+
+=== Prueba 17 ===
+[WRITE] SEL=e, DATA=05ca
+
+=== Prueba 18 ===
+[WRITE] SEL=f, DATA=5005
+
+=== Prueba 19 ===
+[WRITE] SEL=1, DATA=4b22
+
+=== Prueba 20 ===
+[WRITE] SEL=9, DATA=afdd
+
+=== Prueba 21 ===
+[SCOREBOARD] REG[b] OK: 0000
+[WRITE] SEL=8, DATA=65da
+[AX] Combinación correcta: 65da = 65da
+[WRITE] SEL=9, DATA=b086
+[BX] Combinación correcta: b086 = b086
+[WRITE] SEL=a, DATA=0f4f
+[CX] Combinación correcta: 0f4f = 0f4f
+[WRITE] SEL=b, DATA=3b82
+[DX] Combinación correcta: 3b82 = 3b82
+
+=== Prueba 22 ===
+[WRITE] SEL=c, DATA=fcf6
+
+=== Prueba 23 ===
+[WRITE] SEL=9, DATA=01f6
+
+=== Prueba 24 ===
+[WRITE] SEL=6, DATA=bd5d
+
+=== Prueba 25 ===
+[SCOREBOARD] REG[c] OK: fcf6
+
+=== Prueba 26 ===
+[SCOREBOARD] REG[8] OK: 65da
+
+=== Prueba 27 ===
+[WRITE] SEL=0, DATA=b73e
+
+=== Prueba 28 ===
+[WRITE] SEL=f, DATA=3e4b
+
+=== Prueba 29 ===
+[WRITE] SEL=0, DATA=c25f
+
+=== Prueba 30 ===
+[WRITE] SEL=9, DATA=97b5
+
+=== Prueba 31 ===
+[WRITE] SEL=8, DATA=33a5
+
+=== Prueba 32 ===
+[SCOREBOARD] REG[4] OK: 00a5
+
+=== Prueba 33 ===
+[WRITE] SEL=0, DATA=420a
+
+=== Prueba 34 ===
+[SCOREBOARD] REG[c] OK: fcf6
+
+=== Prueba 35 ===
+[WRITE] SEL=3, DATA=8f8e
+
+=== Prueba 36 ===
+[WRITE] SEL=5, DATA=6e2d
+
+=== Prueba 37 ===
+[SCOREBOARD] REG[9] OK: 972d
+
+=== Prueba 38 ===
+[WRITE] SEL=1, DATA=78d2
+
+=== Prueba 39 ===
+[WRITE] SEL=a, DATA=99ad
+
+=== Prueba 40 ===
+[WRITE] SEL=5, DATA=79dc
+
+=== Prueba 41 ===
+[WRITE] SEL=6, DATA=b9e9
+[WRITE] SEL=8, DATA=bf6a
+[AX] Combinación correcta: bf6a = bf6a
+[WRITE] SEL=9, DATA=cd56
+[BX] Combinación correcta: cd56 = cd56
+[WRITE] SEL=a, DATA=13e2
+[CX] Combinación correcta: 13e2 = 13e2
+[WRITE] SEL=b, DATA=6f89
+[DX] Combinación correcta: 6f89 = 6f89
+
+=== Prueba 42 ===
+[WRITE] SEL=6, DATA=73d3
+
+=== Prueba 43 ===
+[WRITE] SEL=4, DATA=acaf
+
+=== Prueba 44 ===
+[SCOREBOARD] REG[a] OK: 13d3
+
+=== Prueba 45 ===
+[SCOREBOARD] REG[e] OK: 05ca
+
+=== Prueba 46 ===
+[WRITE] SEL=1, DATA=04da
+
+=== Prueba 47 ===
