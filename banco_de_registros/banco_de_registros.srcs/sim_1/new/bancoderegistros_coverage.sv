@@ -1,18 +1,18 @@
 `timescale 1ns / 1ps
 
 module bancoderegistros_coverage(input clk, input [3:0] sel, input wr, input rd);
-    // Grupo de cobertura
     covergroup cg_registros @(posedge clk);
-        // Cobertura de selección de registros
+        option.per_instance = 1;
+        option.comment = "Cobertura del banco de registros";
+        
         cp_sel: coverpoint sel {
-            bins combinados = {8,9,10,11};  // AX-DX
-            bins bajas = {4,5,6,7};         // AL-BL
-            bins altas = {0,1,2,3};         // AH-BH
-            bins punteros = {12,13,14,15};  // SP-DI
-            illegal_bins invalid = default; // Valores no definidos
+            bins combinados[] = {[8:11]};  // AX, BX, CX, DX
+            bins bajas[] = {[4:7]};        // AL, BL, CL, DL
+            bins altas[] = {[0:3]};        // AH, BH, CH, DH
+            bins punteros[] = {[12:15]};   // SP, BP, SI, DI
+            illegal_bins invalid = default;
         }
         
-        // Cobertura de operaciones
         cp_ops: coverpoint {wr,rd} {
             bins escritura = {2'b10};
             bins lectura = {2'b01};
@@ -20,17 +20,29 @@ module bancoderegistros_coverage(input clk, input [3:0] sel, input wr, input rd)
             bins idle = {2'b00};
         }
         
-        // Cruzado entre operaciones y selección
-        cruzado: cross cp_sel, cp_ops;
+        cruzado: cross cp_sel, cp_ops {
+            bins write_ax = binsof(cp_sel.combinados) intersect {8} && binsof(cp_ops.escritura);
+            bins read_bx = binsof(cp_sel.combinados) intersect {9} && binsof(cp_ops.lectura);
+            // Add more cross bins as needed
+        }
     endgroup
     
-    // Instancia del grupo de cobertura
     cg_registros cov = new();
     
-    // Función para obtener porcentaje de cobertura
+    // Sample on every clock edge when conditions are met
+    always @(posedge clk) begin
+        cov.sample();
+    end
+    
     function real get_coverage();
-        real total;
-        total = cov.get_inst_coverage();
-        return total;
+        return cov.get_inst_coverage();
     endfunction
+    
+    // Add periodic coverage display
+    initial begin
+        forever begin
+            #1000; // Adjust timing as needed
+            $display("[COVERAGE] Current coverage: %.2f%%", get_coverage());
+        end
+    end
 endmodule

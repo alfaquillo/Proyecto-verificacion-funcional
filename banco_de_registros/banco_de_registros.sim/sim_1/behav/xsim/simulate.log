@@ -3,179 +3,466 @@ Time resolution is 1 ps
 Iniciando simulacion...
 [SCOREBOARD] Modelo reseteado
 
-=== TEST 1: Reset ===
-[SCOREBOARD] Modelo reseteado
-[SCOREBOARD] REG[0] OK: 0000
-[SCOREBOARD] REG[1] OK: 0000
-[SCOREBOARD] REG[2] OK: 0000
-[SCOREBOARD] REG[3] OK: 0000
-[SCOREBOARD] REG[4] OK: 0000
-[SCOREBOARD] REG[5] OK: 0000
-[SCOREBOARD] REG[6] OK: 0000
-[SCOREBOARD] REG[7] OK: 0000
-[SCOREBOARD] REG[8] OK: 0000
-[SCOREBOARD] REG[9] OK: 0000
-[SCOREBOARD] REG[a] OK: 0000
-[SCOREBOARD] REG[b] OK: 0000
-[SCOREBOARD] REG[c] OK: 0000
-[SCOREBOARD] REG[d] OK: 0000
-[SCOREBOARD] REG[e] OK: 0000
-[SCOREBOARD] REG[f] OK: 0000
-
 === TEST 2: Operaciones Aleatorias (100 pruebas) ===
 
-=== Prueba 1 ===
+=== Prueba 0 ===
 [SCOREBOARD] REG[a] OK: 0000
 
-=== Prueba 2 ===
+=== Prueba 1 ===
 [WRITE] SEL=4, DATA=8ab2
 
-=== Prueba 3 ===
+=== Prueba 2 ===
 [WRITE] SEL=c, DATA=1f44
 
-=== Prueba 4 ===
+=== Prueba 3 ===
 [WRITE] SEL=a, DATA=366d
 
-=== Prueba 5 ===
+=== Prueba 4 ===
 [SCOREBOARD] REG[5] OK: 0000
 
-=== Prueba 6 ===
+=== Prueba 5 ===
 [WRITE] SEL=1, DATA=71db
 
-=== Prueba 7 ===
+=== Prueba 6 ===
 [WRITE] SEL=5, DATA=80a3
 
-=== Prueba 8 ===
+=== Prueba 7 ===
 [SCOREBOARD] REG[7] OK: 0000
 
-=== Prueba 9 ===
+=== Prueba 8 ===
 [WRITE] SEL=f, DATA=4bd9
 
-=== Prueba 10 ===
+=== Prueba 9 ===
 [WRITE] SEL=c, DATA=cd58
+[WRITE] SEL=8, DATA=9af7
+[SCOREBOARD] REG[0] OK: 9a00
+[SCOREBOARD] REG[4] OK: 00f7
+[AX] Combinación correcta: 9af7 = 9af7
+[WRITE] SEL=9, DATA=298d
+[SCOREBOARD] REG[1] OK: 2900
+[SCOREBOARD] REG[5] OK: 008d
+[BX] Combinación correcta: 298d = 298d
+[WRITE] SEL=a, DATA=22e4
+[SCOREBOARD] REG[2] OK: 2200
+[SCOREBOARD] REG[6] OK: 00e4
+[CX] Combinación correcta: 22e4 = 22e4
+[WRITE] SEL=b, DATA=6cd1
+[SCOREBOARD] REG[3] OK: 6c00
+[SCOREBOARD] REG[7] OK: 00d1
+[DX] Combinación correcta: 6cd1 = 6cd1
+
+=== Prueba 10 ===
+[WRITE] SEL=5, DATA=9a39
 
 === Prueba 11 ===
-[WRITE] SEL=2, DATA=22e4
+[WRITE] SEL=8, DATA=7ab8
 
 === Prueba 12 ===
-[WRITE] SEL=e, DATA=527d
+[WRITE] SEL=2, DATA=2c8b
 
 === Prueba 13 ===
-[WRITE] SEL=e, DATA=8beb
+[WRITE] SEL=4, DATA=83d2
 
 === Prueba 14 ===
-[WRITE] SEL=c, DATA=2d97
+[WRITE] SEL=9, DATA=eb08
 
 === Prueba 15 ===
 [SCOREBOARD] REG[d] OK: 0000
 
 === Prueba 16 ===
-[WRITE] SEL=8, DATA=9c7f
+[WRITE] SEL=5, DATA=80d7
 
 === Prueba 17 ===
-[WRITE] SEL=e, DATA=05ca
+[SCOREBOARD] REG[4] OK: 00d2
 
 === Prueba 18 ===
-[WRITE] SEL=f, DATA=5005
-
-=== Prueba 19 ===
-[WRITE] SEL=1, DATA=4b22
-
-=== Prueba 20 ===
 [WRITE] SEL=9, DATA=afdd
 
-=== Prueba 21 ===
-[SCOREBOARD] REG[b] OK: 0000
+=== Prueba 19 ===
+[SCOREBOARD] REG[b] OK: 6cd1
 [WRITE] SEL=8, DATA=65da
+[SCOREBOARD] REG[0] OK: 6500
+[SCOREBOARD] REG[4] OK: 00da
 [AX] Combinación correcta: 65da = 65da
 [WRITE] SEL=9, DATA=b086
+[SCOREBOARD] REG[1] OK: b000
+[SCOREBOARD] REG[5] OK: 0086
 [BX] Combinación correcta: b086 = b086
 [WRITE] SEL=a, DATA=0f4f
+[SCOREBOARD] REG[2] OK: 0f00
+[SCOREBOARD] REG[6] OK: 004f
 [CX] Combinación correcta: 0f4f = 0f4f
 [WRITE] SEL=b, DATA=3b82
+[SCOREBOARD] REG[3] OK: 3b00
+[SCOREBOARD] REG[7] OK: 0082
 [DX] Combinación correcta: 3b82 = 3b82
 
-=== Prueba 22 ===
+=== Prueba 20 ===
 [WRITE] SEL=c, DATA=fcf6
 
-=== Prueba 23 ===
+=== Prueba 21 ===
 [WRITE] SEL=9, DATA=01f6
 
-=== Prueba 24 ===
+=== Prueba 22 ===
 [WRITE] SEL=6, DATA=bd5d
 
-=== Prueba 25 ===
+=== Prueba 23 ===
 [SCOREBOARD] REG[c] OK: fcf6
 
-=== Prueba 26 ===
+=== Prueba 24 ===
 [SCOREBOARD] REG[8] OK: 65da
 
-=== Prueba 27 ===
+=== Prueba 25 ===
 [WRITE] SEL=0, DATA=b73e
 
-=== Prueba 28 ===
+=== Prueba 26 ===
 [WRITE] SEL=f, DATA=3e4b
 
-=== Prueba 29 ===
+=== Prueba 27 ===
 [WRITE] SEL=0, DATA=c25f
 
-=== Prueba 30 ===
+=== Prueba 28 ===
 [WRITE] SEL=9, DATA=97b5
 
-=== Prueba 31 ===
+=== Prueba 29 ===
 [WRITE] SEL=8, DATA=33a5
+[WRITE] SEL=8, DATA=1b4f
+[SCOREBOARD] REG[0] OK: 1b00
+[SCOREBOARD] REG[4] OK: 004f
+[AX] Combinación correcta: 1b4f = 1b4f
+[WRITE] SEL=9, DATA=489d
+[SCOREBOARD] REG[1] OK: 4800
+[SCOREBOARD] REG[5] OK: 009d
+[BX] Combinación correcta: 489d = 489d
+[COVERAGE] Current coverage: 76.04%
+[WRITE] SEL=a, DATA=88c3
+[SCOREBOARD] REG[2] OK: 8800
+[SCOREBOARD] REG[6] OK: 00c3
+[CX] Combinación correcta: 88c3 = 88c3
+[WRITE] SEL=b, DATA=0be7
+[SCOREBOARD] REG[3] OK: 0b00
+[SCOREBOARD] REG[7] OK: 00e7
+[DX] Combinación correcta: 0be7 = 0be7
 
-=== Prueba 32 ===
-[SCOREBOARD] REG[4] OK: 00a5
+=== Prueba 30 ===
+[WRITE] SEL=2, DATA=ccd0
 
-=== Prueba 33 ===
-[WRITE] SEL=0, DATA=420a
-
-=== Prueba 34 ===
-[SCOREBOARD] REG[c] OK: fcf6
-
-=== Prueba 35 ===
+=== Prueba 31 ===
 [WRITE] SEL=3, DATA=8f8e
 
-=== Prueba 36 ===
+=== Prueba 32 ===
 [WRITE] SEL=5, DATA=6e2d
 
-=== Prueba 37 ===
-[SCOREBOARD] REG[9] OK: 972d
+=== Prueba 33 ===
+[SCOREBOARD] REG[9] OK: 482d
 
-=== Prueba 38 ===
+=== Prueba 34 ===
 [WRITE] SEL=1, DATA=78d2
 
-=== Prueba 39 ===
+=== Prueba 35 ===
 [WRITE] SEL=a, DATA=99ad
 
-=== Prueba 40 ===
+=== Prueba 36 ===
 [WRITE] SEL=5, DATA=79dc
 
-=== Prueba 41 ===
+=== Prueba 37 ===
 [WRITE] SEL=6, DATA=b9e9
-[WRITE] SEL=8, DATA=bf6a
-[AX] Combinación correcta: bf6a = bf6a
-[WRITE] SEL=9, DATA=cd56
-[BX] Combinación correcta: cd56 = cd56
-[WRITE] SEL=a, DATA=13e2
-[CX] Combinación correcta: 13e2 = 13e2
-[WRITE] SEL=b, DATA=6f89
-[DX] Combinación correcta: 6f89 = 6f89
+
+=== Prueba 38 ===
+[WRITE] SEL=c, DATA=13e2
+
+=== Prueba 39 ===
+[WRITE] SEL=7, DATA=68b0
+[WRITE] SEL=8, DATA=73d3
+[SCOREBOARD] REG[0] OK: 7300
+[SCOREBOARD] REG[4] OK: 00d3
+[AX] Combinación correcta: 73d3 = 73d3
+[WRITE] SEL=9, DATA=97a0
+[SCOREBOARD] REG[1] OK: 9700
+[SCOREBOARD] REG[5] OK: 00a0
+[BX] Combinación correcta: 97a0 = 97a0
+[WRITE] SEL=a, DATA=4c6a
+[SCOREBOARD] REG[2] OK: 4c00
+[SCOREBOARD] REG[6] OK: 006a
+[CX] Combinación correcta: 4c6a = 4c6a
+[WRITE] SEL=b, DATA=acaf
+[SCOREBOARD] REG[3] OK: ac00
+[SCOREBOARD] REG[7] OK: 00af
+[DX] Combinación correcta: acaf = acaf
+
+=== Prueba 40 ===
+[SCOREBOARD] REG[a] OK: 4c6a
+
+=== Prueba 41 ===
+[SCOREBOARD] REG[e] OK: 0000
 
 === Prueba 42 ===
-[WRITE] SEL=6, DATA=73d3
-
-=== Prueba 43 ===
-[WRITE] SEL=4, DATA=acaf
-
-=== Prueba 44 ===
-[SCOREBOARD] REG[a] OK: 13d3
-
-=== Prueba 45 ===
-[SCOREBOARD] REG[e] OK: 05ca
-
-=== Prueba 46 ===
 [WRITE] SEL=1, DATA=04da
 
+=== Prueba 43 ===
+[WRITE] SEL=b, DATA=3b56
+
+=== Prueba 44 ===
+[WRITE] SEL=c, DATA=7791
+
+=== Prueba 45 ===
+[WRITE] SEL=f, DATA=ef41
+
+=== Prueba 46 ===
+[WRITE] SEL=0, DATA=63a0
+
 === Prueba 47 ===
+[WRITE] SEL=b, DATA=e88e
+
+=== Prueba 48 ===
+[WRITE] SEL=4, DATA=6612
+
+=== Prueba 49 ===
+[WRITE] SEL=9, DATA=c4f5
+[WRITE] SEL=8, DATA=0ec0
+[SCOREBOARD] REG[0] OK: 0e00
+[SCOREBOARD] REG[4] OK: 00c0
+[AX] Combinación correcta: 0ec0 = 0ec0
+[WRITE] SEL=9, DATA=999f
+[SCOREBOARD] REG[1] OK: 9900
+[SCOREBOARD] REG[5] OK: 009f
+[BX] Combinación correcta: 999f = 999f
+[WRITE] SEL=a, DATA=6163
+[SCOREBOARD] REG[2] OK: 6100
+[SCOREBOARD] REG[6] OK: 0063
+[CX] Combinación correcta: 6163 = 6163
+[WRITE] SEL=b, DATA=f150
+[SCOREBOARD] REG[3] OK: f100
+[SCOREBOARD] REG[7] OK: 0050
+[DX] Combinación correcta: f150 = f150
+
+=== Prueba 50 ===
+[WRITE] SEL=9, DATA=2c2e
+
+=== Prueba 51 ===
+[WRITE] SEL=0, DATA=b1ca
+
+=== Prueba 52 ===
+[WRITE] SEL=4, DATA=1119
+
+=== Prueba 53 ===
+[SCOREBOARD] REG[5] OK: 002e
+
+=== Prueba 54 ===
+[WRITE] SEL=4, DATA=4c3c
+
+=== Prueba 55 ===
+[WRITE] SEL=4, DATA=b221
+
+=== Prueba 56 ===
+[SCOREBOARD] REG[5] OK: 002e
+
+=== Prueba 57 ===
+[SCOREBOARD] REG[9] OK: 2c2e
+
+=== Prueba 58 ===
+[WRITE] SEL=7, DATA=5f47
+
+=== Prueba 59 ===
+[WRITE] SEL=8, DATA=9450
+[WRITE] SEL=8, DATA=a316
+[SCOREBOARD] REG[0] OK: a300
+[COVERAGE] Current coverage: 81.25%
+[SCOREBOARD] REG[4] OK: 0016
+[AX] Combinación correcta: a316 = a316
+[WRITE] SEL=9, DATA=c1fc
+[SCOREBOARD] REG[1] OK: c100
+[SCOREBOARD] REG[5] OK: 00fc
+[BX] Combinación correcta: c1fc = c1fc
+[WRITE] SEL=a, DATA=4877
+[SCOREBOARD] REG[2] OK: 4800
+[SCOREBOARD] REG[6] OK: 0077
+[CX] Combinación correcta: 4877 = 4877
+[WRITE] SEL=b, DATA=5b2c
+[SCOREBOARD] REG[3] OK: 5b00
+[SCOREBOARD] REG[7] OK: 002c
+[DX] Combinación correcta: 5b2c = 5b2c
+
+=== Prueba 60 ===
+[WRITE] SEL=f, DATA=c4d0
+
+=== Prueba 61 ===
+[WRITE] SEL=b, DATA=4595
+
+=== Prueba 62 ===
+[SCOREBOARD] REG[8] OK: a316
+
+=== Prueba 63 ===
+[WRITE] SEL=2, DATA=662b
+
+=== Prueba 64 ===
+[WRITE] SEL=a, DATA=232f
+
+=== Prueba 65 ===
+[WRITE] SEL=8, DATA=6405
+
+=== Prueba 66 ===
+[WRITE] SEL=6, DATA=cc11
+
+=== Prueba 67 ===
+[WRITE] SEL=1, DATA=11f3
+
+=== Prueba 68 ===
+[WRITE] SEL=9, DATA=f248
+
+=== Prueba 69 ===
+[WRITE] SEL=6, DATA=720c
+[WRITE] SEL=8, DATA=021f
+[SCOREBOARD] REG[0] OK: 0200
+[SCOREBOARD] REG[4] OK: 001f
+[AX] Combinación correcta: 021f = 021f
+[WRITE] SEL=9, DATA=b9e0
+[SCOREBOARD] REG[1] OK: b900
+[SCOREBOARD] REG[5] OK: 00e0
+[BX] Combinación correcta: b9e0 = b9e0
+[WRITE] SEL=a, DATA=f61b
+[SCOREBOARD] REG[2] OK: f600
+[SCOREBOARD] REG[6] OK: 001b
+[CX] Combinación correcta: f61b = f61b
+[WRITE] SEL=b, DATA=fe61
+[SCOREBOARD] REG[3] OK: fe00
+[SCOREBOARD] REG[7] OK: 0061
+[DX] Combinación correcta: fe61 = fe61
+
+=== Prueba 70 ===
+[WRITE] SEL=5, DATA=2873
+
+=== Prueba 71 ===
+[WRITE] SEL=2, DATA=2e5f
+
+=== Prueba 72 ===
+[WRITE] SEL=2, DATA=f6c1
+
+=== Prueba 73 ===
+[WRITE] SEL=a, DATA=336b
+
+=== Prueba 74 ===
+[SCOREBOARD] REG[5] OK: 0073
+
+=== Prueba 75 ===
+[WRITE] SEL=9, DATA=7867
+
+=== Prueba 76 ===
+[SCOREBOARD] REG[8] OK: 021f
+
+=== Prueba 77 ===
+[WRITE] SEL=e, DATA=c622
+
+=== Prueba 78 ===
+[WRITE] SEL=b, DATA=c67d
+
+=== Prueba 79 ===
+[WRITE] SEL=f, DATA=9ccd
+[WRITE] SEL=8, DATA=0fc1
+[SCOREBOARD] REG[0] OK: 0f00
+[SCOREBOARD] REG[4] OK: 00c1
+[AX] Combinación correcta: 0fc1 = 0fc1
+[WRITE] SEL=9, DATA=5f93
+[SCOREBOARD] REG[1] OK: 5f00
+[SCOREBOARD] REG[5] OK: 0093
+[BX] Combinación correcta: 5f93 = 5f93
+[WRITE] SEL=a, DATA=9a89
+[SCOREBOARD] REG[2] OK: 9a00
+[SCOREBOARD] REG[6] OK: 0089
+[CX] Combinación correcta: 9a89 = 9a89
+[WRITE] SEL=b, DATA=17c2
+[SCOREBOARD] REG[3] OK: 1700
+[SCOREBOARD] REG[7] OK: 00c2
+[DX] Combinación correcta: 17c2 = 17c2
+
+=== Prueba 80 ===
+[WRITE] SEL=c, DATA=3d5c
+
+=== Prueba 81 ===
+[WRITE] SEL=2, DATA=28f1
+
+=== Prueba 82 ===
+[WRITE] SEL=5, DATA=a9c1
+
+=== Prueba 83 ===
+[WRITE] SEL=c, DATA=a6ef
+
+=== Prueba 84 ===
+[WRITE] SEL=b, DATA=39f3
+
+=== Prueba 85 ===
+[SCOREBOARD] REG[9] OK: 5fc1
+
+=== Prueba 86 ===
+[WRITE] SEL=c, DATA=14e3
+
+=== Prueba 87 ===
+[WRITE] SEL=2, DATA=a94c
+
+=== Prueba 88 ===
+[COVERAGE] Current coverage: 81.77%
+[WRITE] SEL=c, DATA=1f70
+
+=== Prueba 89 ===
+[SCOREBOARD] REG[8] OK: 0fc1
+[WRITE] SEL=8, DATA=f77b
+[SCOREBOARD] REG[0] OK: f700
+[SCOREBOARD] REG[4] OK: 007b
+[AX] Combinación correcta: f77b = f77b
+[WRITE] SEL=9, DATA=0747
+[SCOREBOARD] REG[1] OK: 0700
+[SCOREBOARD] REG[5] OK: 0047
+[BX] Combinación correcta: 0747 = 0747
+[WRITE] SEL=a, DATA=5ccd
+[SCOREBOARD] REG[2] OK: 5c00
+[SCOREBOARD] REG[6] OK: 00cd
+[CX] Combinación correcta: 5ccd = 5ccd
+[WRITE] SEL=b, DATA=acfd
+[SCOREBOARD] REG[3] OK: ac00
+[SCOREBOARD] REG[7] OK: 00fd
+[DX] Combinación correcta: acfd = acfd
+
+=== Prueba 90 ===
+[WRITE] SEL=6, DATA=853e
+
+=== Prueba 91 ===
+[WRITE] SEL=e, DATA=7353
+
+=== Prueba 92 ===
+[WRITE] SEL=6, DATA=5faa
+
+=== Prueba 93 ===
+[WRITE] SEL=d, DATA=af33
+
+=== Prueba 94 ===
+[WRITE] SEL=f, DATA=cc84
+
+=== Prueba 95 ===
+[WRITE] SEL=d, DATA=587a
+
+=== Prueba 96 ===
+[WRITE] SEL=5, DATA=7c35
+
+=== Prueba 97 ===
+[SCOREBOARD] REG[e] OK: 7353
+
+=== Prueba 98 ===
+[SCOREBOARD] REG[e] OK: 7353
+
+=== Prueba 99 ===
+[WRITE] SEL=4, DATA=9d92
+
+=== RESUMEN FINAL DETALLADO ===
+Pruebas totales:     208
+Pruebas correctas:   208
+Pruebas incorrectas: 0
+Errores de cobertura: 0
+Coverage:           0.00%
+
+=== TODAS LAS PRUEBAS PASARON EXITOSAMENTE ===
+
+=== ADVERTENCIA: Coverage bajo (0.00%) ===
+Revisar los casos no cubiertos en el reporte de coverage
+
+=== Simulacion completada ===
+$finish called at time : 3486 ns : File "C:/Vivado/banco_de_registros/banco_de_registros.srcs/sim_1/new/bancoderegistros_tb.sv" Line 200
