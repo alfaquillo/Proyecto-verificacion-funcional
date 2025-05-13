@@ -1,0 +1,42 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Tiempo:                    0 | CLK=0 RST=1 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Tiempo:                 5000 | CLK=1 RST=1 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Tiempo:                10000 | CLK=0 RST=1 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Tiempo:                15000 | CLK=1 RST=1 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Tiempo:                20000 | CLK=0 RST=0 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Tiempo:                25000 | CLK=1 RST=0 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Tiempo:                30000 | CLK=0 RST=0 IWR=1 IRD=0 RD=0 WR=0 DataBus=80 InternalBus=zz
+Tiempo:                35000 | CLK=1 RST=0 IWR=1 IRD=0 RD=0 WR=0 DataBus=80 InternalBus=zz
+Test 1: Reset funcionando correctamente
+Tiempo:                40000 | CLK=0 RST=0 IWR=0 IRD=0 RD=0 WR=1 DataBus=zz InternalBus=ab
+Tiempo:                45000 | CLK=1 RST=0 IWR=0 IRD=0 RD=0 WR=1 DataBus=zz InternalBus=ab
+Tiempo:                50000 | CLK=0 RST=0 IWR=0 IRD=0 RD=0 WR=1 DataBus=zz InternalBus=ab
+Tiempo:                55000 | CLK=1 RST=0 IWR=0 IRD=0 RD=0 WR=1 DataBus=zz InternalBus=ab
+Tiempo:                60000 | CLK=0 RST=0 IWR=1 IRD=0 RD=0 WR=0 DataBus=ab InternalBus=zz
+Tiempo:                65000 | CLK=1 RST=0 IWR=1 IRD=0 RD=0 WR=0 DataBus=ab InternalBus=zz
+Test 2: Escritura desde InternalBus correcta
+Tiempo:                70000 | CLK=0 RST=0 IWR=0 IRD=1 RD=0 WR=1 DataBus=ef InternalBus=zz
+Tiempo:                75000 | CLK=1 RST=0 IWR=0 IRD=1 RD=0 WR=1 DataBus=ef InternalBus=zz
+Tiempo:                80000 | CLK=0 RST=0 IWR=0 IRD=1 RD=0 WR=1 DataBus=ef InternalBus=zz
+Tiempo:                85000 | CLK=1 RST=0 IWR=0 IRD=1 RD=0 WR=1 DataBus=ef InternalBus=zz
+Tiempo:                90000 | CLK=0 RST=0 IWR=0 IRD=0 RD=1 WR=0 DataBus=zz InternalBus=ef
+Tiempo:                95000 | CLK=1 RST=0 IWR=0 IRD=0 RD=1 WR=0 DataBus=zz InternalBus=ef
+Test 3: Escritura desde DataBus y lectura correctas
+Tiempo:               100000 | CLK=0 RST=0 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Tiempo:               105000 | CLK=1 RST=0 IWR=0 IRD=0 RD=0 WR=0 DataBus=zz InternalBus=zz
+Test 4: Alta impedancia funcionando correctamente
+Tiempo:               110000 | CLK=0 RST=0 IWR=0 IRD=0 RD=0 WR=0 DataBus=11 InternalBus=22
+Tiempo:               115000 | CLK=1 RST=0 IWR=0 IRD=0 RD=0 WR=0 DataBus=11 InternalBus=22
+Tiempo:               120000 | CLK=0 RST=0 IWR=1 IRD=1 RD=1 WR=1 DataBus=Xf InternalBus=XX
+Tiempo:               125000 | CLK=1 RST=1 IWR=1 IRD=1 RD=1 WR=1 DataBus=ff InternalBus=55
+Error: Error: Buses deberían estar en alta impedancia inmediatamente
+Time: 126 ns  Iteration: 0  Process: /BufINOUT_tb/Initial66_3  File: /home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bufinout_tb.sv
+Tiempo:               130000 | CLK=0 RST=1 IWR=1 IRD=1 RD=0 WR=1 DataBus=ff InternalBus=55
+Tiempo:               135000 | CLK=1 RST=1 IWR=1 IRD=1 RD=0 WR=1 DataBus=ff InternalBus=55
+Error: Error post-reset: DataBus = ff, esperado 80
+Time: 140 ns  Iteration: 0  Process: /BufINOUT_tb/Initial66_3  File: /home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bufinout_tb.sv
+Tiempo:               140000 | CLK=0 RST=1 IWR=1 IRD=1 RD=0 WR=1 DataBus=ff InternalBus=55
+Tiempo:               145000 | CLK=1 RST=1 IWR=1 IRD=1 RD=0 WR=1 DataBus=ff InternalBus=55
+Todos los tests completados
+$finish called at time : 150 ns : File "/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bufinout_tb.sv" Line 175

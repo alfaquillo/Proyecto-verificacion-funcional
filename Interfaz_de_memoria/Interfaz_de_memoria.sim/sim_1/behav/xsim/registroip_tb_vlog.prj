@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Interfaz_de_memoria.srcs/sources_1/imports/BancoInterfaz/RegistroIP.v" \
+
+sv xil_defaultlib  \
+"../../../../Interfaz_de_memoria.srcs/sim_1/new/registroip_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
