@@ -18,12 +18,12 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module BufferTri8bits (IN, ENA, OUT);
+module BufferTri8bits (
+    input  wire [7:0] IN,
+    input  wire ENA,
+    inout  wire [7:0] OUT
+);
 
-    input [7:0] IN;
-    input ENA;
-    output wire [7:0] OUT;
-
-    assign OUT = (ENA) ? IN : 8'bzzzzzzzz;
+    assign OUT = (ENA) ? IN : 8'bz;
 
 endmodule

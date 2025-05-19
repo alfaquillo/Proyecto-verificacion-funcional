@@ -1,7 +1,7 @@
-Running: xsim.dir/BufINOUT_tb_behav/xsimk -simmode gui -wdb BufINOUT_tb_behav.wdb -simrunnum 0 -socket 39451
+Running: xsim.dir/BufINOUT_tb_behav/xsimk -simmode gui -wdb BufINOUT_tb_behav.wdb -simrunnum 0 -socket 33285
 Design successfully loaded
-Design Loading Memory Usage: 32928 KB (Peak: 33536 KB)
-Design Loading CPU Usage: 40 ms
+Design Loading Memory Usage: 32932 KB (Peak: 33540 KB)
+Design Loading CPU Usage: 50 ms
 Simulation completed
-Simulation Memory Usage: 114924 KB (Peak: 172196 KB)
-Simulation CPU Usage: 60 ms
+Simulation Memory Usage: 114928 KB (Peak: 172200 KB)
+Simulation CPU Usage: 50 ms
