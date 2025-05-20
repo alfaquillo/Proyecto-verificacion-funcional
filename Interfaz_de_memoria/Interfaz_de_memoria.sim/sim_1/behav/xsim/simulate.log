@@ -50,4 +50,4 @@ Tiempo:               200000 | CLK=0 RST=0 ENA=1 DATAIN=ff DATAOUT=ffffffff
 Tiempo:               205000 | CLK=1 RST=0 ENA=1 DATAIN=ff DATAOUT=ffffffff
 Todos los tests completados
 $finish called at time : 210 ns : File "/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/queue_tb.sv" Line 141
-INFO: xsimkernel Simulation Memory Usage: 484384 KB (Peak: 541656 KB), Simulation CPU Usage: 1950 ms
+INFO: xsimkernel Simulation Memory Usage: 484388 KB (Peak: 541660 KB), Simulation CPU Usage: 2330 ms
