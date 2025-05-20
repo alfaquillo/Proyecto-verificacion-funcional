@@ -1,24 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 13.05.2025 15:10:52
-// Design Name: 
-// Module Name: queue_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module queue_tb;
 
@@ -126,7 +106,7 @@ module queue_tb;
             $error("Error llenado completo: DATAOUT = %h, esperado 11223344", DATAOUT);
         else
             $display("Test 5: Llenado completo funcionando correctamente");
-        // 6. Test de valores alternos
+                // 6. Test de valores alternos
         ENA = 1;
         DATAIN = 8'hAA;
         #10;
@@ -153,8 +133,8 @@ module queue_tb;
         if (DATAOUT !== 32'hFFFFFFFF) 
             $error("Error valores máximos: DATAOUT = %h, esperado FFFFFFFF", DATAOUT);
         else
-        $display("Test 7: Valores máximos funcionando correctamente");
-        
+            $display("Test 7: Valores máximos funcionando correctamente");
+    
         // Finalizar simulación
         #10;
         $display("Todos los tests completados");

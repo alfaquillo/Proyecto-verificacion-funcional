@@ -20,13 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Registro8bitsEna (
-    input CLK, RST, ENA,
-    input [7:0] D,
+    input wire CLK,
+    input wire RST,
+    input wire ENA,
+    input wire [7:0] D,
     output reg [7:0] Q
 );
-    always @(posedge CLK or posedge RST)
+    always @(posedge CLK or posedge RST) begin
         if (RST)
-            Q <= 8'h80;  
+            Q <= 8'h80;
         else if (ENA)
             Q <= D;
+    end
 endmodule

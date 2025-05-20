@@ -1,6 +1,7 @@
-Vivado Simulator 2019.2
-Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: /home/alfaquillo/tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 99950cfc254e48ed950a5362ccaf5f68 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot BancoInterfaz8088_tb_behav xil_defaultlib.BancoInterfaz8088_tb xil_defaultlib.glbl -log elaborate.log 
+Vivado Simulator v2024.2.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/alfaquillo/tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot queue_tb_behav xil_defaultlib.queue_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -8,19 +9,8 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.Multiplexor6a1de16bits
-Compiling module xil_defaultlib.Sumador16bits
-Compiling module xil_defaultlib.Multiplexor2a1de16bits
-Compiling module xil_defaultlib.Multiplexor4a1de16bits
-Compiling module xil_defaultlib.Sumador20bits
-Compiling module xil_defaultlib.GenDir
-Compiling module xil_defaultlib.RegistroIP
-Compiling module xil_defaultlib.Registro8bitsEna
+Compiling module xil_defaultlib.Registro8Ena
 Compiling module xil_defaultlib.queue
-Compiling module xil_defaultlib.Multiplexor2a1de8bits
-Compiling module xil_defaultlib.BufferTri8bits
-Compiling module xil_defaultlib.BufINOUT
-Compiling module xil_defaultlib.BancoInterfaz8088
-Compiling module xil_defaultlib.BancoInterfaz8088_tb
+Compiling module xil_defaultlib.queue_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot BancoInterfaz8088_tb_behav
+Built simulation snapshot queue_tb_behav

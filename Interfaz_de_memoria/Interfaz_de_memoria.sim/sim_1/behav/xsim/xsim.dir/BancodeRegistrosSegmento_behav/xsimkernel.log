@@ -1,0 +1,7 @@
+Running: xsim.dir/BancodeRegistrosSegmento_behav/xsimk -simmode gui -wdb BancodeRegistrosSegmento_behav.wdb -simrunnum 0 -socket 56197
+Design successfully loaded
+Design Loading Memory Usage: 402384 KB (Peak: 402504 KB)
+Design Loading CPU Usage: 1700 ms
+Simulation completed
+Simulation Memory Usage: 484120 KB (Peak: 541652 KB)
+Simulation CPU Usage: 1710 ms
