@@ -11,7 +11,7 @@ module Multiplexor4a1de16bits (A, B, C, D, SEL, OUT);
             2'd1: OUT = B;
             2'd2: OUT = C;
             2'd3: OUT = D;
-            default: OUT = 16'd0;  // Good practice to include default
+            default: OUT = 16'd0;
         endcase
     end
 

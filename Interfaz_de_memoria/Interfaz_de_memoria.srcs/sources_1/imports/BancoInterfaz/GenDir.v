@@ -5,7 +5,7 @@
 // 
 // Create Date: 13.05.2025 15:24:21
 // Design Name: 
-// Module Name: 
+// Module Name: GenDir
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,40 +20,53 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module GenDir (
-    input OP,                // Direcciona datos (1) o instrucciones (0)
+    input OP,                // 0=instrucción, 1=datos
     input [1:0] SEG_SEL,     // Selector de segmento
-    input [2:0] M1_SEL,      // Selector MUX1
-    input [2:0] M2_SEL,      // Selector MUX2
-    input [15:0] BX,SI,DI,BP,SP,  // Registros de propósito general
-    input [15:0] CS,ES,SS,DS,     // Registros de segmento
-    input [15:0] IP,              // Instruction Pointer
-    input [15:0] DESP,            // Desplazamiento
-    output wire [19:0] DIR        // Dirección física de 20 bits
+    input [2:0] M1_SEL,      // Selector MUX1 (primer registro)
+    input [2:0] M2_SEL,      // Selector MUX2 (segundo registro)
+    input [15:0] BX, SI, DI, BP, SP,
+    input [15:0] CS, ES, SS, DS,
+    input [15:0] IP,
+    input [15:0] DESP,
+    output wire [19:0] DIR
 );
 
-    // Multiplexores para Direccionar con registros
-    wire [15:0] OUT_MUX1, OUT_MUX2;
-    Multiplexor6a1de16bits M1(BX,SI,DI,BP,SP,16'b0, M1_SEL, OUT_MUX1);
-    Multiplexor6a1de16bits M2(BX,SI,DI,BP,SP,16'b0, M2_SEL, OUT_MUX2);
+    // Registros seleccionados
+    wire [15:0] reg1, reg2;
+    
+    // Multiplexores para selección de registros
+    Multiplexor6a1de16bits MUX1(
+        .A(BX), .B(SI), .C(DI), .D(BP), .E(SP), .F(16'b0),
+        .SEL(M1_SEL),
+        .OUT(reg1)
+    );
+    
+    Multiplexor6a1de16bits MUX2(
+        .A(BX), .B(SI), .C(DI), .D(BP), .E(SP), .F(16'b0),
+        .SEL(M2_SEL),
+        .OUT(reg2)
+    );
 
-    // Sumadores para cálculo de dirección efectiva
-    wire [15:0] OUT_SUM1, OUT_SUM2;
-    Sumador16bits SUM1(OUT_MUX1, OUT_MUX2, OUT_SUM1);
-    Sumador16bits SUM2(OUT_SUM1, DESP, OUT_SUM2);
+    // Cálculo de offset
+    wire [15:0] sum_regs, offset;
+    Sumador16bits SUM_REGS(reg1, reg2, sum_regs);
+    Sumador16bits SUM_OFFSET(sum_regs, DESP, offset);
 
-    // Multiplexor para elegir entre IP o dirección calculada
-    wire [15:0] OUT_MUX3;
-    Multiplexor2a1de16bits M3(IP, OUT_SUM2, OP, OUT_MUX3);
+    // Offset efectivo (IP para instrucciones)
+    wire [15:0] effective_offset = OP ? offset : IP;
 
-    // Multiplexor para selección de segmento
-    wire [15:0] OUT_MUX4;
-    Multiplexor4a1de16bits M4(CS, ES, DS, SS, SEG_SEL, OUT_MUX4);
+    // Selección de segmento para datos
+    wire [15:0] data_segment;
+    Multiplexor4a1de16bits MUX_SEG(
+        .A(CS), .B(ES), .C(DS), .D(SS),
+        .SEL(SEG_SEL),
+        .OUT(data_segment)
+    );
 
-    // Multiplexor para elegir CS o segmento seleccionado
-    wire [15:0] OUT_MUX5;
-    Multiplexor2a1de16bits M5(CS, OUT_MUX4, OP, OUT_MUX5);
+    // Segmento final (CS para instrucciones)
+    wire [15:0] segment = OP ? data_segment : CS;
 
-    // Sumador final para dirección física de 20 bits
-    Sumador20bits SUM_FINAL({4'b0000, OUT_MUX3}, {OUT_MUX5, 4'b0000}, DIR);
+    // Cálculo de dirección física
+    assign DIR = {segment, 4'b0} + effective_offset;
 
 endmodule

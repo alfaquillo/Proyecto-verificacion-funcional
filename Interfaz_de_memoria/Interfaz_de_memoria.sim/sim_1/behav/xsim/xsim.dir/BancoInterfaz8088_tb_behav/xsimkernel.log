@@ -1,7 +1,7 @@
-Running: xsim.dir/BancoInterfaz8088_tb_behav/xsimk -simmode gui -wdb BancoInterfaz8088_tb_behav.wdb -simrunnum 0 -socket 34811
+Running: xsim.dir/BancoInterfaz8088_tb_behav/xsimk -simmode gui -wdb BancoInterfaz8088_tb_behav.wdb -simrunnum 0 -socket 39265
 Design successfully loaded
-Design Loading Memory Usage: 32968 KB (Peak: 33544 KB)
-Design Loading CPU Usage: 60 ms
+Design Loading Memory Usage: 402460 KB (Peak: 402516 KB)
+Design Loading CPU Usage: 1440 ms
 Simulation completed
-Simulation Memory Usage: 114964 KB (Peak: 172236 KB)
-Simulation CPU Usage: 60 ms
+Simulation Memory Usage: 493168 KB (Peak: 541728 KB)
+Simulation CPU Usage: 1460 ms

@@ -1,0 +1,810 @@
+$date
+   Wed May 21 10:36:17 2025
+$end
+
+$version
+  2024.2.2
+  $dumpfile ("BancoInterfaz8088_tb.vcd") 
+$end
+
+$timescale
+  1ps
+$end
+
+$scope module BancoInterfaz8088_tb $end
+$var reg 1 ! CLK $end
+$var reg 1 " RST $end
+$var reg 1 # IOM $end
+$var reg 1 $ DTR $end
+$var reg 1 % DEN $end
+$var reg 1 & ALE $end
+$var reg 1 ' RD $end
+$var reg 1 ( WR $end
+$var reg 1 ) HOLD $end
+$var reg 1 * INTR $end
+$var reg 1 + NMI $end
+$var reg 16 , BX [15:0] $end
+$var reg 16 - SI [15:0] $end
+$var reg 16 . DI [15:0] $end
+$var reg 16 / BP [15:0] $end
+$var reg 16 0 SP [15:0] $end
+$var reg 2 1 SEG_SEL [1:0] $end
+$var reg 3 2 M1_SEL [2:0] $end
+$var reg 3 3 M2_SEL [2:0] $end
+$var reg 16 4 DESP [15:0] $end
+$var reg 1 5 OP $end
+$var reg 1 6 ENA_CS $end
+$var reg 1 7 ENA_DS $end
+$var reg 1 8 ENA_ES $end
+$var reg 1 9 ENA_SS $end
+$var reg 16 : D_CS [15:0] $end
+$var reg 16 ; D_DS [15:0] $end
+$var reg 16 < D_ES [15:0] $end
+$var reg 16 = D_SS [15:0] $end
+$var reg 1 > QUEUE_ENA $end
+$var reg 8 ? QUEUE_IN [7:0] $end
+$var wire 8 @ AD [7:0] $end
+$var wire 20 A A [19:0] $end
+$var wire 32 B QUEUE_OUT [31:0] $end
+$var wire 1 C HLDA $end
+$var wire 1 D INTA $end
+$scope module uut $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 G IOM $end
+$var wire 1 H DTR $end
+$var wire 1 I DEN $end
+$var wire 1 J ALE $end
+$var wire 1 K RD $end
+$var wire 1 L WR $end
+$var wire 1 M HOLD $end
+$var wire 1 C HLDA $end
+$var wire 8 @ AD [7:0] $end
+$var wire 20 A A [19:0] $end
+$var wire 1 N INTR $end
+$var wire 1 O NMI $end
+$var wire 1 D INTA $end
+$var wire 16 P BX [15:0] $end
+$var wire 16 Q SI [15:0] $end
+$var wire 16 R DI [15:0] $end
+$var wire 16 S BP [15:0] $end
+$var wire 16 T SP [15:0] $end
+$var wire 2 U SEG_SEL [1:0] $end
+$var wire 3 V M1_SEL [2:0] $end
+$var wire 3 W M2_SEL [2:0] $end
+$var wire 16 X DESP [15:0] $end
+$var wire 1 Y OP $end
+$var wire 1 Z ENA_CS $end
+$var wire 1 [ ENA_DS $end
+$var wire 1 \ ENA_ES $end
+$var wire 1 ] ENA_SS $end
+$var wire 16 ^ D_CS [15:0] $end
+$var wire 16 _ D_DS [15:0] $end
+$var wire 16 ` D_ES [15:0] $end
+$var wire 16 a D_SS [15:0] $end
+$var wire 1 b QUEUE_ENA $end
+$var wire 8 c QUEUE_IN [7:0] $end
+$var wire 32 B QUEUE_OUT [31:0] $end
+$var wire 16 d reg_CS [15:0] $end
+$var wire 16 e reg_DS [15:0] $end
+$var wire 16 f reg_ES [15:0] $end
+$var wire 16 g reg_SS [15:0] $end
+$var wire 20 h physical_addr [19:0] $end
+$var wire 8 i internal_data_bus [7:0] $end
+$var reg 20 j last_address [19:0] $end
+$var reg 8 k last_data [7:0] $end
+$var reg 8 l queue_history_0 [7:0] $end
+$var reg 8 m queue_history_1 [7:0] $end
+$var reg 8 n queue_history_2 [7:0] $end
+$var reg 8 o queue_history_3 [7:0] $end
+$var reg 1 p hlda_reg $end
+$var reg 1 q inta_reg $end
+$var wire 16 r IP_out [15:0] $end
+$scope module reg_segmentos $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 Z ENA_CS $end
+$var wire 1 [ ENA_DS $end
+$var wire 1 \ ENA_ES $end
+$var wire 1 ] ENA_SS $end
+$var wire 16 ^ D_CS [15:0] $end
+$var wire 16 _ D_DS [15:0] $end
+$var wire 16 ` D_ES [15:0] $end
+$var wire 16 a D_SS [15:0] $end
+$var wire 16 d Q_CS [15:0] $end
+$var wire 16 e Q_DS [15:0] $end
+$var wire 16 f Q_ES [15:0] $end
+$var wire 16 g Q_SS [15:0] $end
+$scope module u_registro_cs $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 Z ENA $end
+$var wire 16 ^ D [15:0] $end
+$var wire 16 d Q [15:0] $end
+$scope module u_registro $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 Z ENA $end
+$var wire 16 ^ D [15:0] $end
+$var reg 16 s Q [15:0] $end
+$upscope $end
+$upscope $end
+$scope module u_registro_ds $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 [ ENA $end
+$var wire 16 _ D [15:0] $end
+$var wire 16 e Q [15:0] $end
+$scope module u_registro $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 [ ENA $end
+$var wire 16 _ D [15:0] $end
+$var reg 16 t Q [15:0] $end
+$upscope $end
+$upscope $end
+$scope module u_registro_es $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 \ ENA $end
+$var wire 16 ` D [15:0] $end
+$var wire 16 f Q [15:0] $end
+$scope module u_registro $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 \ ENA $end
+$var wire 16 ` D [15:0] $end
+$var reg 16 u Q [15:0] $end
+$upscope $end
+$upscope $end
+$scope module u_registro_ss $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 ] ENA $end
+$var wire 16 a D [15:0] $end
+$var wire 16 g Q [15:0] $end
+$scope module u_registro $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 ] ENA $end
+$var wire 16 a D [15:0] $end
+$var reg 16 v Q [15:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module generador_direcciones $end
+$var wire 1 Y OP $end
+$var wire 2 U SEG_SEL [1:0] $end
+$var wire 3 V M1_SEL [2:0] $end
+$var wire 3 W M2_SEL [2:0] $end
+$var wire 16 P BX [15:0] $end
+$var wire 16 Q SI [15:0] $end
+$var wire 16 R DI [15:0] $end
+$var wire 16 S BP [15:0] $end
+$var wire 16 T SP [15:0] $end
+$var wire 16 d CS [15:0] $end
+$var wire 16 f ES [15:0] $end
+$var wire 16 g SS [15:0] $end
+$var wire 16 e DS [15:0] $end
+$var wire 16 w IP [15:0] $end
+$var wire 16 X DESP [15:0] $end
+$var wire 20 h DIR [19:0] $end
+$var wire 16 x OUT_MUX1 [15:0] $end
+$var wire 16 y OUT_MUX2 [15:0] $end
+$var wire 16 z OUT_SUM1 [15:0] $end
+$var wire 16 { OUT_SUM2 [15:0] $end
+$var wire 16 | OUT_MUX3 [15:0] $end
+$var wire 16 } OUT_MUX4 [15:0] $end
+$var wire 16 ~ OUT_MUX5 [15:0] $end
+$scope module M1 $end
+$var wire 16 P A [15:0] $end
+$var wire 16 Q B [15:0] $end
+$var wire 16 R C [15:0] $end
+$var wire 16 S D [15:0] $end
+$var wire 16 T E [15:0] $end
+$var wire 16 !! F [15:0] $end
+$var wire 3 V SEL [2:0] $end
+$var wire 16 x OUT [15:0] $end
+$upscope $end
+$scope module M2 $end
+$var wire 16 P A [15:0] $end
+$var wire 16 Q B [15:0] $end
+$var wire 16 R C [15:0] $end
+$var wire 16 S D [15:0] $end
+$var wire 16 T E [15:0] $end
+$var wire 16 "! F [15:0] $end
+$var wire 3 W SEL [2:0] $end
+$var wire 16 y OUT [15:0] $end
+$upscope $end
+$scope module SUM1 $end
+$var wire 16 x A [15:0] $end
+$var wire 16 y B [15:0] $end
+$var wire 16 z OUT [15:0] $end
+$upscope $end
+$scope module SUM2 $end
+$var wire 16 z A [15:0] $end
+$var wire 16 X B [15:0] $end
+$var wire 16 { OUT [15:0] $end
+$upscope $end
+$scope module M3 $end
+$var wire 16 w A [15:0] $end
+$var wire 16 { B [15:0] $end
+$var wire 1 Y SEL $end
+$var reg 16 #! OUT [15:0] $end
+$upscope $end
+$scope module M4 $end
+$var wire 16 d A [15:0] $end
+$var wire 16 f B [15:0] $end
+$var wire 16 e C [15:0] $end
+$var wire 16 g D [15:0] $end
+$var wire 2 U SEL [1:0] $end
+$var reg 16 $! OUT [15:0] $end
+$upscope $end
+$scope module M5 $end
+$var wire 16 d A [15:0] $end
+$var wire 16 } B [15:0] $end
+$var wire 1 Y SEL $end
+$var reg 16 %! OUT [15:0] $end
+$upscope $end
+$scope module SUM_FINAL $end
+$var wire 20 &! A [19:0] $end
+$var wire 20 '! B [19:0] $end
+$var wire 20 h OUT [19:0] $end
+$upscope $end
+$upscope $end
+$scope module buffer_datos $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 (! IWR $end
+$var wire 1 )! IRD $end
+$var wire 1 K RD $end
+$var wire 1 L WR $end
+$var wire 8 @ DataBus [7:0] $end
+$var wire 8 i InternalBus [7:0] $end
+$var wire 8 *! OUT_MUX [7:0] $end
+$var wire 8 +! OUT_R1 [7:0] $end
+$var wire 1 ,! enableDataBus $end
+$var wire 1 -! enableInternalBus $end
+$scope module M1 $end
+$var wire 8 i A [7:0] $end
+$var wire 8 @ B [7:0] $end
+$var wire 1 )! SEL $end
+$var reg 8 .! OUT [7:0] $end
+$upscope $end
+$scope module R1 $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 L ENA $end
+$var wire 8 *! D [7:0] $end
+$var reg 8 /! Q [7:0] $end
+$upscope $end
+$scope module T1 $end
+$var wire 8 +! IN [7:0] $end
+$var wire 1 ,! ENA $end
+$var wire 8 @ OUT [7:0] $end
+$upscope $end
+$scope module T2 $end
+$var wire 8 +! IN [7:0] $end
+$var wire 1 -! ENA $end
+$var wire 8 i OUT [7:0] $end
+$upscope $end
+$upscope $end
+$scope module cola_instrucciones $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 b ENA $end
+$var wire 8 c DATAIN [7:0] $end
+$var wire 32 B DATAOUT [31:0] $end
+$var wire 8 0! DOUT1 [7:0] $end
+$var wire 8 1! DOUT2 [7:0] $end
+$var wire 8 2! DOUT3 [7:0] $end
+$var wire 8 3! DOUT4 [7:0] $end
+$scope module R1 $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 b ENA $end
+$var wire 8 c D [7:0] $end
+$var reg 8 4! Q [7:0] $end
+$upscope $end
+$scope module R2 $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 b ENA $end
+$var wire 8 0! D [7:0] $end
+$var reg 8 5! Q [7:0] $end
+$upscope $end
+$scope module R3 $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 b ENA $end
+$var wire 8 1! D [7:0] $end
+$var reg 8 6! Q [7:0] $end
+$upscope $end
+$scope module R4 $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 b ENA $end
+$var wire 8 2! D [7:0] $end
+$var reg 8 7! Q [7:0] $end
+$upscope $end
+$upscope $end
+$scope module registro_ip $end
+$var wire 1 E CLK $end
+$var wire 1 F RST $end
+$var wire 1 8! ENA $end
+$var wire 1 9! SEL $end
+$var wire 16 :! D [15:0] $end
+$var reg 16 ;! Q [15:0] $end
+$var reg 16 <! RIN [15:0] $end
+$upscope $end
+$upscope $end
+$scope begin Block197_18 $end
+$upscope $end
+$scope task reset_system $end
+$upscope $end
+$scope task load_segment_registers $end
+$var reg 16 =! cs [15:0] $end
+$var reg 16 >! ds [15:0] $end
+$var reg 16 ?! es [15:0] $end
+$var reg 16 @! ss [15:0] $end
+$upscope $end
+$scope task test_address_generation $end
+$var reg 2 A! seg_sel [1:0] $end
+$var reg 3 B! m1_sel [2:0] $end
+$var reg 16 C! desp [15:0] $end
+$var reg 20 D! expected_addr [19:0] $end
+$upscope $end
+$scope task test_interrupt $end
+$upscope $end
+$scope task test_hold $end
+$upscope $end
+$scope task fill_queue $end
+$var integer 32 E! i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+
+#0
+$dumpvars
+0!
+b0 !!
+1"
+b0 "!
+0#
+bx #!
+0$
+b0 $!
+0%
+b0 %!
+0&
+b0xxxxxxxxxxxxxxxx &!
+0'
+b0 '!
+0(
+0(!
+0)
+1)!
+0*
+bz *!
+0+
+b10000000 +!
+bx ,
+0,!
+bx -
+0-!
+bx .
+bz .!
+bx /
+b10000000 /!
+bx 0
+b10000000 0!
+bx 1
+b10000000 1!
+bx 2
+b10000000 2!
+bx 3
+b10000000 3!
+bx 4
+b10000000 4!
+x5
+b10000000 5!
+06
+b10000000 6!
+07
+b10000000 7!
+08
+18!
+09
+19!
+bx :
+bx :!
+bx ;
+b0 ;!
+bx <
+bx <!
+bx =
+bx =!
+0>
+bx >!
+bx ?
+bx ?!
+bz @
+bx @!
+bx A
+bx A!
+b10000000100000001000000010000000 B
+bx B!
+0C
+bx C!
+0D
+bx D!
+0E
+bx E!
+1F
+0G
+0H
+0I
+0J
+0K
+0L
+0M
+0N
+0O
+bx P
+bx Q
+bx R
+bx S
+bx T
+bx U
+bx V
+bx W
+bx X
+xY
+0Z
+0[
+0\
+0]
+bx ^
+bx _
+bx `
+bx a
+0b
+bx c
+b1111000000000000 d
+b0 e
+b0 f
+b0 g
+bx h
+bz i
+b0 j
+b0 k
+b0 l
+b0 m
+b0 n
+b0 o
+0p
+0q
+b0 r
+b1111000000000000 s
+b0 t
+b0 u
+b0 v
+b0 w
+bx x
+bx y
+bx z
+bx {
+bx |
+b0 }
+b0 ~
+$end
+
+#5000
+1!
+1E
+
+#10000
+0!
+0E
+
+#15000
+1!
+1E
+
+#20000
+0!
+0"
+16
+17
+18
+19
+b1001000110100 :
+b101011001111000 ;
+b1001101010111100 <
+b1101111011110000 =
+b1001000110100 =!
+b101011001111000 >!
+b1001101010111100 ?!
+b1101111011110000 @!
+0E
+0F
+1Z
+1[
+1\
+1]
+b1001000110100 ^
+b101011001111000 _
+b1001101010111100 `
+b1101111011110000 a
+
+#25000
+1!
+bx ;!
+1E
+b1001000110100 d
+b101011001111000 e
+b1001101010111100 f
+b1101111011110000 g
+bx r
+b1001000110100 s
+b101011001111000 t
+b1001101010111100 u
+b1101111011110000 v
+
+#30000
+0!
+0E
+
+#31000
+b0 #!
+b1001000110100 $!
+b1001000110100 %!
+b0 &!
+b10010001101000000 '!
+b1 ,
+b10 -
+b11 .
+b100 /
+b101 0
+b0 1
+b0 2
+b0 3
+b10000 4
+05
+06
+07
+08
+09
+b10001101000000 :!
+b10001101000000 <!
+b10010001101000000 A
+b0 A!
+b0 B!
+b10000 C!
+b10010001101010001 D!
+b1 P
+b10 Q
+b11 R
+b100 S
+b101 T
+b0 U
+b0 V
+b0 W
+b10000 X
+0Y
+0Z
+0[
+0\
+0]
+b10010001101000000 h
+b1 x
+b1 y
+b10 z
+b10010 {
+b0 |
+b1001000110100 }
+b1001000110100 ~
+
+#35000
+1!
+b10001101000000 ;!
+1E
+b10010001101000000 j
+b10001101000000 r
+
+#40000
+0!
+0E
+
+#42000
+b101011001111000 $!
+b10 1
+b10 2
+b10101 4
+b10 A!
+b10 B!
+b10101 C!
+b10011010101111011000 D!
+b10 U
+b10 V
+b10101 X
+b11 x
+b100 z
+b11001 {
+b101011001111000 }
+
+#45000
+1!
+1E
+
+#50000
+0!
+0E
+
+#53000
+1*
+1N
+
+#55000
+1!
+1D
+1E
+1q
+
+#60000
+0!
+0E
+
+#64000
+0*
+0N
+
+#65000
+1!
+0D
+1E
+0q
+
+#70000
+0!
+0E
+
+#75000
+1!
+1)
+1C
+1E
+1M
+1p
+
+#80000
+0!
+0E
+
+#85000
+1!
+1E
+
+#86000
+0)
+0M
+
+#90000
+0!
+0E
+
+#95000
+1!
+0C
+1E
+0p
+
+#97000
+1>
+b10101010 ?
+b0 E!
+1b
+b10101010 c
+
+#100000
+0!
+0E
+
+#105000
+1!
+b10101010 0!
+b10101010 4!
+b10000000100000001000000010101010 B
+1E
+b1 l
+
+#108000
+b10111011 ?
+b1 E!
+b10111011 c
+
+#110000
+0!
+0E
+
+#115000
+1!
+b10111011 0!
+b10101010 1!
+b10111011 4!
+b10101010 5!
+b10000000100000001010101010111011 B
+1E
+
+#119000
+b11001100 ?
+b10 E!
+b11001100 c
+
+#120000
+0!
+0E
+
+#125000
+1!
+b11001100 0!
+b10111011 1!
+b10101010 2!
+b11001100 4!
+b10111011 5!
+b10101010 6!
+b10000000101010101011101111001100 B
+1E
+
+#130000
+0!
+b11011101 ?
+0E
+b11 E!
+b11011101 c
+
+#135000
+1!
+b11011101 0!
+b11001100 1!
+b10111011 2!
+b10101010 3!
+b11011101 4!
+b11001100 5!
+b10111011 6!
+b10101010 7!
+b10101010101110111100110011011101 B
+1E
+
+#140000
+0!
+0E
+
+#141000
+0>
+b100 E!
+0b
+
+#145000
+1!
+1E
+
+#150000
+0!
+0E
+
+#155000
+1!
+1E
+
+#160000
+0!
+0E
+
+#165000
+1!
+1E
+
+#170000
+0!
+0E

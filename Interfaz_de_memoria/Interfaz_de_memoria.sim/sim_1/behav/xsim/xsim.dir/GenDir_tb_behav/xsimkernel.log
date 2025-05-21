@@ -1,7 +1,7 @@
-Running: xsim.dir/GenDir_tb_behav/xsimk -simmode gui -wdb GenDir_tb_behav.wdb -simrunnum 0 -socket 39805
+Running: xsim.dir/GenDir_tb_behav/xsimk -simmode gui -wdb GenDir_tb_behav.wdb -simrunnum 0 -socket 56815
 Design successfully loaded
-Design Loading Memory Usage: 32936 KB (Peak: 33536 KB)
-Design Loading CPU Usage: 20 ms
+Design Loading Memory Usage: 402404 KB (Peak: 402524 KB)
+Design Loading CPU Usage: 1370 ms
 Simulation completed
-Simulation Memory Usage: 114672 KB (Peak: 172204 KB)
-Simulation CPU Usage: 30 ms
+Simulation Memory Usage: 484140 KB (Peak: 541672 KB)
+Simulation CPU Usage: 1370 ms

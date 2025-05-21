@@ -22,159 +22,156 @@
 module BancoInterfaz8088_tb;
 
     // Parámetros
-    parameter CLK_PERIOD = 10; // 10ns = 100MHz
-
-    // Señales de entrada
-    reg CLK;
-    reg RST;
-    reg [7:0] DataBus_in;
-    wire [7:0] DataBus = DataBus_in;
-    wire [15:0] InternalBus;
-    reg RD;
-    reg WR;
-    reg IOR;
-    reg IOW;
-    reg M_IO;
-    reg [15:0] BX, SI, DI, BP, SP;
-    reg [15:0] CS, ES, SS, DS;
-    reg [15:0] DESP;
-    reg [1:0] SEG_SEL;
-    reg [2:0] M1_SEL, M2_SEL;
-    reg OP;
+    parameter CLK_PERIOD = 10ns;
+    localparam TEST_DELAY = CLK_PERIOD * 1.1;
     
-    // Señales de salida
-    wire [19:0] AddrBus;
-    wire ALE;
-    wire DEN;
-    wire DT_R;
-    wire ready;
+    // Señales
+    logic CLK = 0;
+    logic RST;
     
-    // Instancia del módulo bajo prueba
-    BancoInterfaz8088 uut (
-        .CLK(CLK),
-        .RST(RST),
-        .DataBus(DataBus),
-        .InternalBus(InternalBus),
-        .RD(RD),
-        .WR(WR),
-        .IOR(IOR),
-        .IOW(IOW),
-        .M_IO(M_IO),
-        .BX(BX),
-        .SI(SI),
-        .DI(DI),
-        .BP(BP),
-        .SP(SP),
-        .CS(CS),
-        .ES(ES),
-        .SS(SS),
-        .DS(DS),
-        .DESP(DESP),
-        .SEG_SEL(SEG_SEL),
-        .M1_SEL(M1_SEL),
-        .M2_SEL(M2_SEL),
-        .OP(OP),
-        .ALE(ALE),
-        .DEN(DEN),
-        .DT_R(DT_R),
-        .AddrBus(AddrBus),
-        .ready(ready)
-    );
-
+    // Señales de control
+    logic IOM, DTR, DEN, ALE, RD, WR, HOLD;
+    logic INTR, NMI;
+    
+    // Registros
+    logic [15:0] BX, SI, DI, BP, SP;
+    logic [1:0] SEG_SEL;
+    logic [2:0] M1_SEL, M2_SEL;
+    logic [15:0] DESP;
+    logic OP;
+    
+    // Registros de segmento
+    logic ENA_CS, ENA_DS, ENA_ES, ENA_SS;
+    logic [15:0] D_CS, D_DS, D_ES, D_SS;
+    
+    // Cola de instrucciones
+    logic QUEUE_ENA;
+    logic [7:0] QUEUE_IN;
+    
+    // Salidas
+    wire HLDA;
+    wire [7:0] AD;
+    wire [19:0] A;
+    wire INTA;
+    wire [31:0] QUEUE_OUT;
+    
+    // Instancia del DUT
+    BancoInterfaz8088 dut (.*);
+    
     // Generación de reloj
-    always begin
-        CLK = 1'b0;
-        #(CLK_PERIOD/2);
-        CLK = 1'b1;
-        #(CLK_PERIOD/2);
-    end
-
-    // Monitor para observar las señales
+    always #(CLK_PERIOD/2) CLK = ~CLK;
+    
+    // Tarea para verificar direcciones
+    task automatic verify_address(
+        input [1:0] seg_sel,
+        input [2:0] m1_sel,
+        input [15:0] desp,
+        input [19:0] expected,
+        input string test_name
+    );
+        SEG_SEL = seg_sel;
+        M1_SEL = m1_sel;
+        DESP = desp;
+        #TEST_DELAY;
+        
+        $display("[%0t] Test: %s", $time, test_name);
+        $display("  Config: SEG=%b, M1=%b, DESP=%h", seg_sel, m1_sel, desp);
+        $display("  Esperado: %h  Obtenido: %h", expected, A);
+        
+        if (A !== expected) begin
+            $error("  ERROR: Dirección incorrecta");
+            // Debug detallado
+            $display("  CS=%h, ES=%h, BX=%h, DI=%h", dut.CS, dut.ES, BX, DI);
+            $display("  physical_addr = (seg<<4) + offset");
+            $display("  Para ES:DI -> (%h << 4) + %h + %h = %h", 
+                    dut.ES, DI, desp, {dut.ES, 4'b0} + DI + desp);
+        end else begin
+            $display("  OK");
+        end
+    endtask
+    
+    // Tarea para reset
+    task automatic reset();
+        $display("\n[%0t] Applying reset...", $time);
+        RST = 1;
+        #(CLK_PERIOD*2);
+        RST = 0;
+        #(CLK_PERIOD);
+        $display("[%0t] Reset complete", $time);
+    endtask
+    
+    // Inicialización
     initial begin
-        $monitor("T=%0t: ALE=%b, DEN=%b, DT_R=%b | AddrBus=%h | DataBus=%h | InternalBus=%h | ready=%b", 
-                 $time, ALE, DEN, DT_R, AddrBus, DataBus, InternalBus, ready);
-    end
-
-    // Secuencia de prueba
-    initial begin
-        // Inicialización
-        RST = 1'b1;
-        RD = 1'b1;  // Inactivo en alto
-        WR = 1'b1;
-        IOR = 1'b1;
-        IOW = 1'b1;
-        DataBus_in = 8'hzz;
-        M_IO = 1'b0;
+        $timeformat(-9, 3, "ns", 6);
+        $display("\n========== TESTBENCH INICIADO ==========");
         
-        // Valores de registros iniciales
-        BX = 16'h1234;
-        SI = 16'h5678;
-        DI = 16'h9ABC;
-        BP = 16'hDEF0;
-        SP = 16'h2468;
-        CS = 16'h1000;
-        ES = 16'h2000;
-        SS = 16'h3000;
-        DS = 16'h4000;
-        DESP = 16'h0100;
-        SEG_SEL = 2'b00;  // CS
-        M1_SEL = 3'b000;  // BX
-        M2_SEL = 3'b001;  // SI
-        OP = 1'b0;        // Instrucción
+        // Inicializar señales
+        {IOM, DTR, DEN, ALE, RD, WR} = '0;
+        {HOLD, INTR, NMI} = '0;
+        {ENA_CS, ENA_DS, ENA_ES, ENA_SS} = '0;
+        QUEUE_ENA = 0;
         
-        #20;
+        // Reset inicial
+        reset();
         
-        // Fin de reset
-        RST = 1'b0;
+        // Cargar registros de segmento
+        $display("\n[%0t] Cargando registros de segmento...", $time);
+        ENA_CS = 1; D_CS = 16'h1234;
+        ENA_DS = 1; D_DS = 16'h5678;
+        ENA_ES = 1; D_ES = 16'h9ABC;
+        ENA_SS = 1; D_SS = 16'hDEF0;
+        #TEST_DELAY;
+        {ENA_CS, ENA_DS, ENA_ES, ENA_SS} = '0;
+        $display("  CS=%h, DS=%h, ES=%h, SS=%h", dut.CS, dut.DS, dut.ES, dut.SS);
         
-        // Prueba 1: Lectura de memoria
-        #10;
-        M_IO = 1'b1;      // Operación de memoria
-        RD = 1'b0;        // Activar lectura
-        DataBus_in = 8'hAA;
-        #20;
-        RD = 1'b1;
-        DataBus_in = 8'hzz;
+        // Inicializar registros
+        BX = 16'h0001; 
+        SI = 16'h0002; 
+        DI = 16'h0003; 
+        BP = 16'h0004; 
+        SP = 16'h0005;
         
-        // Prueba 2: Escritura en memoria
-        #20;
-        WR = 1'b0;        // Activar escritura
-        M1_SEL = 3'b010;  // DI
-        DataBus_in = 8'h55;
-        #20;
-        WR = 1'b1;
-        DataBus_in = 8'hzz;
+        // Pruebas de generación de direcciones
+        $display("\n[%0t] Pruebas de generación de direcciones:", $time);
         
-        // Prueba 3: Lectura de I/O
-        #20;
-        M_IO = 1'b0;      // Operación de I/O
-        IOR = 1'b0;
-        DataBus_in = 8'hCC;
-        #20;
-        IOR = 1'b1;
-        DataBus_in = 8'hzz;
+        // Test 1: CS:BX + 0x0010 = 1234:0001 + 0010 = 12340 + 0011 = 12351
+        verify_address(2'b00, 3'b000, 16'h0010, 20'h12351, "CS:BX + 0x0010");
         
-        // Prueba 4: Escritura en I/O
-        #20;
-        IOW = 1'b0;
-        DataBus_in = 8'h33;
-        #20;
-        IOW = 1'b1;
-        DataBus_in = 8'hzz;
+        // Test 2: ES:DI + 0x0015 = 9ABC:0003 + 0015 = 9ABC0 + 0018 = 9ABD8
+        verify_address(2'b10, 3'b010, 16'h0015, 20'h9ABD8, "ES:DI + 0x0015");
         
-        // Prueba 5: Cambio de segmento
-        #20;
-        SEG_SEL = 2'b01;  // ES
-        M1_SEL = 3'b011;  // BP
-        OP = 1'b1;        // Datos
-        RD = 1'b0;
-        DataBus_in = 8'hF0;
-        #20;
-        RD = 1'b1;
-        DataBus_in = 8'hzz;
+        // Prueba de interrupción
+        $display("\n[%0t] Probando interrupción...", $time);
+        INTR = 1;
+        #TEST_DELAY;
+        $display("  INTR=%b, INTA=%b (esperado 1)", INTR, INTA);
+        INTR = 0;
+        #TEST_DELAY;
         
-        #50;
+        // Prueba de HOLD/HLDA
+        $display("\n[%0t] Probando HOLD/HLDA...", $time);
+        HOLD = 1;
+        #TEST_DELAY;
+        $display("  HOLD=%b, HLDA=%b (esperado 1)", HOLD, HLDA);
+        HOLD = 0;
+        #TEST_DELAY;
+        $display("  HOLD=%b, HLDA=%b (esperado 0)", HOLD, HLDA);
+        
+        // Prueba de cola de instrucciones
+        $display("\n[%0t] Llenando cola de instrucciones...", $time);
+        QUEUE_ENA = 1;
+        QUEUE_IN = 8'hAA; #TEST_DELAY;
+        QUEUE_IN = 8'hBB; #TEST_DELAY;
+        QUEUE_IN = 8'hCC; #TEST_DELAY;
+        QUEUE_IN = 8'hDD; #TEST_DELAY;
+        QUEUE_ENA = 0;
+        #TEST_DELAY;
+        $display("  Cola: %h (esperado aabbccdd)", QUEUE_OUT);
+        
+        // Finalización
+        #(CLK_PERIOD*2);
+        $display("\n========== TESTBENCH FINALIZADO ==========");
         $finish;
     end
-
+    
 endmodule
