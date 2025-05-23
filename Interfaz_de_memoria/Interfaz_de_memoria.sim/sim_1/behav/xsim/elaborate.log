@@ -26,6 +26,8 @@ Compiling module xil_defaultlib.BufINOUT
 Compiling module xil_defaultlib.queue
 Compiling module xil_defaultlib.RegistroIP
 Compiling module xil_defaultlib.BancoInterfaz8088
+Compiling module xil_defaultlib.BancoInterfaz8088_scoreboard
+Compiling module xil_defaultlib.BancoInterfaz8088_coverage
 Compiling module xil_defaultlib.BancoInterfaz8088_tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot BancoInterfaz8088_tb_behav

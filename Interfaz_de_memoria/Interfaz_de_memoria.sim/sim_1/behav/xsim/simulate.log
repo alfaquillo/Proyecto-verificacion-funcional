@@ -1,95 +1,79 @@
 Time resolution is 1 ps
 
-========== TESTBENCH INICIADO ==========
+--- TESTBENCH INICIADO ---
 
-[0.000ns] Applying reset...
-[40.000ns] Reset complete
-  Registros post-reset:
-  CS=f000, DS=0000, ES=0000, SS=0000
+[0.000ns] Aplicando reset...
+[40.000ns] Reset completado
 
 [40.000ns] Cargando registros de segmento...
-  Registros cargados:
-  CS=1234, DS=5678, ES=9abc, SS=def0
+[60.000ns] Registros cargados: CS=1234, DS=5678, ES=9abc, SS=def0
 
-[60.000ns] Registros inicializados:
-  BX=0001, SI=0002, DI=0003, BP=0004, SP=0005
+[60.000ns] Inicializando registros generales...
+[60.000ns] Registros: BX=0001, SI=0002, DI=0003, BP=0004, SP=0005
 
-[60.000ns] ===== PRUEBAS GENERACIÃ“N DIRECCIONES =====
-
-[80.000ns] Test: CS:BX + 0x0010 (modo datos)
+--- PRUEBAS DE GENERACION DE DIRECCIONES (10 pruebas) ---
+[80.000ns] Test: Modo datos: CS:BX + 0x0010
   Config: OP=1, SEG=00, M1=000, M2=000, DESP=0010
-  Debug GenDir:
-    reg1=0001 (MUX1 out)
-    offset=0011 (reg1 + DESP)
-    effective_offset=0011 (offset)
-    segment=1234 (data_segment), segment_base=12340
-  Esperado: 12351  Obtenido: 12351
-  OK
-
-[100.000ns] Test: ES:DI + 0x0015 (modo datos)
+  Esperado: 12351, Obtenido: 12351
+[100.000ns] Test: Modo datos: ES:DI + 0x0015
   Config: OP=1, SEG=10, M1=010, M2=000, DESP=0015
-  Debug GenDir:
-    reg1=0003 (MUX1 out)
-    offset=0018 (reg1 + DESP)
-    effective_offset=0018 (offset)
-    segment=9abc (data_segment), segment_base=9abc0
-  Esperado: 9abd8  Obtenido: 9abd8
-  OK
-
-[120.000ns] Test: DS:SI + 0x0100 (modo datos)
+  Esperado: 9abd8, Obtenido: 9abd8
+[120.000ns] Test: Modo datos: DS:SI + 0x0100
   Config: OP=1, SEG=01, M1=001, M2=000, DESP=0100
-  Debug GenDir:
-    reg1=0002 (MUX1 out)
-    offset=0102 (reg1 + DESP)
-    effective_offset=0102 (offset)
-    segment=5678 (data_segment), segment_base=56780
-  Esperado: 56882  Obtenido: 56882
-  OK
-
-[140.000ns] Test: SS:BP + 0x0020 (modo datos)
+  Esperado: 56882, Obtenido: 56882
+[140.000ns] Test: Modo datos: SS:BP + 0x0020
   Config: OP=1, SEG=11, M1=011, M2=000, DESP=0020
-  Debug GenDir:
-    reg1=0004 (MUX1 out)
-    offset=0024 (reg1 + DESP)
-    effective_offset=0024 (offset)
-    segment=def0 (data_segment), segment_base=def00
-  Esperado: def24  Obtenido: def24
-  OK
-
-[160.000ns] Test: CS:IP (modo instrucciÿ³n)
+  Esperado: def24, Obtenido: def24
+[160.000ns] Test: Modo instruccion: CS:IP
   Config: OP=0, SEG=00, M1=000, M2=000, DESP=0000
-  Debug GenDir:
-    reg1=0001 (MUX1 out)
-    offset=0001 (reg1 + DESP)
-    effective_offset=0000 (    IP)
-    segment=1234 (          CS), segment_base=12340
-  Esperado: 12340  Obtenido: 12340
-  OK
+  Esperado: 12340, Obtenido: 12340
+[180.000ns] Test: Modo datos: DS:BX+SI + 0x0100
+  Config: OP=1, SEG=01, M1=000, M2=001, DESP=0100
+  Esperado: 56883, Obtenido: 56881
+[200.000ns] Test: Modo datos: SS:BP+DI + 0x0020
+  Config: OP=1, SEG=11, M1=011, M2=010, DESP=0020
+  Esperado: def27, Obtenido: def24
+[220.000ns] Test: Modo datos: ES:DI+SP + 0x0050
+  Config: OP=1, SEG=10, M1=010, M2=100, DESP=0050
+  Esperado: 9ac18, Obtenido: 9ac13
+[240.000ns] Test: Modo datos: CS:BX+BP
+  Config: OP=1, SEG=00, M1=000, M2=011, DESP=0000
+  Esperado: 12345, Obtenido: 12341
+[260.000ns] Test: Modo datos: DS:SI+DI + 0x0300
+  Config: OP=1, SEG=01, M1=001, M2=010, DESP=0300
+  Esperado: 56b85, Obtenido: 56a82
 
-[160.000ns] ===== PRUEBAS BUS DE DATOS =====
+--- PRUEBAS DE BUS DE DATOS (5 pruebas) ---
 
-[160.000ns] Test Bus Datos: Escritura/Lecturaÿÿÿ¡sica
-  Dato enviado: aa, Dato interno: aa
-  Escritura OK
-  Dato leÃ­do en bus: aa
-  Lectura OK
+[260.000ns] Test Bus Datos: Escritura/Lectura AA
 
-[230.000ns] Test Bus Datos: Escritura/Lectura pÿÿÿÃ³n alternado
-  Dato enviado: 55, Dato interno: 55
-  Escritura OK
-  Dato leÃ­do en bus: 55
-  Lectura OK
+[330.000ns] Test Bus Datos: Escritura/Lectura 55
 
-[300.000ns] ===== PRUEBA INTERRUPCIÃ“N =====
-  INTR=1, INTA=1 (esperado 1)
+[400.000ns] Test Bus Datos: Escritura/Lectura FF
 
-[340.000ns] ===== PRUEBA HOLD/HLDA =====
-  HOLD=1, HLDA=1 (esperado 1)
-  HOLD=0, HLDA=0 (esperado 0)
+[470.000ns] Test Bus Datos: Escritura/Lectura 00
 
-[380.000ns] ===== PRUEBA COLA INSTRUCCIONES =====
-  Cola OK: aabbccdd (AABBCCDD)
+[540.000ns] Test Bus Datos: Escritura/Lectura C3
 
-========== TESTBENCH FINALIZADO ==========
-$finish called at time : 510 ns : File "/home/alfaquillo/Documentos/GitHub/Proyecto-verificacion-funcional/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" Line 366
-INFO: xsimkernel Simulation Memory Usage: 493188 KB (Peak: 541748 KB), Simulation CPU Usage: 2020 ms
+--- PRUEBAS DE SEÃ‘ALES DE CONTROL (5 pruebas) ---
+[610.000ns] Test Interrupcion
+[650.000ns] Test HOLD/HLDA
+[690.000ns] Test NMI
+[730.000ns] Test Cola Instrucciones
+[950.000ns] Test Control Bus
+
+--- TESTBENCH FINALIZADO ---
+
+--- REPORTE FINAL ---
+Total pruebas: 33
+Pruebas exitosas: 28
+Pruebas fallidas: 5
+
+Detalle de fallas:
+[6] Modo datos: DS:BX+SI + 0x0100: Error: Esperado 56883, Obtenido 56881
+[7] Modo datos: SS:BP+DI + 0x0020: Error: Esperado def27, Obtenido def24
+[8] Modo datos: ES:DI+SP + 0x0050: Error: Esperado 9ac18, Obtenido 9ac13
+[9] Modo datos: CS:BX+BP: Error: Esperado 12345, Obtenido 12341
+[10] Modo datos: DS:SI+DI + 0x0300: Error: Esperado 56b85, Obtenido 56a82
+$finish called at time : 1010 ns : File "/home/alfaquillo/Documentos/Vivado/interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" Line 155
+INFO: xsimkernel Simulation Memory Usage: 493256 KB (Peak: 541816 KB), Simulation CPU Usage: 2920 ms

@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  \
+verilog xil_defaultlib  --include "../../../../Interfaz_de_memoria.srcs/sources_1/new" \
 "../../../../Interfaz_de_memoria.srcs/sources_1/imports/BancoInterfaz/BancoInterfaz.v" \
 "../../../../Interfaz_de_memoria.srcs/sources_1/new/BancodeRegistrosSegmento.v" \
 "../../../../Interfaz_de_memoria.srcs/sources_1/imports/BancoInterfaz/BufINOUT.v" \
@@ -18,7 +18,9 @@ verilog xil_defaultlib  \
 "../../../../Interfaz_de_memoria.srcs/sources_1/imports/BancoInterfaz/queue.v" \
 "../../../../Interfaz_de_memoria.srcs/sources_1/new/BusControl.v" \
 
-sv xil_defaultlib  \
+sv xil_defaultlib  --include "../../../../Interfaz_de_memoria.srcs/sources_1/new" \
+"../../../../Interfaz_de_memoria.srcs/sim_1/new/BancoInterfaz8088_cov.sv" \
+"../../../../Interfaz_de_memoria.srcs/sim_1/new/BancoInterfaz8088_sb.sv" \
 "../../../../Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" \
 
 # compile glbl module
