@@ -56,7 +56,7 @@ module BufINOUT (
         .OUT(DataBus)
     );
 
-    
+    // La salida interna siempre refleja el registro
     assign InternalBus = reg_out;
 
 endmodule

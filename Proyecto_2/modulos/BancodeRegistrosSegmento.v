@@ -27,7 +27,7 @@ module BancodeRegistrosSegmento (
     output [15:0] Q_CS, Q_DS, Q_ES, Q_SS
 );
 
-    // Instanciación de los registros
+    // Instanciación de los registros con reset corregido
     RegistroCS u_registro_cs (
         .CLK(CLK),
         .RST(RST),
