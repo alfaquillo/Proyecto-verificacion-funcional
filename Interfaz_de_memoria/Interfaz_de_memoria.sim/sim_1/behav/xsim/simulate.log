@@ -14,34 +14,34 @@ Time resolution is 1 ps
 --- PRUEBAS DE GENERACION DE DIRECCIONES (10 pruebas) ---
 [80.000ns] Test: Modo datos: CS:BX + 0x0010
   Config: OP=1, SEG=00, M1=000, M2=000, DESP=0010
-  Esperado: 12351, Obtenido: 12351
+  Esperado: 12352, Obtenido: 12352
 [100.000ns] Test: Modo datos: ES:DI + 0x0015
   Config: OP=1, SEG=10, M1=010, M2=000, DESP=0015
-  Esperado: 9abd8, Obtenido: 9abd8
+  Esperado: 9abd9, Obtenido: 9abd9
 [120.000ns] Test: Modo datos: DS:SI + 0x0100
   Config: OP=1, SEG=01, M1=001, M2=000, DESP=0100
-  Esperado: 56882, Obtenido: 56882
+  Esperado: 56883, Obtenido: 56883
 [140.000ns] Test: Modo datos: SS:BP + 0x0020
   Config: OP=1, SEG=11, M1=011, M2=000, DESP=0020
-  Esperado: def24, Obtenido: def24
+  Esperado: def25, Obtenido: def25
 [160.000ns] Test: Modo instruccion: CS:IP
   Config: OP=0, SEG=00, M1=000, M2=000, DESP=0000
   Esperado: 12340, Obtenido: 12340
 [180.000ns] Test: Modo datos: DS:BX+SI + 0x0100
   Config: OP=1, SEG=01, M1=000, M2=001, DESP=0100
-  Esperado: 56883, Obtenido: 56881
+  Esperado: 56883, Obtenido: 56883
 [200.000ns] Test: Modo datos: SS:BP+DI + 0x0020
   Config: OP=1, SEG=11, M1=011, M2=010, DESP=0020
-  Esperado: def27, Obtenido: def24
+  Esperado: def27, Obtenido: def27
 [220.000ns] Test: Modo datos: ES:DI+SP + 0x0050
   Config: OP=1, SEG=10, M1=010, M2=100, DESP=0050
-  Esperado: 9ac18, Obtenido: 9ac13
+  Esperado: 9ac18, Obtenido: 9ac18
 [240.000ns] Test: Modo datos: CS:BX+BP
   Config: OP=1, SEG=00, M1=000, M2=011, DESP=0000
-  Esperado: 12345, Obtenido: 12341
+  Esperado: 12345, Obtenido: 12345
 [260.000ns] Test: Modo datos: DS:SI+DI + 0x0300
   Config: OP=1, SEG=01, M1=001, M2=010, DESP=0300
-  Esperado: 56b85, Obtenido: 56a82
+  Esperado: 56a85, Obtenido: 56a85
 
 --- PRUEBAS DE BUS DE DATOS (5 pruebas) ---
 
@@ -66,14 +66,14 @@ Time resolution is 1 ps
 
 --- REPORTE FINAL ---
 Total pruebas: 33
-Pruebas exitosas: 28
-Pruebas fallidas: 5
+Pruebas exitosas: 33
+Pruebas fallidas: 0
 
-Detalle de fallas:
-[6] Modo datos: DS:BX+SI + 0x0100: Error: Esperado 56883, Obtenido 56881
-[7] Modo datos: SS:BP+DI + 0x0020: Error: Esperado def27, Obtenido def24
-[8] Modo datos: ES:DI+SP + 0x0050: Error: Esperado 9ac18, Obtenido 9ac13
-[9] Modo datos: CS:BX+BP: Error: Esperado 12345, Obtenido 12341
-[10] Modo datos: DS:SI+DI + 0x0300: Error: Esperado 56b85, Obtenido 56a82
-$finish called at time : 1010 ns : File "/home/alfaquillo/Documentos/Vivado/interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" Line 155
-INFO: xsimkernel Simulation Memory Usage: 493256 KB (Peak: 541816 KB), Simulation CPU Usage: 2920 ms
+--- COBERTURA ---
+Cobertura total: 93.89%
+ - Señales control: 98.08%
+ - Seleccion segmento: 87.50%
+ - Seleccion registro: 90.00%
+ - Habilitacion registro: 100.00%
+$finish called at time : 1010 ns : File "/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" Line 156
+INFO: xsimkernel Simulation Memory Usage: 493260 KB (Peak: 541820 KB), Simulation CPU Usage: 1550 ms

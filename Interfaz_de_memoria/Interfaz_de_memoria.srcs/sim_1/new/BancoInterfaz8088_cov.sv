@@ -97,5 +97,14 @@ module BancoInterfaz8088_coverage (
         total += ena_cg.get_coverage();
         return total / 4.0; // Promedio de los 4 covergroups
     endfunction
+    
+    function void report();
+        $display("\n--- COBERTURA ---");
+        $display("Cobertura total: %.2f%%", get_coverage());
+        $display(" - Señales control: %.2f%%", ctrl_cg.get_coverage());
+        $display(" - Seleccion segmento: %.2f%%", seg_cg.get_coverage());
+        $display(" - Seleccion registro: %.2f%%", reg_cg.get_coverage());
+        $display(" - Habilitacion registro: %.2f%%", ena_cg.get_coverage());
+    endfunction
 
 endmodule

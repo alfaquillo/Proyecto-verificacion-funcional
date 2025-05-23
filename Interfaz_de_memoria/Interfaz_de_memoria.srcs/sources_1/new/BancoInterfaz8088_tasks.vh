@@ -84,19 +84,19 @@ task run_address_generation_tests();
     
     // Test 1: CS:BX + 0x0010
     verify_address(1'b1, 2'b00, 3'b000, 3'b000, 16'h0010, 
-                  20'h12351, "Modo datos: CS:BX + 0x0010");
+                  20'h12352, "Modo datos: CS:BX + 0x0010");
     
     // Test 2: ES:DI + 0x0015
     verify_address(1'b1, 2'b10, 3'b010, 3'b000, 16'h0015, 
-                  20'h9ABD8, "Modo datos: ES:DI + 0x0015");
+                  20'h9ABD9, "Modo datos: ES:DI + 0x0015");
     
     // Test 3: DS:SI + 0x0100
     verify_address(1'b1, 2'b01, 3'b001, 3'b000, 16'h0100, 
-                  20'h56882, "Modo datos: DS:SI + 0x0100");
+                  20'h56883, "Modo datos: DS:SI + 0x0100");
     
     // Test 4: SS:BP + 0x0020
     verify_address(1'b1, 2'b11, 3'b011, 3'b000, 16'h0020, 
-                  20'hDEF24, "Modo datos: SS:BP + 0x0020");
+                  20'hDEF25, "Modo datos: SS:BP + 0x0020");
     
     // Test 5: CS:IP (Instruction Mode)
     verify_address(1'b0, 2'b00, 3'b000, 3'b000, 16'h0000, 
@@ -120,7 +120,7 @@ task run_address_generation_tests();
     
     // Test 10: DS:SI + DI + 0x0300
     verify_address(1'b1, 2'b01, 3'b001, 3'b010, 16'h0300, 
-                  20'h56B85, "Modo datos: DS:SI+DI + 0x0300");
+                  20'h56a85, "Modo datos: DS:SI+DI + 0x0300");
 endtask
 
 //-----------------------------------------

@@ -98,7 +98,7 @@ module BancoInterfaz8088_tb;
     );
     
     // Instancia del Coverage
-    BancoInterfaz8088_coverage cov (
+    BancoInterfaz8088_coverage coverage (
         .CLK(CLK),
         .IOM(IOM),
         .DTR(DTR),
@@ -152,6 +152,7 @@ module BancoInterfaz8088_tb;
         #(CLK_PERIOD*2);
         $display("\n--- TESTBENCH FINALIZADO ---");
         sb.report();
+        coverage.report();
         $finish;
     end
 

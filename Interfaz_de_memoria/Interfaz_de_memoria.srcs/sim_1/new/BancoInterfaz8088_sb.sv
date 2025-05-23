@@ -118,7 +118,7 @@ module BancoInterfaz8088_scoreboard (
         $display("Total pruebas: %0d", total_tests);
         $display("Pruebas exitosas: %0d", passed_tests);
         $display("Pruebas fallidas: %0d", failed_tests);
-        //$display("Cobertura: %.2f%%", $root.cov.get_coverage());
+    //    $display("Cobertura: %.2f%%", $root.coverage.get_coverage());
         
         if (failed_tests > 0) begin
             $display("\nDetalle de fallas:");
@@ -129,12 +129,12 @@ module BancoInterfaz8088_scoreboard (
             end
         end
         
-       // $display("\nResumen de cobertura:");
-        //$display(" - Señales control: %.2f%%", $root.cov.ctrl_cg.get_coverage());
-        //$display(" - Seleccion segmento: %.2f%%", $root.cov.seg_cg.get_coverage());
-       // $display(" - Seleccion registro: %.2f%%", $root.cov.reg_cg.get_coverage());
-       // $display(" - Habilitacion registro: %.2f%%", $root.cov.ena_cg.get_coverage());
-       // $display("------------------------");
+       //$display("\nResumen de cobertura:");
+      //  $display(" - Señales control: %.2f%%", $root.coverage.ctrl_cg.get_coverage());
+      // $display(" - Seleccion segmento: %.2f%%", $root.coverage.seg_cg.get_coverage());
+       //$display(" - Seleccion registro: %.2f%%", $root.ccoverage.reg_cg.get_coverage());
+       // $display(" - Habilitacion registro: %.2f%%", $root.coverage.ena_cg.get_coverage());
+      //   $display("------------------------");
     endfunction
 
 endmodule

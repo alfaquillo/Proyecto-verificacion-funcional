@@ -1,6 +1,6 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/BancoInterfaz8088_cov.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/BancoInterfaz8088_cov.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module BancoInterfaz8088_coverage
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/BancoInterfaz8088_sb.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/BancoInterfaz8088_sb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module BancoInterfaz8088_scoreboard
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module BancoInterfaz8088_tb
