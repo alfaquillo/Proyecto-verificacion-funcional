@@ -31,42 +31,47 @@ module GenDir (
     output wire [19:0] DIR
 );
 
-    // Registros seleccionados
+    // Línea 15: Registros seleccionados
     wire [15:0] reg1, reg2;
     
-    // Multiplexores para selección de registros
-    Multiplexor6a1de16bits MUX1(
+    // Líneas 17-24: Multiplexores originales (se mantienen igual)
+    Multiplexor6a1de16bits mux1(
         .A(BX), .B(SI), .C(DI), .D(BP), .E(SP), .F(16'b0),
         .SEL(M1_SEL),
         .OUT(reg1)
     );
     
-    Multiplexor6a1de16bits MUX2(
+    Multiplexor6a1de16bits mux2(
         .A(BX), .B(SI), .C(DI), .D(BP), .E(SP), .F(16'b0),
         .SEL(M2_SEL),
         .OUT(reg2)
     );
 
-    // Cálculo de offset
-    wire [15:0] sum_regs, offset;
-    Sumador16bits SUM_REGS(reg1, reg2, sum_regs);
-    Sumador16bits SUM_OFFSET(sum_regs, DESP, offset);
+    // Línea 26-34: Cálculo de offset - CORREGIDO
+    wire [15:0] offset;
+    
+    // Suma solo reg1 + DESP (eliminamos sum_regs)
+    Sumador16bits suma_offset(
+        .A(reg1),      // Cambiado de sum_regs a reg1
+        .B(DESP),
+        .OUT(offset)
+    );
 
-    // Offset efectivo (IP para instrucciones)
+    // Línea 36: Offset efectivo - CORREGIDO
     wire [15:0] effective_offset = OP ? offset : IP;
 
-    // Selección de segmento para datos
+    // Líneas 38-44: Selección de segmento (se mantiene igual)
     wire [15:0] data_segment;
-    Multiplexor4a1de16bits MUX_SEG(
-        .A(CS), .B(ES), .C(DS), .D(SS),
+    Multiplexor4a1de16bits mux_segmento(
+        .A(CS), .B(DS), .C(ES), .D(SS),
         .SEL(SEG_SEL),
         .OUT(data_segment)
     );
 
-    // Segmento final (CS para instrucciones)
+    // Línea 46: Segmento final (se mantiene igual)
     wire [15:0] segment = OP ? data_segment : CS;
 
-    // Cálculo de dirección física
+    // Línea 49: Cálculo final (se mantiene igual)
     assign DIR = {segment, 4'b0} + effective_offset;
 
 endmodule

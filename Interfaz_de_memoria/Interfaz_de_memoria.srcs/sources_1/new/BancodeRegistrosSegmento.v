@@ -22,27 +22,12 @@
 
 module BancodeRegistrosSegmento (
     input CLK, RST,
-    
-    // Señales de control
-    input ENA_CS,
-    input ENA_DS,
-    input ENA_ES,
-    input ENA_SS,
-    
-    // Buses de entrada
-    input [15:0] D_CS,
-    input [15:0] D_DS,
-    input [15:0] D_ES,
-    input [15:0] D_SS,
-    
-    // Buses de salida
-    output [15:0] Q_CS,
-    output [15:0] Q_DS,
-    output [15:0] Q_ES,
-    output [15:0] Q_SS
+    input ENA_CS, ENA_DS, ENA_ES, ENA_SS,
+    input [15:0] D_CS, D_DS, D_ES, D_SS,
+    output [15:0] Q_CS, Q_DS, Q_ES, Q_SS
 );
 
-    // Instanciación de los registros
+    // Instanciación de los registros con reset corregido
     RegistroCS u_registro_cs (
         .CLK(CLK),
         .RST(RST),

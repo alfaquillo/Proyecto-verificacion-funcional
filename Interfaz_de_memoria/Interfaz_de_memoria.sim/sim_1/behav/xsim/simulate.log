@@ -1,53 +1,95 @@
 Time resolution is 1 ps
-Tiempo:                    0 | CLK=0 RST=1 ENA=0 DATAIN=00 DATAOUT=80808080
-Tiempo:                 5000 | CLK=1 RST=1 ENA=0 DATAIN=00 DATAOUT=80808080
-Tiempo:                10000 | CLK=0 RST=1 ENA=0 DATAIN=00 DATAOUT=80808080
-Tiempo:                15000 | CLK=1 RST=1 ENA=0 DATAIN=00 DATAOUT=80808080
-Test 1: Reset funcionando correctamente
-Tiempo:                20000 | CLK=0 RST=0 ENA=1 DATAIN=0a DATAOUT=80808080
-Tiempo:                25000 | CLK=1 RST=0 ENA=1 DATAIN=0a DATAOUT=8080800a
-Tiempo:                30000 | CLK=0 RST=0 ENA=1 DATAIN=f0 DATAOUT=8080800a
-Tiempo:                35000 | CLK=1 RST=0 ENA=1 DATAIN=f0 DATAOUT=80800af0
-Tiempo:                40000 | CLK=0 RST=0 ENA=1 DATAIN=d7 DATAOUT=80800af0
-Tiempo:                45000 | CLK=1 RST=0 ENA=1 DATAIN=d7 DATAOUT=800af0d7
-Tiempo:                50000 | CLK=0 RST=0 ENA=1 DATAIN=51 DATAOUT=800af0d7
-Tiempo:                55000 | CLK=1 RST=0 ENA=1 DATAIN=51 DATAOUT=0af0d751
-Test 2: Carga secuencial funcionando correctamente
-Tiempo:                60000 | CLK=0 RST=0 ENA=0 DATAIN=ff DATAOUT=0af0d751
-Tiempo:                65000 | CLK=1 RST=0 ENA=0 DATAIN=ff DATAOUT=0af0d751
-Test 3: RetenciÃ³n con ENA=0 funcionando correctamente
-Tiempo:                70000 | CLK=0 RST=0 ENA=0 DATAIN=ff DATAOUT=0af0d751
-Tiempo:                75000 | CLK=1 RST=1 ENA=0 DATAIN=ff DATAOUT=80808080
-Test 4: Reset asÃ­ncrono funcionando correctamente
-Tiempo:                80000 | CLK=0 RST=0 ENA=1 DATAIN=11 DATAOUT=80808080
-Tiempo:                85000 | CLK=1 RST=0 ENA=1 DATAIN=11 DATAOUT=80808011
-Tiempo:                90000 | CLK=0 RST=0 ENA=1 DATAIN=22 DATAOUT=80808011
-Tiempo:                95000 | CLK=1 RST=0 ENA=1 DATAIN=22 DATAOUT=80801122
-Tiempo:               100000 | CLK=0 RST=0 ENA=1 DATAIN=33 DATAOUT=80801122
-Tiempo:               105000 | CLK=1 RST=0 ENA=1 DATAIN=33 DATAOUT=80112233
-Tiempo:               110000 | CLK=0 RST=0 ENA=1 DATAIN=44 DATAOUT=80112233
-Tiempo:               115000 | CLK=1 RST=0 ENA=1 DATAIN=44 DATAOUT=11223344
-Test 5: Llenado completo funcionando correctamente
-Tiempo:               120000 | CLK=0 RST=0 ENA=1 DATAIN=aa DATAOUT=11223344
-Tiempo:               125000 | CLK=1 RST=0 ENA=1 DATAIN=aa DATAOUT=223344aa
-Tiempo:               130000 | CLK=0 RST=0 ENA=1 DATAIN=55 DATAOUT=223344aa
-Tiempo:               135000 | CLK=1 RST=0 ENA=1 DATAIN=55 DATAOUT=3344aa55
-Tiempo:               140000 | CLK=0 RST=0 ENA=1 DATAIN=aa DATAOUT=3344aa55
-Tiempo:               145000 | CLK=1 RST=0 ENA=1 DATAIN=aa DATAOUT=44aa55aa
-Tiempo:               150000 | CLK=0 RST=0 ENA=1 DATAIN=55 DATAOUT=44aa55aa
-Tiempo:               155000 | CLK=1 RST=0 ENA=1 DATAIN=55 DATAOUT=aa55aa55
-Test 6: Valores alternos funcionando correctamente
-Tiempo:               160000 | CLK=0 RST=0 ENA=1 DATAIN=ff DATAOUT=aa55aa55
-Tiempo:               165000 | CLK=1 RST=0 ENA=1 DATAIN=ff DATAOUT=55aa55ff
-Tiempo:               170000 | CLK=0 RST=0 ENA=1 DATAIN=ff DATAOUT=55aa55ff
-Tiempo:               175000 | CLK=1 RST=0 ENA=1 DATAIN=ff DATAOUT=aa55ffff
-Tiempo:               180000 | CLK=0 RST=0 ENA=1 DATAIN=ff DATAOUT=aa55ffff
-Tiempo:               185000 | CLK=1 RST=0 ENA=1 DATAIN=ff DATAOUT=55ffffff
-Tiempo:               190000 | CLK=0 RST=0 ENA=1 DATAIN=ff DATAOUT=55ffffff
-Tiempo:               195000 | CLK=1 RST=0 ENA=1 DATAIN=ff DATAOUT=ffffffff
-Test 7: Valores mÃ¡ximos funcionando correctamente
-Tiempo:               200000 | CLK=0 RST=0 ENA=1 DATAIN=ff DATAOUT=ffffffff
-Tiempo:               205000 | CLK=1 RST=0 ENA=1 DATAIN=ff DATAOUT=ffffffff
-Todos los tests completados
-$finish called at time : 210 ns : File "/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/queue_tb.sv" Line 141
-INFO: xsimkernel Simulation Memory Usage: 484388 KB (Peak: 541660 KB), Simulation CPU Usage: 2330 ms
+
+========== TESTBENCH INICIADO ==========
+
+[0.000ns] Applying reset...
+[40.000ns] Reset complete
+  Registros post-reset:
+  CS=f000, DS=0000, ES=0000, SS=0000
+
+[40.000ns] Cargando registros de segmento...
+  Registros cargados:
+  CS=1234, DS=5678, ES=9abc, SS=def0
+
+[60.000ns] Registros inicializados:
+  BX=0001, SI=0002, DI=0003, BP=0004, SP=0005
+
+[60.000ns] ===== PRUEBAS GENERACIÃ“N DIRECCIONES =====
+
+[80.000ns] Test: CS:BX + 0x0010 (modo datos)
+  Config: OP=1, SEG=00, M1=000, M2=000, DESP=0010
+  Debug GenDir:
+    reg1=0001 (MUX1 out)
+    offset=0011 (reg1 + DESP)
+    effective_offset=0011 (offset)
+    segment=1234 (data_segment), segment_base=12340
+  Esperado: 12351  Obtenido: 12351
+  OK
+
+[100.000ns] Test: ES:DI + 0x0015 (modo datos)
+  Config: OP=1, SEG=10, M1=010, M2=000, DESP=0015
+  Debug GenDir:
+    reg1=0003 (MUX1 out)
+    offset=0018 (reg1 + DESP)
+    effective_offset=0018 (offset)
+    segment=9abc (data_segment), segment_base=9abc0
+  Esperado: 9abd8  Obtenido: 9abd8
+  OK
+
+[120.000ns] Test: DS:SI + 0x0100 (modo datos)
+  Config: OP=1, SEG=01, M1=001, M2=000, DESP=0100
+  Debug GenDir:
+    reg1=0002 (MUX1 out)
+    offset=0102 (reg1 + DESP)
+    effective_offset=0102 (offset)
+    segment=5678 (data_segment), segment_base=56780
+  Esperado: 56882  Obtenido: 56882
+  OK
+
+[140.000ns] Test: SS:BP + 0x0020 (modo datos)
+  Config: OP=1, SEG=11, M1=011, M2=000, DESP=0020
+  Debug GenDir:
+    reg1=0004 (MUX1 out)
+    offset=0024 (reg1 + DESP)
+    effective_offset=0024 (offset)
+    segment=def0 (data_segment), segment_base=def00
+  Esperado: def24  Obtenido: def24
+  OK
+
+[160.000ns] Test: CS:IP (modo instrucciÿ³n)
+  Config: OP=0, SEG=00, M1=000, M2=000, DESP=0000
+  Debug GenDir:
+    reg1=0001 (MUX1 out)
+    offset=0001 (reg1 + DESP)
+    effective_offset=0000 (    IP)
+    segment=1234 (          CS), segment_base=12340
+  Esperado: 12340  Obtenido: 12340
+  OK
+
+[160.000ns] ===== PRUEBAS BUS DE DATOS =====
+
+[160.000ns] Test Bus Datos: Escritura/Lecturaÿÿÿ¡sica
+  Dato enviado: aa, Dato interno: aa
+  Escritura OK
+  Dato leÃ­do en bus: aa
+  Lectura OK
+
+[230.000ns] Test Bus Datos: Escritura/Lectura pÿÿÿÃ³n alternado
+  Dato enviado: 55, Dato interno: 55
+  Escritura OK
+  Dato leÃ­do en bus: 55
+  Lectura OK
+
+[300.000ns] ===== PRUEBA INTERRUPCIÃ“N =====
+  INTR=1, INTA=1 (esperado 1)
+
+[340.000ns] ===== PRUEBA HOLD/HLDA =====
+  HOLD=1, HLDA=1 (esperado 1)
+  HOLD=0, HLDA=0 (esperado 0)
+
+[380.000ns] ===== PRUEBA COLA INSTRUCCIONES =====
+  Cola OK: aabbccdd (AABBCCDD)
+
+========== TESTBENCH FINALIZADO ==========
+$finish called at time : 510 ns : File "/home/alfaquillo/Documentos/GitHub/Proyecto-verificacion-funcional/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv" Line 366
+INFO: xsimkernel Simulation Memory Usage: 493188 KB (Peak: 541748 KB), Simulation CPU Usage: 2020 ms

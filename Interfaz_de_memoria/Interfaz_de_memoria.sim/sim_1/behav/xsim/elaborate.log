@@ -5,5 +5,27 @@ Running: /home/alfaquillo/tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-ERROR: [VRFC 10-2996] 'MOD_DIR' is not found for implicit .* port connection [/home/alfaquillo/Documentos/Vivado/Interfaz_de_memoria/Interfaz_de_memoria.srcs/sim_1/new/bancointerfaz8088_tb.sv:59]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Registro16bitsEna
+Compiling module xil_defaultlib.RegistroCS
+Compiling module xil_defaultlib.RegistroDS
+Compiling module xil_defaultlib.RegistroES
+Compiling module xil_defaultlib.RegistroSS
+Compiling module xil_defaultlib.BancodeRegistrosSegmento
+Compiling module xil_defaultlib.Multiplexor6a1de16bits
+Compiling module xil_defaultlib.Sumador16bits
+Compiling module xil_defaultlib.Multiplexor4a1de16bits
+Compiling module xil_defaultlib.GenDir
+Compiling module xil_defaultlib.BusControl
+Compiling module xil_defaultlib.Registro8bitsEna
+Compiling module xil_defaultlib.BufferTri8bits
+Compiling module xil_defaultlib.BufINOUT
+Compiling module xil_defaultlib.queue
+Compiling module xil_defaultlib.RegistroIP
+Compiling module xil_defaultlib.BancoInterfaz8088
+Compiling module xil_defaultlib.BancoInterfaz8088_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot BancoInterfaz8088_tb_behav

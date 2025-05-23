@@ -19,50 +19,44 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module BufINOUT (
-    input  wire        CLK,
-    input  wire        RST,
-    input  wire        IWR,
-    input  wire        IRD,
-    input  wire        RD,
-    input  wire        WR,
-    inout  wire [7:0]  DataBus,
-    inout  wire [7:0]  InternalBus
+    input wire CLK,
+    input wire RST,
+    input wire IWR,      // Control escritura interno
+    input wire IRD,      // Control lectura interno
+    input wire WR,     // Señal escritura (activo bajo)
+    input wire RD,     // Señal lectura (activo bajo)
+    inout wire [7:0] DataBus,
+    output wire [7:0] InternalBus
 );
 
-    wire [7:0] OUT_MUX;
-    wire [7:0] OUT_R1;
+    wire [7:0] reg_out;
+    wire reg_en, bus_en;
 
-    // Mux: IRD=0→InternalBus, IRD=1→DataBus
-    Multiplexor2a1de8bits M1(
-        .A(InternalBus),
-        .B(DataBus),
-        .SEL(IRD),
-        .OUT(OUT_MUX)
+    // Instanciación de módulos
+    BusControl control (
+        .WR_n(WR),
+        .RD_n(RD),
+        .IWR(IWR),
+        .IRD(IRD),
+        .RegEn(reg_en),
+        .BusEn(bus_en)
     );
 
-    // Registro con reset a 0x80 - Solo se actualiza con WR
-    Registro8bitsEna R1(
+    Registro8bitsEna registro (
         .CLK(CLK),
         .RST(RST),
-        .ENA(WR),  // Cambio clave aquí
-        .D(OUT_MUX),
-        .Q(OUT_R1)
+        .ENA(reg_en),
+        .D(DataBus),
+        .Q(reg_out)
     );
 
-    // Buffers tri-estado con protección contra conducción simultánea
-    wire enableDataBus = IWR & ~RST & ~RD;
-    wire enableInternalBus = RD & ~RST & ~IWR;
-
-    BufferTri8bits T1(
-        .IN(OUT_R1),
-        .ENA(enableDataBus),
+    BufferTri8bits buffer (
+        .IN(reg_out),
+        .ENA(bus_en),
         .OUT(DataBus)
     );
-    
-    BufferTri8bits T2(
-        .IN(OUT_R1),
-        .ENA(enableInternalBus),
-        .OUT(InternalBus)
-    );
+
+    // La salida interna siempre refleja el registro
+    assign InternalBus = reg_out;
 
 endmodule

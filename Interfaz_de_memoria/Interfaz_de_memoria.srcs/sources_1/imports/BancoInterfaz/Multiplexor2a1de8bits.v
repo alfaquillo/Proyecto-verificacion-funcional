@@ -20,12 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Multiplexor2a1de8bits (A, B, SEL, OUT);
-
-    input [7:0] A, B;
-    input SEL;
-    output reg [7:0] OUT;
-
+module Multiplexor2a1de8bits (
+    input  wire [7:0] A,
+    input  wire [7:0] B,
+    input  wire       SEL,
+    output reg  [7:0] OUT
+);
     always @(A or B or SEL)
     begin
         if (~SEL)
@@ -33,5 +33,4 @@ module Multiplexor2a1de8bits (A, B, SEL, OUT);
         else
             OUT = B;
     end
-
 endmodule
