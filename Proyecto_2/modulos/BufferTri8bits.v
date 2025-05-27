@@ -1,23 +1,22 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 13.05.2025 15:24:21
-// Design Name: 
-// Module Name: BufferTri8bits 
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+// =============================================================================
+// Módulo: BufferTri8bits
+// =============================================================================
+// Descripción:
+//   Buffer tri-state de 8 bits que controla la conexión entre una señal de
+//   entrada y un bus de salida bidireccional. Cuando ENA está activo, se
+//   transmite el dato IN hacia OUT; cuando ENA está inactivo, el bus queda en alta impedancia.
+//
+// Entradas:
+//   - IN  : Señal de entrada de 8 bits.
+//   - ENA : Señal de habilitación del buffer.
+//
+// Entrada/Salida:
+//   - OUT : Bus bidireccional de 8 bits, salida tri-state.
+//
+// Parámetros:
+//   Ninguno
+// =============================================================================
+
 module BufferTri8bits (
     input  wire [7:0] IN,
     input  wire ENA,

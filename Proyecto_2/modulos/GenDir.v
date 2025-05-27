@@ -1,23 +1,30 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 13.05.2025 15:24:21
-// Design Name: 
-// Module Name: GenDir
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+// =============================================================================
+// Módulo: GenDir
+// =============================================================================
+// Descripción:
+//   Este módulo genera una dirección de 20 bits combinando registros de segmento,
+//   punteros y un desplazamiento, basado en la operación solicitada.
+//
+//   Si OP = 0, la dirección corresponde a una instrucción (segmento CS + IP).
+//   Si OP = 1, la dirección corresponde a datos, calculando la suma entre dos 
+//   registros seleccionados, un desplazamiento, y el segmento seleccionado.
+//
+// Entradas:
+//   - OP       : Selección de operación (0=instrucción, 1=datos).
+//   - SEG_SEL  : Selector del segmento (MUX de 4 entradas).
+//   - M1_SEL   : Selector del primer registro para sumas (MUX de 6 entradas).
+//   - M2_SEL   : Selector del segundo registro para sumas (MUX de 6 entradas).
+//   - BX, SI, DI, BP, SP : Registros de propósito general (16 bits).
+//   - CS, ES, SS, DS     : Registros de segmento (16 bits).
+//   - IP       : Registro de puntero de instrucción (16 bits).
+//   - DESP     : Desplazamiento (offset) a sumar (16 bits).
+//
+// Salidas:
+//   - DIR      : Dirección efectiva calculada de 20 bits.
+//
+// Parámetros:
+//   Ninguno
+// =============================================================================
 
 module GenDir (
     input OP,                // 0=instrucción, 1=datos
@@ -31,10 +38,10 @@ module GenDir (
     output wire [19:0] DIR
 );
 
-    // Línea 15: Registros seleccionados
+    // Selección de registros para sumas
     wire [15:0] reg1, reg2;
     
-    // Líneas 17-24: Multiplexores originales 
+    // Multiplexores para escoger registros según M1_SEL y M2_SEL
     Multiplexor6a1de16bits mux1(
         .A(BX), .B(SI), .C(DI), .D(BP), .E(SP), .F(16'b0),
         .SEL(M1_SEL),
@@ -47,26 +54,26 @@ module GenDir (
         .OUT(reg2)
     );
 
-           // Suma intermedia: reg1 + reg2
-        wire [15:0] sum_regs;
-        Sumador16bits suma_registros(
-            .A(reg1),
-            .B(reg2),
-            .OUT(sum_regs)
-        );
-        
-        // Suma final: (reg1 + reg2) + DESP
-        wire [15:0] offset;
-        Sumador16bits suma_offset(
-            .A(sum_regs),
-            .B(DESP),
-            .OUT(offset)
-        );
+    // Suma de los registros seleccionados
+    wire [15:0] sum_regs;
+    Sumador16bits suma_registros(
+        .A(reg1),
+        .B(reg2),
+        .OUT(sum_regs)
+    );
+    
+    // Suma final sum_regs + desplazamiento
+    wire [15:0] offset;
+    Sumador16bits suma_offset(
+        .A(sum_regs),
+        .B(DESP),
+        .OUT(offset)
+    );
 
-    // Línea 36: Offset efectivo 
+    // Offset efectivo depende de OP (instrucción o datos)
     wire [15:0] effective_offset = OP ? offset : IP;
 
-    // Líneas 38-44: Selección de segmento 
+    // Selección del segmento según OP y SEG_SEL
     wire [15:0] data_segment;
     Multiplexor4a1de16bits mux_segmento(
         .A(CS), .B(DS), .C(ES), .D(SS),
@@ -74,11 +81,11 @@ module GenDir (
         .OUT(data_segment)
     );
 
-    // Línea 46: Segmento final 
+    // Segmento final usado para el cálculo de dirección
     wire [15:0] segment = OP ? data_segment : CS;
 
-    // Línea 49: Cálculo final 
-    //assign DIR = {segment, 4'b0} + effective_offset;
+    // Cálculo final de la dirección de 20 bits:
+    // segmento desplazado 4 bits a la izquierda + offset efectivo
     assign DIR = ({segment, 4'b0}) + {4'b0, effective_offset};
 
 endmodule

@@ -1,23 +1,37 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 13.05.2025 15:24:21
-// Design Name: 
-// Module Name: 
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+// =============================================================================
+// Módulo: BancoInterfaz8088
+// =============================================================================
+// Descripción:
+//   Banco principal de interfaz para un microprocesador tipo 8088. Incluye
+//   manejo de registros de segmento, generación de direcciones físicas,
+//   buffer bidireccional para el bus de datos, cola de instrucciones (prefetch queue),
+//   registros de instrucción (IP), control de bus y manejo de señales de interrupción.
+//
+// Entradas:
+//   - CLK         : Reloj del sistema.
+//   - RST         : Reset asincrónico.
+//   - IOM, DTR, DEN, ALE, RD, WR, HOLD : Señales de control del bus y operación.
+//   - INTR, NMI   : Señales de interrupción externa.
+//   - BX, SI, DI, BP, SP : Registros de propósito general de 16 bits.
+//   - SEG_SEL     : Selector de segmento (2 bits).
+//   - M1_SEL, M2_SEL : Selectores para multiplexores internos (3 bits).
+//   - DESP        : Desplazamiento para cálculo de direcciones.
+//   - OP          : Indica tipo de operación (instrucción o dato).
+//   - ENA_CS, ENA_DS, ENA_ES, ENA_SS : Enable para registros de segmento.
+//   - D_CS, D_DS, D_ES, D_SS : Datos para registros de segmento.
+//   - QUEUE_ENA   : Habilitación para la cola de instrucciones.
+//   - QUEUE_IN    : Entrada de datos para la cola de instrucciones.
+//
+// Salidas:
+//   - HLDA        : Señal de bus hold acknowledge.
+//   - AD          : Bus bidireccional de datos/direcciones de 8 bits.
+//   - A           : Dirección física de 20 bits calculada.
+//   - INTA        : Señal de acknowledge de interrupción.
+//   - QUEUE_OUT   : Salida de datos de la cola de instrucciones (32 bits).
+//
+// Parámetros:
+//   Ninguno
+// =============================================================================
 
 module BancoInterfaz8088 (
     input CLK,
@@ -107,7 +121,7 @@ module BancoInterfaz8088 (
         .ES(ES),
         .SS(SS),
         .DS(DS),
-        .IP(16'h0000), // Asumiendo que IP se maneja externamente (echarle un ojo carlos)
+        .IP(16'h0000), 
         .DESP(DESP),
         .DIR(physical_addr)
     );
@@ -134,7 +148,6 @@ module BancoInterfaz8088 (
     );
     
     // Registro de instrucción (IP) 
-
     wire [15:0] IP_out;
     RegistroIP registro_ip (
         .CLK(CLK),
@@ -145,8 +158,7 @@ module BancoInterfaz8088 (
         .Q(IP_out)
     );
     
-    //  control de bus y HLDA
-
+    // Control de bus y HLDA
     reg hlda_reg;
     always @(posedge CLK or posedge RST) begin
         if (RST) begin
@@ -157,8 +169,7 @@ module BancoInterfaz8088 (
     end
     assign HLDA = hlda_reg;
     
-    // interrupciones 
-
+    // Interrupciones 
     reg inta_reg;
     always @(posedge CLK or posedge RST) begin
         if (RST) begin
@@ -169,7 +180,8 @@ module BancoInterfaz8088 (
     end
     assign INTA = inta_reg;
     
-  
     assign A = physical_addr;
-    
+
+endmodule
+
 endmodule

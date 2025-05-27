@@ -1,24 +1,35 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 19.05.2025 09:10:08
-// Design Name: 
-// Module Name: BancodeRegistrosSegmento
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+// =============================================================================
+// Módulo: BancodeRegistrosSegmento
+// =============================================================================
+// Descripción:
+//   Este módulo implementa un banco de registros de segmento compuesto por 
+//   cuatro registros independientes: CS (Code Segment), DS (Data Segment), 
+//   ES (Extra Segment) y SS (Stack Segment). Cada registro puede ser habilitado
+//   individualmente y se actualiza en el flanco positivo del reloj si su 
+//   señal de habilitación está activa.
+//
+// Entradas:
+//   - CLK     : Señal de reloj.
+//   - RST     : Señal de reset síncrono para todos los registros.
+//   - ENA_CS  : Habilitación para escribir en el registro CS.
+//   - ENA_DS  : Habilitación para escribir en el registro DS.
+//   - ENA_ES  : Habilitación para escribir en el registro ES.
+//   - ENA_SS  : Habilitación para escribir en el registro SS.
+//   - D_CS    : Dato de entrada para el registro CS (16 bits).
+//   - D_DS    : Dato de entrada para el registro DS (16 bits).
+//   - D_ES    : Dato de entrada para el registro ES (16 bits).
+//   - D_SS    : Dato de entrada para el registro SS (16 bits).
+//
+// Salidas:
+//   - Q_CS    : Salida del registro CS (16 bits).
+//   - Q_DS    : Salida del registro DS (16 bits).
+//   - Q_ES    : Salida del registro ES (16 bits).
+//   - Q_SS    : Salida del registro SS (16 bits).
+//
+// Parámetros:
+//   Ninguno
+// =============================================================================
 
 module BancodeRegistrosSegmento (
     input CLK, RST,
@@ -27,7 +38,7 @@ module BancodeRegistrosSegmento (
     output [15:0] Q_CS, Q_DS, Q_ES, Q_SS
 );
 
-    // Instanciación de los registros con reset corregido
+    // Instanciación de los registros con habilitación y reset síncrono
     RegistroCS u_registro_cs (
         .CLK(CLK),
         .RST(RST),

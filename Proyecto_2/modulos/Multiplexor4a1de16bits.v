@@ -1,3 +1,22 @@
+// =============================================================================
+// Módulo: Multiplexor4a1de16bits
+// =============================================================================
+// Descripción:
+//   Multiplexor de 4 entradas de 16 bits con selección de 2 bits.
+//   Según el valor de SEL, la salida OUT presenta una de las cuatro entradas.
+//   Si SEL está fuera del rango 0 a 3, la salida es cero.
+//
+// Entradas:
+//   - A, B, C, D : Entradas de datos de 16 bits.
+//   - SEL        : Selector de 2 bits para elegir la entrada activa.
+//
+// Salidas:
+//   - OUT        : Salida de 16 bits correspondiente a la entrada seleccionada.
+//
+// Parámetros:
+//   Ninguno
+// =============================================================================
+
 module Multiplexor4a1de16bits (A, B, C, D, SEL, OUT);
 
     input [15:0] A, B, C, D;

@@ -1,23 +1,23 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 19.05.2025 09:10:08
-// Design Name: 
-// Module Name: 
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+// =============================================================================
+// Módulo: RegistroDS
+// =============================================================================
+// Descripción:
+//   Este módulo implementa el registro del segmento DS (Data Segment).
+//   Utiliza internamente una instancia de un registro de 16 bits con 
+//   habilitación (ENA) y valor de reset fijo en 0x0000.
+//
+// Entradas:
+//   - CLK : Señal de reloj.
+//   - RST : Señal de reset síncrono.
+//   - ENA : Señal de habilitación para actualizar el valor del registro.
+//   - D   : Dato de entrada de 16 bits.
+//
+// Salidas:
+//   - Q   : Valor actual del registro (16 bits).
+//
+// Parámetros:
+//   Ninguno (el valor de reset se define al instanciar Registro16bitsEna)
+// =============================================================================
 
 module RegistroDS (
     input CLK, RST, ENA,

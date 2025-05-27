@@ -1,24 +1,23 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 05/22/2025 08:30:36 PM
-// Design Name: 
-// Module Name: BusControl
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+// =============================================================================
+// Módulo: BusControl
+// =============================================================================
+// Descripción:
+//   Control de habilitación para registros y buffers tri-state en función
+//   de señales de lectura/escritura externas e internas.
+//
+// Entradas:
+//   - WR_n  : Señal de escritura externa (activo bajo).
+//   - RD_n  : Señal de lectura externa (activo bajo).
+//   - IWR   : Control de escritura interno.
+//   - IRD   : Control de lectura interno.
+//
+// Salidas:
+//   - RegEn : Señal de habilitación para registros.
+//   - BusEn : Señal de habilitación para buffers tri-state.
+//
+// Parámetros:
+//   Ninguno
+// =============================================================================
 
 module BusControl (
     input wire WR_n,     // Señal de escritura (activo bajo)
@@ -28,7 +27,10 @@ module BusControl (
     output wire RegEn,   // Enable para registro
     output wire BusEn    // Enable para buffer tri-state
 );
-    // MUX implícito en las asignaciones
-    assign RegEn = (!WR_n && IWR);  // Solo habilitar registro durante escritura
-    assign BusEn = (!RD_n && IRD);  // Solo habilitar bus durante lectura
+    // Habilitar registro solo cuando escritura externa activa y control interno activo
+    assign RegEn = (!WR_n && IWR);
+
+    // Habilitar bus solo cuando lectura externa activa y control interno activo
+    assign BusEn = (!RD_n && IRD);
+
 endmodule
