@@ -1,0 +1,31 @@
+Time resolution is 1 ps
+Iniciando simulacion del normalizador
+
+Test 1: Overflow simple
+  Mantisa: 000000 (Expected: 000000)
+  Exp:     80 (Expected: 80)
+  Flags:   U:0 O:0 I:0 (Expected: U:0 O:0 I:0)
+  [OK] Resultados correctos
+
+Test 2: Underflow
+  Mantisa: 000000 (Expected: 000000)
+  Exp:     00 (Expected: 00)
+  Flags:   U:1 O:0 I:1 (Expected: U:1 O:0 I:1)
+  [OK] Resultados correctos
+
+Test 3: Normalizacion estandar
+  Mantisa: 000000 (Expected: 000000)
+  Exp:     7f (Expected: 7f)
+  Flags:   U:0 O:0 I:0 (Expected: U:0 O:0 I:0)
+  [OK] Resultados correctos
+
+Test 4: Inexact
+  Mantisa: 400000 (Expected: 400000)
+  Exp:     80 (Expected: 80)
+  Flags:   U:0 O:0 I:1 (Expected: U:0 O:0 I:1)
+  [OK] Resultados correctos
+
+
+Simulacion completada
+$finish called at time : 50 ns : File "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sim_1/new/normalizer_tb.sv" Line 74
+INFO: xsimkernel Simulation Memory Usage: 492840 KB (Peak: 541660 KB), Simulation CPU Usage: 1340 ms

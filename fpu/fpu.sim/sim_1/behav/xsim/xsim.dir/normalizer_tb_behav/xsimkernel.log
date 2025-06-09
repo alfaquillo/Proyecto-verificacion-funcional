@@ -1,0 +1,7 @@
+Running: xsim.dir/normalizer_tb_behav/xsimk -simmode gui -wdb normalizer_tb_behav.wdb -simrunnum 0 -socket 38859
+Design successfully loaded
+Design Loading Memory Usage: 402392 KB (Peak: 402512 KB)
+Design Loading CPU Usage: 1330 ms
+Simulation completed
+Simulation Memory Usage: 492840 KB (Peak: 541660 KB)
+Simulation CPU Usage: 1340 ms
