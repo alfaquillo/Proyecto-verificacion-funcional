@@ -56,7 +56,7 @@ module normalizer_tb;
         mantissa = 25'h0040000; // 0.000...01000000
         exponent = 8'h01;
         #10 check_results("Test 2: Underflow", 
-                        23'h000000, 8'h00, 1, 0, 1);
+                        23'h000000, 8'h00, 1, 0, 0);
         
         // Test 3: Normalización estándar
         mantissa = 25'h0800000; // 1.000...0 normal

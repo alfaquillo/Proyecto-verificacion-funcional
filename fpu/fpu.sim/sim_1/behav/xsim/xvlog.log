@@ -1,2 +1,14 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sim_1/new/normalizer_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module normalizer_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Align_adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module align_adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Float_deco.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module float_deco
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fpu_adder_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Mantissa_adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mantissa_adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Normalizer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module normalizer
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Res_asm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module res_asm
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Rounder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rounder

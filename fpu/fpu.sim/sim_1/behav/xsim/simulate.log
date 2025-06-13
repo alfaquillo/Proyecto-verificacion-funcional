@@ -1,31 +1,131 @@
 Time resolution is 1 ps
-Iniciando simulacion del normalizador
+Comenzando pruebas con señales internas...
 
-Test 1: Overflow simple
-  Mantisa: 000000 (Expected: 000000)
-  Exp:     80 (Expected: 80)
-  Flags:   U:0 O:0 I:0 (Expected: U:0 O:0 I:0)
-  [OK] Resultados correctos
+==== 1.0 + 1.0 ====
+  A = 0x3f800000 (1.000000)
+  B = 0x3f800000 (1.000000)
+  Resultado = 0x40000000 (2.000000)
+  Esperado  = 0x40000000 (2.000000)
+  aligned_exp         = 127 (0x7f)
+  aligned_mantissa_a  = 0x800000
+  aligned_mantissa_b  = 0x800000
+  sum_result          = 0x1000000
+  sum_sign            = 0
+  normalized_exp      = 128 (0x80)
+  normalized_mantissa = 0x000000
+  rounded_mantissa    = 0x000000
+  final_exp           = 128 (0x80)
+  underflow           = 0
+  overflow            = 0
+  error               = 0
 
-Test 2: Underflow
-  Mantisa: 000000 (Expected: 000000)
-  Exp:     00 (Expected: 00)
-  Flags:   U:1 O:0 I:1 (Expected: U:1 O:0 I:1)
-  [OK] Resultados correctos
+==== 0.5 + 0.25 ====
+  A = 0x3f000000 (0.500000)
+  B = 0x3e800000 (0.250000)
+  Resultado = 0x3f400000 (0.750000)
+  Esperado  = 0x3f400000 (0.750000)
+  aligned_exp         = 126 (0x7e)
+  aligned_mantissa_a  = 0x800000
+  aligned_mantissa_b  = 0x400000
+  sum_result          = 0x0c00000
+  sum_sign            = 0
+  normalized_exp      = 126 (0x7e)
+  normalized_mantissa = 0x400000
+  rounded_mantissa    = 0x400000
+  final_exp           = 126 (0x7e)
+  underflow           = 0
+  overflow            = 0
+  error               = 0
 
-Test 3: Normalizacion estandar
-  Mantisa: 000000 (Expected: 000000)
-  Exp:     7f (Expected: 7f)
-  Flags:   U:0 O:0 I:0 (Expected: U:0 O:0 I:0)
-  [OK] Resultados correctos
+==== 3.5 + -2.5 ====
+  A = 0x40600000 (3.500000)
+  B = 0xc0200000 (-2.500000)
+  Resultado = 0x3f800000 (1.000000)
+  Esperado  = 0x3f800000 (1.000000)
+  aligned_exp         = 128 (0x80)
+  aligned_mantissa_a  = 0xe00000
+  aligned_mantissa_b  = 0xa00000
+  sum_result          = 0x0400000
+  sum_sign            = 0
+  normalized_exp      = 127 (0x7f)
+  normalized_mantissa = 0x000000
+  rounded_mantissa    = 0x000000
+  final_exp           = 127 (0x7f)
+  underflow           = 0
+  overflow            = 0
+  error               = 0
 
-Test 4: Inexact
-  Mantisa: 400000 (Expected: 400000)
-  Exp:     80 (Expected: 80)
-  Flags:   U:0 O:0 I:1 (Expected: U:0 O:0 I:1)
-  [OK] Resultados correctos
+==== Inf + -Inf ====
+  A = 0x7f800000 (inf)
+  B = 0xff800000 (-inf)
+  Resultado = 0x7fc00000 (nan)
+  Esperado  = 0x7fc00000 (nan)
+  aligned_exp         = 255 (0xff)
+  aligned_mantissa_a  = 0x000000
+  aligned_mantissa_b  = 0x000000
+  sum_result          = 0x0000000
+  sum_sign            = 0
+  normalized_exp      = 0 (0x00)
+  normalized_mantissa = 0x000000
+  rounded_mantissa    = 0x000000
+  final_exp           = 0 (0x00)
+  underflow           = 0
+  overflow            = 0
+  error               = 1
 
+==== Inf + 1.0 ====
+  A = 0x7f800000 (inf)
+  B = 0x3f800000 (1.000000)
+  Resultado = 0x7f800000 (inf)
+  Esperado  = 0x7f800000 (inf)
+  aligned_exp         = 255 (0xff)
+  aligned_mantissa_a  = 0x000000
+  aligned_mantissa_b  = 0x000000
+  sum_result          = 0x0000000
+  sum_sign            = 0
+  normalized_exp      = 0 (0x00)
+  normalized_mantissa = 0x000000
+  rounded_mantissa    = 0x000000
+  final_exp           = 0 (0x00)
+  underflow           = 0
+  overflow            = 0
+  error               = 0
 
-Simulacion completada
-$finish called at time : 50 ns : File "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sim_1/new/normalizer_tb.sv" Line 74
-INFO: xsimkernel Simulation Memory Usage: 492840 KB (Peak: 541660 KB), Simulation CPU Usage: 1340 ms
+==== NaN + 1.0 ====
+  A = 0x7fc00000 (nan)
+  B = 0x3f800000 (1.000000)
+  Resultado = 0x7fc00000 (nan)
+  Esperado  = 0x7fc00000 (nan)
+  aligned_exp         = 255 (0xff)
+  aligned_mantissa_a  = 0x800000
+  aligned_mantissa_b  = 0x800000
+  sum_result          = 0x0000000
+  sum_sign            = 0
+  normalized_exp      = 0 (0x00)
+  normalized_mantissa = 0x000000
+  rounded_mantissa    = 0x000000
+  final_exp           = 0 (0x00)
+  underflow           = 0
+  overflow            = 0
+  error               = 1
+
+==== MaxFloat + MaxFloat ====
+  A = 0x7f7fffff (340282346638528859811704183484516925440.000000)
+  B = 0x7f7fffff (340282346638528859811704183484516925440.000000)
+  Resultado = 0x7f800000 (inf)
+  Esperado  = 0x7f800000 (inf)
+  aligned_exp         = 254 (0xfe)
+  aligned_mantissa_a  = 0xffffff
+  aligned_mantissa_b  = 0xffffff
+  sum_result          = 0x1fffffe
+  sum_sign            = 0
+  normalized_exp      = 255 (0xff)
+  normalized_mantissa = 0x000000
+  rounded_mantissa    = 0x000000
+  final_exp           = 255 (0xff)
+  underflow           = 0
+  overflow            = 1
+  error               = 1
+
+$finish called at time : 35 ns : File "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sim_1/new/fpu_adder_top_tb.sv" Line 99
+INFO: xsimkernel Simulation Memory Usage: 492908 KB (Peak: 541728 KB), Simulation CPU Usage: 1290 ms

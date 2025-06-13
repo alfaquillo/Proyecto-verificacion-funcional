@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module float_deco(
     input [31:0] num,
     output reg sign,

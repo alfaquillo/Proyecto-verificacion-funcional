@@ -1,92 +1,76 @@
 `timescale 1ns / 1ps
 
 module normalizer(
-    input [24:0] mantissa,        // Mantisa de entrada (1 bit overflow + 24 bits)
-    input [7:0] exponent,         // Exponente actual
-    output reg [22:0] normalized_mantissa,  // Mantisa normalizada (23 bits)
-    output reg [7:0] normalized_exp,        // Exponente ajustado
-    output reg underflow,                   // Flag de underflow
-    output reg overflow,                    // Flag de overflow
-    output reg inexact                      // Flag de precisión perdida
+    input  [24:0] sum_result,
+    input  [7:0]  exponent_in,
+    input         overflow_flag, 
+    output reg [23:0] mantissa_out,
+    output reg [7:0]  exponent_out,
+    output reg        underflow,
+    output reg        overflow
 );
+    wire [4:0] leading_zeros;
+
+    // Priority encoder de 24 bits (sum_result[23:0])
+    assign leading_zeros = 
+        sum_result[23] ? 5'd0  :
+        sum_result[22] ? 5'd1  :
+        sum_result[21] ? 5'd2  :
+        sum_result[20] ? 5'd3  :
+        sum_result[19] ? 5'd4  :
+        sum_result[18] ? 5'd5  :
+        sum_result[17] ? 5'd6  :
+        sum_result[16] ? 5'd7  :
+        sum_result[15] ? 5'd8  :
+        sum_result[14] ? 5'd9  :
+        sum_result[13] ? 5'd10 :
+        sum_result[12] ? 5'd11 :
+        sum_result[11] ? 5'd12 :
+        sum_result[10] ? 5'd13 :
+        sum_result[9]  ? 5'd14 :
+        sum_result[8]  ? 5'd15 :
+        sum_result[7]  ? 5'd16 :
+        sum_result[6]  ? 5'd17 :
+        sum_result[5]  ? 5'd18 :
+        sum_result[4]  ? 5'd19 :
+        sum_result[3]  ? 5'd20 :
+        sum_result[2]  ? 5'd21 :
+        sum_result[1]  ? 5'd22 :
+        sum_result[0]  ? 5'd23 :
+        5'd24;
+
     always @(*) begin
-        // Inicialización
-        underflow = 1'b0;
-        overflow = 1'b0;
-        inexact = 1'b0;
-        normalized_mantissa = 23'b0;
-        normalized_exp = exponent;
+        underflow = 0;
+        overflow = 0;
+        mantissa_out = 0;
+        exponent_out = 0;
         
-        // Caso especial: mantisa cero
-        if (mantissa == 25'b0) begin
-            normalized_exp = 8'b0;
+        if (sum_result == 0) begin
+            // Caso cero
+            exponent_out = 0;
+            mantissa_out = 0;
         end
-        else begin
-            // Caso 1: Overflow (bit 24 set)
-            if (mantissa[24]) begin
-                normalized_mantissa = mantissa[23:1];  // Desplazar derecha 1 bit
-                inexact = mantissa[0];                // Bit perdido
-                
-                if (exponent == 8'hFF) begin
-                    overflow = 1'b1;
-                    normalized_exp = 8'hFF;
-                    normalized_mantissa = 23'h7FFFFF; // Máximo valor mantisa
-                end else begin
-                    normalized_exp = exponent + 1;
-                end
-            end
-            // Caso 2: Bit 23 set (ya normalizado)
-            else if (mantissa[23]) begin
-                normalized_mantissa = mantissa[22:0];
-            end
-            // Caso 3: Necesita normalización
-            else begin
-                // Priority encoder mejorado
-                if (mantissa[22]) begin
-                    normalized_mantissa = {mantissa[21:0], 1'b0};
-                    if (exponent > 1) begin
-                        normalized_exp = exponent - 1;
-                    end else begin
-                        underflow = 1'b1;
-                        normalized_exp = 8'b0;
-                    end
-                    inexact = |mantissa[0:0];
-                end
-                else if (mantissa[21]) begin
-                    normalized_mantissa = {mantissa[20:0], 2'b0};
-                    if (exponent > 2) begin
-                        normalized_exp = exponent - 2;
-                    end else begin
-                        underflow = 1'b1;
-                        normalized_exp = 8'b0;
-                    end
-                    inexact = |mantissa[1:0];
-                end
-                // Continuar con los demás casos...
-                else if (mantissa[20]) begin
-                    normalized_mantissa = {mantissa[19:0], 3'b0};
-                    if (exponent > 3) begin
-                        normalized_exp = exponent - 3;
-                    end else begin
-                        underflow = 1'b1;
-                        normalized_exp = 8'b0;
-                    end
-                    inexact = |mantissa[2:0];
-                end
-                else begin
-                    // Para números muy pequeños, forzar a cero
-                    underflow = 1'b1;
-                    inexact = 1'b1;
-                    normalized_exp = 8'b0;
-                    normalized_mantissa = 23'b0;
-                end
-            end
+        else if (sum_result[24] || overflow_flag) begin
+            // Caso overflow (carry extra)
+            mantissa_out = sum_result[24:1];  // shift right 1
+            exponent_out = exponent_in + 1;
             
-            // Overflow final check
-            if (normalized_exp >= 8'hFF && !overflow) begin
-                overflow = 1'b1;
-                normalized_exp = 8'hFF;
-                normalized_mantissa = 23'h7FFFFF;
+            // Detectar overflow
+            if (exponent_out >= 8'hFF) begin
+                overflow = 1;
+                exponent_out = 8'hFF;
+                mantissa_out = 0;
+            end
+        end else begin
+            // Normalización
+            exponent_out = exponent_in - leading_zeros;
+            mantissa_out = sum_result[23:0] << leading_zeros;
+            
+            if (exponent_out[7] == 1'b1) begin  // Si es negativo (underflow)
+                underflow = 1;
+                exponent_out = 0;
+                // Ajustar mantisa para subnormal
+                mantissa_out = sum_result[23:0] << (leading_zeros + exponent_in - 1);
             end
         end
     end
