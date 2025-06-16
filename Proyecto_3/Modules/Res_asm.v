@@ -24,7 +24,7 @@ module res_asm(
         else if (overflow) begin
             result = {sign, 8'hFF, 23'b0}; // Overflow -> Infinito
         end
-        else if (is_zero || underflow) begin
+        else if (is_zero) begin
             result = {sign, 8'b0, 23'b0}; // Cero
         end
         else begin
