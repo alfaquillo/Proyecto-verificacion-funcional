@@ -1,0 +1,6 @@
+0.7
+2020.2
+Mar  6 2025
+19:11:57
+/home/alfaquillo/Documentos/Vivado/fpu/fpu.sim/sim_1/synth/timing/xsim/fpu_top_tb_time_synth.v,1750096676,verilog,,,,align_adder;fpu_adder_top;fpu_top;glbl;mantissa_adder;normalizer;rounder,,uvm,,,,,,
+/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sim_1/new/fpu_top_tb.sv,1750096215,systemVerilog,,,,fpu_top_tb,,uvm,,,,,,

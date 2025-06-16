@@ -1,7 +1,7 @@
 Vivado Simulator v2024.2.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /home/alfaquillo/tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot fpu_adder_top_tb_behav xil_defaultlib.fpu_adder_top_tb xil_defaultlib.glbl -log elaborate.log 
+Running: /home/alfaquillo/tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot fpu_top_tb_behav xil_defaultlib.fpu_top_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -9,6 +9,7 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.fpu_mux
 Compiling module xil_defaultlib.float_deco
 Compiling module xil_defaultlib.align_adder
 Compiling module xil_defaultlib.mantissa_adder
@@ -16,6 +17,7 @@ Compiling module xil_defaultlib.normalizer
 Compiling module xil_defaultlib.rounder
 Compiling module xil_defaultlib.res_asm
 Compiling module xil_defaultlib.fpu_adder_top
-Compiling module xil_defaultlib.fpu_adder_top_tb
+Compiling module xil_defaultlib.fpu_top
+Compiling module xil_defaultlib.fpu_top_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot fpu_adder_top_tb_behav
+Built simulation snapshot fpu_top_tb_behav

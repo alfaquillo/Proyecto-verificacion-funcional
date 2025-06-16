@@ -9,9 +9,10 @@ module normalizer(
     output reg        underflow,
     output reg        overflow
 );
+
     wire [4:0] leading_zeros;
 
-    // Priority encoder de 24 bits (sum_result[23:0])
+    // Priority encoder para contar ceros líderes
     assign leading_zeros = 
         sum_result[23] ? 5'd0  :
         sum_result[22] ? 5'd1  :
@@ -39,39 +40,49 @@ module normalizer(
         sum_result[0]  ? 5'd23 :
         5'd24;
 
+    reg [7:0] exp_tmp;
+
     always @(*) begin
         underflow = 0;
-        overflow = 0;
+        overflow  = 0;
         mantissa_out = 0;
         exponent_out = 0;
-        
+
         if (sum_result == 0) begin
-            // Caso cero
+            // Resultado cero exacto
             exponent_out = 0;
             mantissa_out = 0;
-        end
-        else if (sum_result[24] || overflow_flag) begin
-            // Caso overflow (carry extra)
-            mantissa_out = sum_result[24:1];  // shift right 1
-            exponent_out = exponent_in + 1;
-            
-            // Detectar overflow
-            if (exponent_out >= 8'hFF) begin
+
+        end else if (sum_result[24] || overflow_flag) begin
+           //shift a la derecha y suma 1 al exponente
+            mantissa_out = sum_result[24:1];
+            exp_tmp = exponent_in + 1;
+
+            if (exp_tmp >= 8'hFF) begin
                 overflow = 1;
                 exponent_out = 8'hFF;
                 mantissa_out = 0;
+            end else begin
+                exponent_out = exp_tmp;
             end
+
         end else begin
-            // Normalización
-            exponent_out = exponent_in - leading_zeros;
-            mantissa_out = sum_result[23:0] << leading_zeros;
-            
-            if (exponent_out[7] == 1'b1) begin  // Si es negativo (underflow)
+            // Caso normal sin carry
+            if (exponent_in < leading_zeros) begin
+                // Underflow  subnormal o cero
                 underflow = 1;
                 exponent_out = 0;
-                // Ajustar mantisa para subnormal
-                mantissa_out = sum_result[23:0] << (leading_zeros + exponent_in - 1);
+
+                
+                mantissa_out = sum_result[23:0] >> (leading_zeros - exponent_in + 1);
+
+            end else begin
+                // Valor normalizable
+                exp_tmp = exponent_in - leading_zeros;
+                exponent_out = exp_tmp;
+                mantissa_out = sum_result[23:0] << leading_zeros;
             end
         end
     end
+
 endmodule

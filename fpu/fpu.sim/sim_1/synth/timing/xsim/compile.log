@@ -1,0 +1,10 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.sim/sim_1/synth/timing/xsim/fpu_top_tb_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module align_adder
+INFO: [VRFC 10-311] analyzing module fpu_adder_top
+INFO: [VRFC 10-311] analyzing module fpu_top
+INFO: [VRFC 10-311] analyzing module mantissa_adder
+INFO: [VRFC 10-311] analyzing module normalizer
+INFO: [VRFC 10-311] analyzing module rounder
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sim_1/new/fpu_top_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fpu_top_tb

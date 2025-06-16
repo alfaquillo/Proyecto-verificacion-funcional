@@ -1,0 +1,246 @@
+
+*** Running vivado
+    with args -log fpu_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpu_top.tcl
+
+
+****** Vivado v2024.2.2 (64-bit)
+  **** SW Build 6060944 on Thu Mar 06 19:10:09 MST 2025
+  **** IP Build 6050500 on Thu Mar  6 23:33:39 MST 2025
+  **** SharedData Build 6060542 on Thu Mar 06 10:31:07 MST 2025
+  **** Start of session at: Mon Jun 16 11:54:40 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source fpu_top.tcl -notrace
+Command: synth_design -top fpu_top -part xc7a200tfbg676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 40123
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1896.418 ; gain = 317.824 ; free physical = 251 ; free virtual = 7777
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'fpu_top' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'fpu_mux' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/fpu_mux.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_mux' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/fpu_mux.v:25]
+INFO: [Synth 8-6157] synthesizing module 'fpu_adder_top' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_adder_top.v:22]
+INFO: [Synth 8-6157] synthesizing module 'float_deco' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Float_deco.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'float_deco' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Float_deco.v:3]
+INFO: [Synth 8-6157] synthesizing module 'align_adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Align_adder.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'align_adder' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Align_adder.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mantissa_adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Mantissa_adder.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mantissa_adder' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Mantissa_adder.v:3]
+INFO: [Synth 8-6157] synthesizing module 'normalizer' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Normalizer.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'normalizer' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Normalizer.v:3]
+INFO: [Synth 8-6157] synthesizing module 'rounder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Rounder.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'rounder' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Rounder.v:3]
+INFO: [Synth 8-6157] synthesizing module 'res_asm' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Res_asm.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'res_asm' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Res_asm.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_adder_top' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_adder_top.v:22]
+WARNING: [Synth 8-7071] port 'aligned_exp' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'aligned_mantissa_a' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'aligned_mantissa_b' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'sum_result' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'sum_sign' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'normalized_mantissa' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'normalized_exp' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'rounded_mantissa' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7071] port 'final_exp' of module 'fpu_adder_top' is unconnected for instance 'adder' [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+WARNING: [Synth 8-7023] instance 'adder' of module 'fpu_adder_top' has 16 connections declared, but only 7 given [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:44]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_top' (0#1) [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:3]
+WARNING: [Synth 8-3848] Net mult_res in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:16]
+WARNING: [Synth 8-3848] Net mult_err in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:17]
+WARNING: [Synth 8-3848] Net mult_ovf in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:19]
+WARNING: [Synth 8-3848] Net mult_udf in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:19]
+WARNING: [Synth 8-3848] Net div_res in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:16]
+WARNING: [Synth 8-3848] Net div_err in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:17]
+WARNING: [Synth 8-3848] Net div_ovf in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:20]
+WARNING: [Synth 8-3848] Net div_udf in module/entity fpu_top does not have driver. [/home/alfaquillo/Documentos/Vivado/fpu/fpu.srcs/sources_1/new/Fpu_top.v:20]
+WARNING: [Synth 8-7129] Port mantissa_in[23] in module rounder is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1967.387 ; gain = 388.793 ; free physical = 139 ; free virtual = 7679
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1985.199 ; gain = 406.605 ; free physical = 140 ; free virtual = 7679
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tfbg676-2
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1993.203 ; gain = 414.609 ; free physical = 139 ; free virtual = 7679
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2010.117 ; gain = 431.523 ; free physical = 201 ; free virtual = 7662
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   25 Bit       Adders := 1     
+	   3 Input   25 Bit       Adders := 2     
+	   2 Input   23 Bit       Adders := 1     
+	   3 Input    8 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Muxes : 
+	   3 Input   32 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 3     
+	   2 Input   23 Bit        Muxes := 2     
+	   5 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 4     
+	   3 Input    1 Bit        Muxes := 3     
+	   2 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port mantissa_in[23] in module rounder is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 167 ; free virtual = 7161
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 167 ; free virtual = 7161
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 165 ; free virtual = 7160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    44|
+|2     |LUT1   |    34|
+|3     |LUT2   |   118|
+|4     |LUT3   |    73|
+|5     |LUT4   |   165|
+|6     |LUT5   |   158|
+|7     |LUT6   |   359|
+|8     |MUXF7  |    14|
+|9     |IBUF   |    66|
+|10    |OBUF   |    35|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------+---------------+------+
+|      |Instance    |Module         |Cells |
++------+------------+---------------+------+
+|1     |top         |               |  1066|
+|2     |  adder     |fpu_adder_top  |   965|
+|3     |    adder   |mantissa_adder |    75|
+|4     |    aligner |align_adder    |   860|
+|5     |    norm    |normalizer     |    11|
+|6     |    rounder |rounder        |    19|
++------+------------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 21 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2416.016 ; gain = 837.422 ; free physical = 170 ; free virtual = 7142
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2416.023 ; gain = 837.422 ; free physical = 157 ; free virtual = 7134
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2416.023 ; gain = 0.000 ; free physical = 321 ; free virtual = 7330
+INFO: [Netlist 29-17] Analyzing 58 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2475.012 ; gain = 0.000 ; free physical = 222 ; free virtual = 7327
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 566c1c55
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 21 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:41 . Memory (MB): peak = 2475.012 ; gain = 896.426 ; free physical = 226 ; free virtual = 7333
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1695.760; main = 1537.413; forked = 305.472
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3975.551; main = 2475.016; forked = 1567.539
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2499.023 ; gain = 0.000 ; free physical = 175 ; free virtual = 7302
+INFO: [Common 17-1381] The checkpoint '/home/alfaquillo/Documentos/Vivado/fpu/fpu.runs/synth_1/fpu_top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file fpu_top_utilization_synth.rpt -pb fpu_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 16 11:55:25 2025...

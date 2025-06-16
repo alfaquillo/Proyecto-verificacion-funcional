@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2.2 (64-bit)
+# SW Build 6060944 on Thu Mar 06 19:10:09 MST 2025
+# IP Build 6050500 on Thu Mar  6 23:33:39 MST 2025
+# SharedData Build 6060542 on Thu Mar 06 10:31:07 MST 2025
+# Start of session at: Mon Jun 16 11:55:47 2025
+# Process ID         : 40390
+# Current directory  : /home/alfaquillo/Documentos/Vivado/fpu/fpu.runs/impl_1
+# Command line       : vivado -log fpu_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source fpu_top.tcl -notrace
+# Log file           : /home/alfaquillo/Documentos/Vivado/fpu/fpu.runs/impl_1/fpu_top.vdi
+# Journal file       : /home/alfaquillo/Documentos/Vivado/fpu/fpu.runs/impl_1/vivado.jou
+# Running On         : Quillo-Thinkpad
+# Platform           : Fedora
+# Operating System   : Fedora Linux 42 (Workstation Edition)
+# Processor Detail   : Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+# CPU Frequency      : 3125.717 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 8067 MB
+# Swap memory        : 8066 MB
+# Total Virtual      : 16134 MB
+# Available Virtual  : 8615 MB
+#-----------------------------------------------------------
+source fpu_top.tcl -notrace
