@@ -1,26 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/16/2025 11:41:57 AM
-// Design Name: 
-// Module Name: fpu_mux
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-`timescale 1ns / 1ps
 
 module fpu_mux (
     input [1:0] op,  // 00: suma, 01: resta, 10: mult, 11: div
@@ -56,11 +34,17 @@ module fpu_mux (
                 overflow   = mult_ovf;
                 underflow  = mult_udf;
             end
-            default: begin // división
+            2'b11: begin // división
                 result     = div_res;
                 error      = div_err;
                 overflow   = div_ovf;
                 underflow  = div_udf;
+            end
+            default: begin // undefined op (optional)
+                result     = 32'b0;
+                error      = 1'b0;
+                overflow   = 1'b0;
+                underflow  = 1'b0;
             end
         endcase
     end

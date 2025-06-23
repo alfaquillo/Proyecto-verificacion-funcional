@@ -18,9 +18,40 @@ module fpu_top(
     wire adder_ovf, adder_udf;
     wire mult_ovf, mult_udf;
     wire div_ovf, div_udf;
-    
-        //selector
-        fpu_mux selector(
+
+    // Sumador/Restador 
+    fpu_adder_top adder(
+        .a(a),
+        .b(b),
+        .substract(op[0]),  // Bit 0: 0=suma, 1=resta
+        .result(adder_res),
+        .error(adder_err),
+        .underflow(adder_udf),
+        .overflow(adder_ovf)
+    );
+   
+    // Multiplicador
+    float_multiplier multiplier(
+        .a(a),
+        .b(b),
+        .result(mult_res),
+        .error(mult_err),
+        .overflow(mult_ovf),
+        .underflow(mult_udf)
+    );
+
+    // Divisor
+    float_divider divider(
+        .a(a),
+        .b(b),
+        .result(div_res),
+        .error(div_err),
+        .overflow(div_ovf),
+        .underflow(div_udf)
+    );
+
+    // Selector de resultados
+    fpu_mux selector(
         .op(op),
         .adder_res(adder_res),
         .adder_err(adder_err),
@@ -39,36 +70,5 @@ module fpu_top(
         .overflow(overflow),
         .underflow(underflow)
     );
-    
-    // Sumador/Restador 
-    fpu_adder_top adder(
-        .a(a),
-        .b(b),
-        .substract(op[0]),  // Bit 0: 0=suma, 1=resta
-        .result(adder_res),
-        .error(adder_err),
-        .underflow(adder_udf),
-        .overflow(adder_ovf)
-    );
-   /*
-    // Multiplicador
-    fpu_mult_top multiplier(
-        .a(a),
-        .b(b),
-        .result(mult_res),
-        .error(mult_err),
-        .underflow(mult_udf),
-        .overflow(mult_ovf)
-    );
-    
-    // Divisor
-    fpu_div_top divider(
-        .a(a),
-        .b(b),
-        .result(div_res),
-        .error(div_err),
-        .underflow(div_udf),
-        .overflow(div_ovf)
-    );
-*/
+
 endmodule
